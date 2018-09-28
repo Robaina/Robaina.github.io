@@ -1,0 +1,14 @@
+/* Element styles */
+
+body {
+  background-color: #000000;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+}
