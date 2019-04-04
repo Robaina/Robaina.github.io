@@ -1,28 +1,37 @@
-html, body {
-  --fancyColor: rgb(192, 252, 20);
-  background-color: #000000;
-  margin: 0px;
-  padding: 0px;
+body {
+  background-color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+  --fancy_color: rgb(252, 226, 20);
+  --grid_width: 60vw;
+  --grid_border_width: calc(0.003 * var(--grid_width));
+  --fontColor: rgb(251, 251, 251);
 }
-img{
+img {
   max-width: 100%;
   max-height: auto;
 }
+h1, p {
+  color: var(--fontColor);
+}
 .name {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  color: #ffffff;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  text-align: center;
 }
 .grid_container {
   display: grid;
   grid-template-columns: auto auto;
-  width: 80vw;
-  margin-left: 10vw;
+  width: var(--grid_width);
+  margin-right: 0;
+  margin-left: calc((100vw - var(--grid_width)) / 2);
+  border: var(--grid_border_width) solid var(--fancy_color);
 }
 .grid_item {
-  width: 30vw;
+  width: calc(0.5 * (var(--grid_width) - 4 * var(--grid_border_width)));
   height: auto;
+  border: var(--grid_border_width) solid var(--fancy_color);
+  /* display: flex; */
 }
 .grid_item_title {
   text-align: center;
@@ -39,10 +48,10 @@ img{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--fancyColor);
+  background: var(--fancy_color);
   border-radius: 0.5vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--fancyColor);
+  background: var(--fancy_color);
 }
