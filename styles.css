@@ -1,9 +1,10 @@
 body {
   --body_color: rgb(0, 0, 0);
   --fancy_color: rgb(252, 226, 20);
-  --grid_margin: calc(8 * var(--grid_border_width));
-  --grid_width: 60vw;
-  --grid_border_width: calc(0.003 * var(--grid_width));
+  --grid_width: 70vw;
+  --grid_item_margin: calc(0.05 * var(--grid_width));
+  --grid_item_border_width: calc(0.01 * var(--grid_width));
+  --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   --fontColor: rgb(251, 251, 251);
   background-color: var(--body_color);
   margin: 0;
@@ -29,36 +30,48 @@ a {
 .grid_container {
   display: grid;
   grid-template-columns: auto auto;
-  width: calc(var(--grid_width) + 4*calc(2 * var(--grid_border_width)));
+  width: var(--grid_width);
   margin-right: 0;
   margin-left: calc((100vw - var(--grid_width)) / 2);
   /* border: var(--grid_border_width) solid var(--fancy_color); */
 }
 .grid_item {
-  width: calc(0.5 * (var(--grid_width) - 4 * var(--grid_border_width)));
+  width: var(--grid_item_width);
   height: auto;
-  border: var(--grid_border_width) solid var(--fancy_color);
-  margin: var(--grid_margin);
+  border: var(--grid_item_border_width) solid rgb(121, 121, 121);
+  margin: var(--grid_item_margin);
   /* display: flex; */
+}
+.grid_item:hover{
+  /* --grid_item_border_width: calc(1.2 * var(--grid_item_border_width)); */
+  border: calc(var(--grid_item_border_width)) solid var(--fancy_color);
+  cursor: pointer;
+
 }
 .grid_item_title {
   text-align: center;
-  font-size: calc(0.05 * var(--grid_width));
+  font-size: auto;/*calc(0.05 * var(--grid_width));*/
+  max-height: 10%;
+}
+.thumbnail {
+  width: calc(0.8 * var(--grid_item_width));
+  margin-left: calc(0.1 * var(--grid_item_width));
 }
 .button {
-  font-size: calc(0.04 * var(--grid_width));
-  margin-top: calc(0.01 * var(--grid_width));
+  font-size: calc(0.065 * var(--grid_item_width));
+  margin-top: calc(0.05 * var(--grid_item_width));
+  margin-bottom: calc(0.06 * var(--grid_item_width));
   background-color: var(--body_color);
   border-color: var(--fancy_color);
 }
 .button:hover {
   background-color: var(--fancy_color);
 }
-.codeButton {
-  margin-left: calc(0.03 * var(--grid_width));
-}
 .deployButton {
-  margin-left: calc(0.15 * var(--grid_width));
+  margin-left: calc(0.1 * var(--grid_item_width));
+}
+.codeButton {
+  margin-left: calc(0.35 * var(--grid_item_width));
 }
 
 ::-webkit-scrollbar {
