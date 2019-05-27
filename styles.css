@@ -1,11 +1,13 @@
 body {
   --body_color: rgb(0, 0, 0);
   --fancy_color: rgb(252, 226, 20);
-  --grid_width: 70vw;
-  --grid_item_margin: calc(0.05 * var(--grid_width));
+  --fancy_color_selected: rgb(140, 21, 191);
+  --border_color: rgb(121, 121, 121);
+  --grid_width: 60vw;
+  --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.01 * var(--grid_width));
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
-  --fontColor: rgb(251, 251, 251);
+  --font_color: rgb(251, 251, 251);
   background-color: var(--body_color);
   margin: 0;
   padding: 0;
@@ -15,10 +17,11 @@ img {
   max-height: auto;
 }
 h1, p {
-  color: var(--fontColor);
+  color: var(--font_color);
 }
-a {
+.grid_link {
   text-decoration: none;
+  color: var(--font_color);
 }
 .name {
   margin-top: 10vh;
@@ -33,25 +36,24 @@ a {
   width: var(--grid_width);
   margin-right: 0;
   margin-left: calc((100vw - var(--grid_width)) / 2);
-  /* border: var(--grid_border_width) solid var(--fancy_color); */
 }
 .grid_item {
   width: var(--grid_item_width);
   height: auto;
-  border: var(--grid_item_border_width) solid rgb(121, 121, 121);
+  border: var(--grid_item_border_width) solid var(--border_color);
   margin: var(--grid_item_margin);
-  /* display: flex; */
 }
 .grid_item:hover{
-  /* --grid_item_border_width: calc(1.2 * var(--grid_item_border_width)); */
-  border: calc(var(--grid_item_border_width)) solid var(--fancy_color);
+  border: var(--grid_item_border_width) solid var(--fancy_color);
   cursor: pointer;
-
+}
+.grid_item:hover > .button {
+  border-color: var(--fancy_color);
 }
 .grid_item_title {
   text-align: center;
-  font-size: auto;/*calc(0.05 * var(--grid_width));*/
-  max-height: 10%;
+  font-size: calc(0.085 * var(--grid_item_width));
+  max-height: calc(0.15 * var(--grid_item_width));
 }
 .thumbnail {
   width: calc(0.8 * var(--grid_item_width));
@@ -59,19 +61,26 @@ a {
 }
 .button {
   font-size: calc(0.065 * var(--grid_item_width));
+  text-align: center;
+  color: var(--font_color);
   margin-top: calc(0.05 * var(--grid_item_width));
   margin-bottom: calc(0.06 * var(--grid_item_width));
   background-color: var(--body_color);
-  border-color: var(--fancy_color);
+  border-color: var(--border_color);
+  width: calc(0.3 * var(--grid_item_width));
 }
 .button:hover {
   background-color: var(--fancy_color);
+  color: rgb(0, 0, 0);
+}
+.button:hover > .grid_link {
+  color: var(--fancy_color_selected);
 }
 .deployButton {
   margin-left: calc(0.1 * var(--grid_item_width));
 }
 .codeButton {
-  margin-left: calc(0.35 * var(--grid_item_width));
+  margin-left: calc(0.2 * var(--grid_item_width));
 }
 
 ::-webkit-scrollbar {
