@@ -19,6 +19,9 @@ img {
 h1, p {
   color: var(--font_color);
 }
+a {
+  color: rgb(124, 75, 222);
+}
 .grid_link {
   text-decoration: none;
   color: var(--font_color);
@@ -89,6 +92,10 @@ h1, p {
 }
 .codeButton {
   margin-left: calc(0.2 * var(--grid_item_width));
+}
+#contact {
+  font-size: calc(0.03 * var(--grid_width));
+  margin-left: calc((100vw - var(--grid_width)) / 3);
 }
 
 ::-webkit-scrollbar {
