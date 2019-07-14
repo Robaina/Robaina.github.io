@@ -1,0 +1,73 @@
+body {
+  --FontColor: rgb(255, 255, 255);
+  --FancyColor: rgb(73, 201, 35);
+}
+.navbar {
+  width: 70vw;
+  height: 5vw;
+  margin-left: 27vw;
+  margin-top: 1vh;
+  /* border: 5px solid var(--FancyColor); */
+  /* border-radius: 15px; */
+}
+.navbar-item {
+  text-decoration: none;
+  color: var(--FontColor);
+  font-size: 2vw;
+  margin-left: 1.0vw;
+  text-align: center;
+}
+.navbar-item:hover {
+  color: var(--FancyColor);
+}
+.myname {
+  color: var(--FontColor);
+  font-size: 6.5vw;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 30vh;
+  text-align: center;
+  text-shadow: 0px 2px 4px #ffffff;
+  /* font-family: 'Russo One', sans-serif; */
+}
+.myrol {
+  color: var(--FontColor);
+  font-size: 3vw;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 0vh;
+  text-align: center;
+}
+.name_bracket {
+  color: var(--FancyColor);
+  font-size: 4vw;
+  display: inline;
+  margin: 0;
+}
+.mylogo {
+  position: absolute;
+  width: 10vw;
+  height: 6vw;
+  margin-right: 0vw;
+  background-color: rgb(126, 126, 126);
+  display: inline;
+  /* font-size: 2em; */
+}
+.my-initials {
+  /* position: relative; */
+  width: 20px;
+  height: 30px;
+  display: inline;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  margin-top: -10%;
+  font-size: 3em;
+}
+#letter_S {
+  /* margin-left: 5%; */
+
+}
+#letter_R {
+  margin-left: 18%;
+
+}

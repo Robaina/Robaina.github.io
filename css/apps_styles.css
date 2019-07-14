@@ -7,7 +7,7 @@ body {
   --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.01 * var(--grid_width));
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
-  --font_color: rgb(251, 251, 251);
+  --font_color: rgb(255, 255, 255);
   background-color: var(--body_color);
   margin: 0;
   padding: 0;
@@ -32,10 +32,10 @@ a {
   background-image:  linear-gradient(rgb(147, 147, 147), var(--body_color));
 }
 .name {
-  position:absolute;
-  margin: 0;
+  /* position:absolute; */
+  margin-bottom: 5vh;
   color: var(--font_color);
-  margin-top: 10%;
+  margin-top: 6%;
   /* margin-bottom: 10vh; */
   margin-left: calc((100vw - var(--grid_width)) / 3);
   text-align: left;
@@ -114,4 +114,21 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--fancy_color);
+}
+
+.logo-container {
+  --fontColor: rgb(250, 215, 66);
+  --fontSize: 100;
+  --smallFontSize: 30;
+  --scaleFactor: .3;
+  --logoWidth:  calc(var(--scaleFactor) * 19vw);
+  --logoHeight:  calc(var(--scaleFactor) * 18vw);
+
+  display: block;
+  width: var(--logoWidth);
+  height: var(--logoHeight);
+  background-color: rgba(0,0,0,0);
+  /* background-image: linear-gradient(rgb(238, 238, 238), rgb(51, 51, 51)); */
+  /* border-radius: calc(0.25 * var(--logoWidth)); */
+  /* border: calc(0.03 * var(--logoWidth)) solid black; */
 }

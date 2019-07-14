@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/master.css">
+
+    <!-- Sets $ as inline math symbols -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+      });
+    </script>
+
+    <!-- Allows MathJax in the document: Note configuration changed to "SVG to avoid interference with plot.ly which renders in SVG"  TeX-MML-AM_CHTML TeX-AMS_SVG-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default" async></script>
+
+    <!-- Allows ploting in the document (Plotly.js) -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Imports math.js library -->
+    <script src="https://unpkg.com/mathjs@5.0.0/dist/math.min.js"></script>
+
+
+    <title>Semidán's site</title>
+  </head>
+  <body>
+
+    <!-- Navigation bar -->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tintanjarafe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#research">Research <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#publications">Publications</a>
+            <a class="nav-item nav-link" href="blog.html">Blog</a>
+            <a class="nav-item nav-link" href="web.html">Web Apps</a>
+            <a class="nav-item nav-link" href="CV.pdf" target="_blank">CV</a>
+            <a class="nav-item nav-link" href="#contact">Contact</a>
+          </div>
+        </div>
+        <!-- <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </nav>
+    </div>
+
+    <!-- Insert image -->
+    <div class="container">
+      <img src="imgs\sunrise.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+
+    <!-- Main body -->
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-md-9" id="research">
+          <h2>My research <i>interests</i></h2>
+          <p style="text-align:justify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+            imperdiet a, venenatis vitae, justo.</p>
+            <p>What about LatEx $$f(x)=\sqrt(x).$$ Ok, but not inline equations? Yes, look $x_i - \gamma x_j = 0$. Beautiful. </p>
+            <p>$$f(x) = \frac{x}{1 - x}$$</p>
+            <p>Turns out, we can also plot functions with the help of the <a href="https://plot.ly/"><em>Plotly.js library.</em></a>
+             For instance, let's plot this:</p>
+
+        </div>
+        <div class="col-md-3" id="sidebar">
+          <!-- <h2>Our Team</h2>
+            <p style="text-align:justify">Nullam dictum felis eu pede mollis pretium.   Integer tincidunt.
+              Cras dapibus. Vivamus elementum semper nisi.</p> -->
+              <!-- <div class="mylogo">
+                <p class="my-initials" id="letter_S">S</p>
+                <p class="my-initials" id="letter_R">R</p>
+              </div> -->
+        </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-3" id="col1">
+        <h3>Connect</h3>
+          <p style="text-align:justify">Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+      </div>
+      <div class="col-md-3" id="col2">
+        <h3>Share</h3>
+          <p style="text-align:justify">Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+      </div>
+      <div class="col-md-3" id="col3">
+        <h3>Breath</h3>
+          <p style="text-align: justify">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
+      </div>
+      <div class="col-md-3" id="col4">
+        <h3>Respire</h3>
+        <p style="text-align: justify">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-9" id="publications">
+        <h2>Publications</h2>
+          <p style="text-align: justify">Here is a list of recent publications:</p>
+          <ul>
+            <li>Publication 1</li>
+            <li>Publication 2</li>
+            <li>Publication 3</li>
+            <li>Publication 4</li>
+            <li>Publication 5</li>
+          </ul>
+      </div>
+    </div> -->
+
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!-- Own scripts here -->
+    <script type="text/javascript" src="sketch.js"></script>
+
+
+  </body>
+</html>
