@@ -1,24 +1,38 @@
 body {
   --FontColor: rgb(255, 255, 255);
   --FancyColor: rgb(73, 201, 35);
+  --HighlightColor: rgb(230, 197, 26);
+  --NavSeparatorWidth: 0.5vw;
 }
 .navbar {
-  width: 70vw;
-  height: 5vw;
-  margin-left: 27vw;
-  margin-top: 1vh;
   /* border: 5px solid var(--FancyColor); */
   /* border-radius: 15px; */
+  text-align: center;
 }
 .navbar-item {
   text-decoration: none;
   color: var(--FontColor);
   font-size: 2vw;
-  margin-left: 1.0vw;
   text-align: center;
+  margin-bottom: 0.5vw;
+  display: inline-block;
 }
 .navbar-item:hover {
+  color: var(--HighlightColor);
+}
+.vertical-bar {
+  display: inline-block;
   color: var(--FancyColor);
+  font-size: 2vw;
+  margin: 0;
+  margin-left: var(--NavSeparatorWidth);
+  margin-right: var(--NavSeparatorWidth);
+}
+.nav_bracket {
+  color: var(--FancyColor);
+  font-size: 4vw;
+  display: inline-block;
+  margin: 0;
 }
 .myname {
   color: var(--FontColor);
@@ -27,7 +41,7 @@ body {
   margin-left: 10vw;
   margin-top: 30vh;
   text-align: center;
-  text-shadow: 0px 2px 4px #ffffff;
+  /* text-shadow: 0px 2px 2px #ffffff; */
   /* font-family: 'Russo One', sans-serif; */
 }
 .myrol {
@@ -37,12 +51,7 @@ body {
   margin-left: 10vw;
   margin-top: 0vh;
   text-align: center;
-}
-.name_bracket {
-  color: var(--FancyColor);
-  font-size: 4vw;
-  display: inline;
-  margin: 0;
+  /* text-shadow: 0px 2px 2px #ffffff; */
 }
 .mylogo {
   position: absolute;
