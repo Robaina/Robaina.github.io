@@ -2,12 +2,14 @@ body {
   --FontColor: rgb(255, 255, 255);
   --FancyColor: rgb(73, 201, 35);
   --HighlightColor: rgb(230, 197, 26);
+  --backgroundColor: rgb(0, 0, 0);
   --NavSeparatorWidth: 0.5vw;
 }
 .navbar {
   /* border: 5px solid var(--FancyColor); */
   /* border-radius: 15px; */
   text-align: center;
+  background-color: var(--backgroundColor);
 }
 .navbar-item {
   text-decoration: none;
@@ -34,24 +36,20 @@ body {
   display: inline-block;
   margin: 0;
 }
-.myname {
+.info {
+  background-color: var(--backgroundColor);
   color: var(--FontColor);
-  font-size: 6.5vw;
   width: 80vw;
   margin-left: 10vw;
-  margin-top: 30vh;
   text-align: center;
-  /* text-shadow: 0px 2px 2px #ffffff; */
-  /* font-family: 'Russo One', sans-serif; */
+}
+.myname {
+  font-size: 6.5vw;
+  margin-top: 30vh;
 }
 .myrol {
-  color: var(--FontColor);
   font-size: 3vw;
-  width: 80vw;
-  margin-left: 10vw;
   margin-top: 0vh;
-  text-align: center;
-  /* text-shadow: 0px 2px 2px #ffffff; */
 }
 .mylogo {
   position: absolute;
