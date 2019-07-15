@@ -51,6 +51,24 @@ body {
   font-size: 3vw;
   margin-top: 0vh;
 }
+.credentials {
+  width: 20vw;
+  position: absolute;
+  bottom: 2vh;
+  left: 40vw;
+}
+.credentials-content {
+  text-align: center;
+  background-color: var(--backgroundColor);
+  color: var(--FontColor);
+  font-size: 1vw;
+}
+.code-symbol {
+  color: var(--FancyColor);
+  font-size: 2.5vw;
+  display: inline-block;
+  font-family: monospace;
+}
 .mylogo {
   position: absolute;
   width: 10vw;
