@@ -1,7 +1,3 @@
-html {
-  --NavSeparatorWidth: 0.5vw;
-  --ArticleWidth: 60vw;
-}
 .info {
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
