@@ -31,6 +31,3 @@
   display: inline;
   margin: 0.7vw;
 }
-/* Adjust display for mobile */
-@media only screen and (max-width: 768px) {
-}
