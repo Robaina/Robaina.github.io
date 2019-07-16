@@ -29,10 +29,7 @@ a {
   margin-bottom: 0.5vw;
   display: inline-block;
 }
-/* .navbar-item:hover {
-  color: var(--HighlightColor);
-} */
-.navbar-item:focus {
+.navbar-item:hover {
   color: var(--HighlightColor);
 }
 .vertical-bar {
