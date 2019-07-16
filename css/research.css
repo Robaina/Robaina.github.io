@@ -1,0 +1,9 @@
+html {
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+}
+h1 {
+  text-align: center;
+  font-size: 3vw;
+  margin-top: 40vh;
+}

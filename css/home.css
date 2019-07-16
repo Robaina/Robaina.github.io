@@ -1,0 +1,22 @@
+html {
+  --NavSeparatorWidth: 0.5vw;
+  --ArticleWidth: 60vw;
+}
+.info {
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+  width: 80vw;
+  margin-left: 10vw;
+  text-align: center;
+}
+.myname {
+  font-size: 6.5vw;
+  margin-top: 30vh;
+}
+.myrol {
+  font-size: 3vw;
+  margin-top: 0vh;
+}
+/* Adjust display for mobile */
+@media only screen and (max-width: 768px) {
+}

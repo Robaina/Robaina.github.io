@@ -1,0 +1,94 @@
+body {
+  /* --BackgroundColor: rgb(0, 0, 0); */
+  /* --FancyColor: rgb(252, 226, 20); */
+  --FancyColor_selected: rgb(140, 21, 191);
+  --BorderColor: rgb(121, 121, 121);
+  --grid_width: 60vw;
+  --grid_item_margin: calc(0.02 * var(--grid_width));
+  --grid_item_border_width: calc(0.01 * var(--grid_width));
+  --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
+  /* --FontColor: rgb(255, 255, 255); */
+  background-color: var(--BackgroundColor);
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  max-height: auto;
+}
+h1, p {
+  color: var(--FontColor);
+}
+a {
+  color: rgb(124, 75, 222);
+}
+.grid_link {
+  text-decoration: none;
+  color: var(--FontColor);
+}
+.intro {
+  width: var(--grid_width);
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  margin-left: calc( (100vw - var(--grid_width)) / 2);
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+  font-size: 1.8vw;
+  text-align: justify;
+}
+.grid_container {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: var(--grid_width);
+  margin-right: 0;
+  margin-left: calc((100vw - var(--grid_width)) / 2);
+  margin-bottom: 5vh;
+}
+.grid_item {
+  width: var(--grid_item_width);
+  height: auto;
+  border: var(--grid_item_border_width) solid var(--BorderColor);
+  margin: var(--grid_item_margin);
+}
+.grid_item:hover{
+  border: var(--grid_item_border_width) solid var(--FancyColor);
+  cursor: pointer;
+}
+.grid_item:hover > .button {
+  border-color: var(--FancyColor);
+}
+.grid_item_title {
+  text-align: center;
+  font-size: calc(0.085 * var(--grid_item_width));
+  max-height: calc(0.15 * var(--grid_item_width));
+}
+.thumbnail {
+  width: calc(0.8 * var(--grid_item_width));
+  margin-left: calc(0.1 * var(--grid_item_width));
+}
+.button {
+  font-size: calc(0.065 * var(--grid_item_width));
+  text-align: center;
+  color: var(--FontColor);
+  margin-top: calc(0.05 * var(--grid_item_width));
+  margin-bottom: calc(0.06 * var(--grid_item_width));
+  background-color: var(--BackgroundColor);
+  border-color: var(--BorderColor);
+  width: calc(0.3 * var(--grid_item_width));
+}
+.button:hover {
+  background-color: var(--FancyColor);
+  color: rgb(0, 0, 0);
+}
+.button:hover > .grid_link {
+  color: var(--FancyColor_selected);
+}
+.deployButton {
+  margin-left: calc(0.1 * var(--grid_item_width));
+}
+.codeButton {
+  margin-left: calc(0.2 * var(--grid_item_width));
+}
+.credentials {
+  position: static;
+}

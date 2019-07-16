@@ -1,5 +1,6 @@
 // Set background to canvas
-let sky_color = "rgb(13, 13, 13)";
+let sky_color = getComputedStyle(
+  document.documentElement).getPropertyValue('--backgroundColor');
 let cnv = document.createElement('canvas');
 let ctx = cnv.getContext('2d');
 

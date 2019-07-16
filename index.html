@@ -9,32 +9,29 @@
 	  <meta name="author" content="Semidan Robaina Estevez">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Semidán's site</title>
+		<title>Semidán - Home</title>
 		<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32x32.png">
-		<link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
+		  <link rel="stylesheet" href="css/home.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$("#navbar").load("/navbar.html");
+			});
+			$(function() {
+				$("#credentials").load("/credentials.html");
+			});
+		</script>
+
+		<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32x32.png">
+		<link rel="stylesheet" href="css/master.css">
 
 	</head>
 
 	<body>
 
-    <menu class="navbar">
-      <p class="nav_bracket">[</p>
-      <a class="navbar-item" href="#about">About</a>
-			<p class="vertical-bar">|</p>
-      <a class="navbar-item" href="#research">Research</a>
-			<p class="vertical-bar">|</p>
-      <a class="navbar-item" href="blog.html">Blog</a>
-			<p class="vertical-bar">|</p>
-      <a class="navbar-item" href="web.html">Apps</a>
-			<p class="vertical-bar">|</p>
-      <a class="navbar-item" href="CV.pdf" target="_blank">CV</a>
-			<p class="vertical-bar">|</p>
-      <a class="navbar-item" href="https://github.com/Robaina">GitHub</a>
-			<p class="vertical-bar">|</p>
-    	<a class="navbar-item" href="mailto:hello@semidanrobaina.com?Subject=Hello" target="_top">Contact</a>
-      <p class="nav_bracket">]</p>
-    </menu>
+    <div id="navbar"></div>
 
 		<div class="info">
 			<div class="myname">
@@ -45,14 +42,9 @@
 			</div>
 		</div>
 
-		<footer class="credentials">
-			<div class="credentials-content">
-				<div class="code-symbol"> < </div> <div class="code-symbol"> > </div>
-				<div>by Semidán Robaina Estévez, 2019</div>
-			</div>
-		</footer>
+		<div id="credentials"></div>
 
-    <script type="text/javascript" src="sketch.js"></script>
+    <script src="art.js"></script>
 
   </body>
 </html>
