@@ -17,15 +17,15 @@
   margin-top: 0vh;
 }
 .name-character {
-  display: inline;
-  margin: -.7vw;
+  display: inline-block;
+  margin: -0.7vw;
   -webkit-transition: color 0.5s;
-  transition: color 0.5s, font-size 0.5s;
+  transition: color 0.5s, font-size 0.5s, transform 0.5s;
   transition-delay: 0.05s;
 }
 .name-character:hover {
-  /* font-size: 7vw; */
   color: var(--RandomColor);
+  transform: translateY(-20px);
 }
 .spacer {
   display: inline;
