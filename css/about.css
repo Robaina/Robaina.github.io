@@ -7,14 +7,11 @@ html {
   margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
-  font-size: 1.8vw;
+  font-size: var(--TextFontSize);
   text-align: justify;
-  /* position: fixed;
-  top: 20vh; */
 }
 /* @media only screen and (max-width: 768px) {
    .about {
-     width: 80vw;
-     margin-left: 10vw;
+     font-size:
   }
 } */

@@ -1,13 +1,11 @@
 body {
-  --FancyColor_selected: rgb(140, 21, 191);
+  --FancyColor_selected: rgb(15, 15, 15);
   --BorderColor: rgb(121, 121, 121);
   --grid_width: var(--ColumnWidth);
   --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.01 * var(--grid_width));
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   background-color: var(--BackgroundColor);
-  margin: 0;
-  padding: 0;
 }
 img {
   max-width: 100%;
@@ -25,12 +23,12 @@ a {
 }
 .intro {
   width: var(--grid_width);
-  margin-top: 10vh;
+  margin-top: 8vh;
   margin-bottom: 5vh;
   margin-left: calc( (100vw - var(--grid_width)) / 2);
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
-  font-size: 1.8vw;
+  font-size: var(--TextFontSize);
   text-align: justify;
 }
 .grid_container {
@@ -38,7 +36,7 @@ a {
   grid-template-columns: auto auto;
   width: var(--grid_width);
   margin-right: 0;
-  margin-left: calc((100vw - var(--grid_width)) / 2);
+  margin-left: calc((100vw - var(--grid_width)) / 2.1);
   margin-bottom: 5vh;
 }
 .grid_item {
