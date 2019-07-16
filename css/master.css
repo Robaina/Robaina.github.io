@@ -3,9 +3,11 @@
   --FontColor: rgb(255, 255, 255);
   --FancyColor: rgb(73, 201, 35);
   --HighlightColor: rgb(230, 197, 26);
+  --NavBarActiveColor: var(--FancyColor);
   --TextFontSize: 1.8vw;
   --ColumnWidth: 60vw;
   --NavSeparatorWidth: 0.5vw;
+  --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
 }
 a {
@@ -18,9 +20,6 @@ a {
   top: 0;
 }
 .navbar {
-  /* position: -webkit-sticky;
-  position: sticky;
-  top: 0; */
   margin-top: 5vh;
   text-align: center;
   background-color: var(--BackgroundColor);
@@ -32,9 +31,6 @@ a {
   text-align: center;
   margin-bottom: 0.5vw;
   display: inline-block;
-}
-.navbar-item:hover {
-  color: var(--HighlightColor);
 }
 .vertical-bar {
   display: inline-block;

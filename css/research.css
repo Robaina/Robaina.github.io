@@ -2,6 +2,9 @@ html {
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
 }
+#research {
+  color: var(--NavBarActiveColor);
+}
 h1 {
   text-align: center;
   font-size: 3vw;

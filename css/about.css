@@ -1,9 +1,12 @@
 html {
   background-color: var(--BackgroundColor);
 }
+#about {
+  color: var(--NavBarActiveColor);
+}
 .about {
   width: var(--ColumnWidth);
-  margin-top: 10vh;
+  margin-top: var(--TopMarginToHeader);
   margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
   background-color: var(--BackgroundColor);
   color: var(--FontColor);

@@ -1,3 +1,6 @@
+#home {
+  color: var(--NavBarActiveColor);
+}
 .info {
   background-color: var(--BackgroundColor);
   color: var(--FontColor);

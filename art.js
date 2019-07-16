@@ -39,17 +39,20 @@ function randomExponential(gamma=1) {
 let colors = ["rgb(94, 217, 69)", "rgb(250, 198, 44)", "rgb(246, 113, 71)",
               "rgb(51, 215, 201)", "rgb(217, 69, 189)", "rgb(71, 114, 241)",
               "rgb(132, 22, 242)"];
+let regular_color = getComputedStyle(document.documentElement)
+    .getPropertyValue('--FontColor');
 
 let characters = document.getElementsByClassName("name-character");
-for ( let i=0; i<characters.length; i++ ) {
+for (let i=0; i<characters.length; i++) {
   let char = characters[i];
   char.addEventListener("mouseover", changeColor);
 }
 
 function changeColor(event) {
-  // let regular_color = getComputedStyle(document.documentElement)
-  //  .getPropertyValue('--FontColor');
   let rand_color = colors[Math.floor(Math.random() * colors.length)];
   let elem = event.target || event.srcElement;
   elem.style.color = rand_color;
+  setTimeout(function() {
+    elem.style.color = regular_color;
+  }, 5000);
 }

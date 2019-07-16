@@ -7,6 +7,9 @@ body {
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   background-color: var(--BackgroundColor);
 }
+#webapps {
+  color: var(--NavBarActiveColor);
+}
 img {
   max-width: 100%;
   max-height: auto;
@@ -23,7 +26,7 @@ a {
 }
 .intro {
   width: var(--grid_width);
-  margin-top: 8vh;
+  margin-top: var(--TopMarginToHeader);
   margin-bottom: 5vh;
   margin-left: calc( (100vw - var(--grid_width)) / 2);
   background-color: var(--BackgroundColor);
