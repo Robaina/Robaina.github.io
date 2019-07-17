@@ -10,6 +10,10 @@
   --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
 }
+html, body {
+  margin: 0;
+  padding:0;
+}
 a {
   text-decoration: none;
   color: var(--FancyColor);
@@ -49,7 +53,8 @@ a {
 .credentials {
   --container-width: 20vw;
   width: var(--container-width);
-  position: fixed;
+  /* height: 3vh; */
+  position: absolute;
   bottom: 3vh;
   margin-left: calc((100vw - var(--container-width)) / 2);
 }
