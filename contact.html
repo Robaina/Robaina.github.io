@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Semidán - Contact</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="imgs/logo1.png">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="/css/contact.css">
+
+    <!-- <script src="https://squaresend.com/squaresend.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        $("#navbar").load("/navbar.html");
+      });
+      $(function() {
+        $("#credentials").load("/credentials.html");
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="navbar-container" id="navbar"></div>
+
+    <!-- <a href="mailto:hello@semidanrobaina.com?sqs_title=Drop+us+a+line">Contact</a> -->
+    <div class="contact-info">
+      <p>Got any questions?</p>
+
+      <div class="logo-container">
+        <a href="mailto:hello@semidanrobaina.com?Subject=Hello" target="_top"><img class="contact-logo" src="/imgs/email.png" alt="image"></a>
+        <a href="https://twitter.com/srobainae" target="_blank"><img class="contact-logo" src="/imgs/GitHub-Mark-Light-120px-plus.png" alt="image"></a>
+        <a href="https://github.com/Robaina" target="_blank"><img class="contact-logo" src="/imgs/Twitter_Social_Icon_Circle_Color.png" alt="image"></a>
+      </div>
+
+    </div>
+
+    <div id="credentials"></div>
+
+  </body>
+</html>

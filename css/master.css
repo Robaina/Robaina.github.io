@@ -27,7 +27,7 @@ a {
 .navbar-item {
   text-decoration: none;
   color: var(--FontColor);
-  font-size: 2vw;
+  font-size: 2.5vw;
   text-align: center;
   margin-bottom: 0.5vw;
   display: inline-block;
@@ -89,7 +89,10 @@ a {
     --TextFontSize: 3vw;
   }
   .navbar-item {
-    font-size: 3vw;
+    font-size: 3.5vw;
+  }
+  .vertical-bar {
+    font-size: 2.5vw;
   }
   .credentials {
     --container-width: 30vw;

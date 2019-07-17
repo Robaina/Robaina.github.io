@@ -1,0 +1,32 @@
+html {
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+}
+#contact {
+  color: var(--NavBarActiveColor);
+}
+h1 {
+  text-align: center;
+  font-size: 3vw;
+  margin-top: 40vh;
+}
+.contact-info {
+  margin-top: 20vh;
+  font-size: 3vw;
+  text-align: center;
+}
+.contact-logo {
+  width: 10vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-info {
+    font-size: 4vw;
+    margin-top: 15vh;
+  }
+  .contact-logo {
+    width: 20vw;
+    display: block;
+    margin-bottom: 5vh;
+    margin-left: 40vw;
+  }
