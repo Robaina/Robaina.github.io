@@ -25,9 +25,13 @@
 }
 .name-character:hover {
   color: var(--RandomColor);
-  transform: translateY(-20px);
 }
 .spacer {
   display: inline;
   margin: 0.7vw;
 }
+
+@media only screen and (min-width: 768px) {
+  .name-character:hover {
+    transform: translateY(-20px);
+  }
