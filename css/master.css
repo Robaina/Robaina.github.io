@@ -38,6 +38,7 @@ a {
   text-align: center;
   margin-bottom: 0.5vw;
   display: inline-block;
+  cursor: pointer;
 }
 .navbar-item-2 {
   /* text-decoration: none; */
@@ -46,11 +47,12 @@ a {
   text-align: center;
   margin-bottom: 0.5vw;
   display: inline-block;
+  cursor: pointer;
 }
 .vertical-bar {
   display: inline-block;
   color: var(--FancyColor);
-  font-size: 2vw;
+  font-size: 3vw;
   margin: 0;
   margin-left: var(--NavSeparatorWidth);
   margin-right: var(--NavSeparatorWidth);
