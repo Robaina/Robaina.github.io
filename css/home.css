@@ -9,12 +9,12 @@
   text-align: center;
 }
 .myname {
-  font-size: 6.5vw;
-  margin-top: 30vh;
+  margin-top: 25vh;
 }
-.myrol {
-  font-size: 3vw;
-  margin-top: 0vh;
+.name-wrapper {
+  display: inline-block;
+  margin: 0.9vw;
+  font-size: 6.5vw;
 }
 .name-character {
   display: inline-block;
@@ -26,12 +26,33 @@
 .name-character:hover {
   color: var(--RandomColor);
 }
-.spacer {
-  display: inline;
-  margin: 0.7vw;
+.myrol {
+  font-size: 3vw;
+  margin-top: 0vh;
 }
 
 @media only screen and (min-width: 768px) {
   .name-character:hover {
     transform: translateY(-20px);
   }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+  .name-wrapper {
+    display: block;
+    font-size: 10vw;
+    margin-bottom: 5vh;
+  }
+  .myname {
+    margin-top: 20vh;
+  }
+  #name {
+    margin-left: -25vw;
+  }
+  #surname1 {
+    /* margin-left: -2vw; */
+  }
+  #surname2 {
+    margin-left: 25vw;
+  }
+}
