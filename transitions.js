@@ -7,7 +7,6 @@ window.goToPage = function(href) {
   let portrait_oriented = window.matchMedia("(orientation: portrait)").matches
 
   if (window.innerWidth < 768) {
-
     if (portrait_oriented) {
        loc_x = window.innerWidth / 2.5;
     } else {
@@ -26,7 +25,7 @@ window.goToPage = function(href) {
   draw_logo();
   setTimeout(function() {
       window.location.href = href;
-  }, 800)
+  }, 1000)
 };
 
 document.addEventListener('DOMContentLoaded', function(event) {
@@ -47,6 +46,7 @@ function draw_logo() {
 
   ctx2.drawImage(logo, loc_x, loc_y,
     scale_factor * logo.width, scale_factor * logo.height);
-  document.body.style.background = 'url(' + cnv2.toDataURL() + ')';
+
+  document.body.style["background-image"] = 'url(' + cnv2.toDataURL() + ')';
 
 }
