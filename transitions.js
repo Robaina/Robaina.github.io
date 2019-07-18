@@ -1,23 +1,25 @@
-// Adjust to screen size
 let loc_x, loc_y, scale_factor;
-if (window.innerWidth < 768) {
-  loc_x = window.innerWidth / 2.5;
-  loc_y = window.innerHeight / 2.5;
-  scale_factor = 5;
-}
-else if (window.innerWidth > 768) {
-  loc_x = window.innerWidth / 2.2;
-  loc_y = window.innerHeight / 2.2;
-  scale_factor = 4;
-}
 
 // Animate page transitions
 window.goToPage = function(href) {
-    document.querySelector('body').style.opacity = 0;
-    draw_logo();
-    setTimeout(function() {
-        window.location.href = href;
-    }, 800)
+
+  // Adjust logo to screen size
+  if (window.innerWidth < 768) {
+    loc_x = window.innerWidth / 2.5;
+    loc_y = window.innerHeight / 2.5;
+    scale_factor = 5;
+  }
+  else if (window.innerWidth > 768) {
+    loc_x = window.innerWidth / 2.2;
+    loc_y = window.innerHeight / 2.2;
+    scale_factor = 4;
+  }
+
+  document.querySelector('body').style.opacity = 0;
+  draw_logo();
+  setTimeout(function() {
+      window.location.href = href;
+  }, 800)
 };
 
 document.addEventListener('DOMContentLoaded', function(event) {
