@@ -8,6 +8,7 @@ body {
 }
 #webapps {
   color: var(--NavBarActiveColor);
+  pointer-events: none;
 }
 img {
   max-width: 100%;

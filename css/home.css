@@ -1,5 +1,6 @@
 #home {
   color: var(--NavBarActiveColor);
+  pointer-events: none;
 }
 .info {
   background-color: var(--BackgroundColor);

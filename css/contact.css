@@ -3,6 +3,7 @@ html {
 }
 #contact {
   color: var(--NavBarActiveColor);
+  pointer-events: none;
 }
 h1 {
   text-align: center;
