@@ -7,12 +7,12 @@ body {
   position: absolute;
   top: 40vh;
   left: 45vw;
-  width: 7vw;
+  width: 12vw;
   height: auto;
 }
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   #mylogo {
-    width: 15vw;
+    width: 20vw;
     left: 40vw;
   }
 }
