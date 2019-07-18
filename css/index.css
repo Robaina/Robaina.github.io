@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+}
+#mylogo {
+  position: absolute;
+  top: 40vh;
+  left: 45vw;
+  width: 7vw;
+  height: auto;
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  #mylogo {
+    width: 15vw;
+    left: 40vw;
+  }
+}

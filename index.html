@@ -9,71 +9,28 @@
 	  <meta name="author" content="Semidan Robaina Estevez">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Semidán: Home</title>
+		<title>Semidán's site</title>
 		<link rel="icon" type="image/png" sizes="32x32" href="imgs/logo1.png">
-		<script src="/transitions.js"></script>
-    <link rel="stylesheet" href="css/master.css">
-		<link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/index.css">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
-			$(function() {
-				$("#navbar").load("/navbar.html");
-			});
-			$(function() {
-				$("#credits").load("/credits.html");
-			});
+
 			let logo = new Image();
 			logo.src = "/imgs/logo1.png";
+
+			function goToHome() {
+				setTimeout(function() {
+					window.location.href = "/home.html";
+			  }, 1500)
+		  }
+
 		</script>
 
 	</head>
 
-	<body>
+	<body onload="goToHome()">
 
-    <div class="navbar-container" id="navbar"></div>
-    
-		<div class="info">
-			<div class="myname">
-        <div class="name-wrapper" id="name">
-					<div class="name-character">S</div>
-					<div class="name-character">e</div>
-					<div class="name-character">m</div>
-					<div class="name-character">i</div>
-					<div class="name-character">d</div>
-					<div class="name-character">á</div>
-					<div class="name-character">n</div>
-				</div>
-
-				<div class="name-wrapper" id="surname1">
-					<div class="name-character">R</div>
-					<div class="name-character">o</div>
-					<div class="name-character">b</div>
-					<div class="name-character">a</div>
-					<div class="name-character">i</div>
-					<div class="name-character">n</div>
-					<div class="name-character">a</div>
-        </div>
-
-        <div class="name-wrapper" id="surname2">
-					<div class="name-character">E</div>
-					<div class="name-character">s</div>
-					<div class="name-character">t</div>
-					<div class="name-character">é</div>
-					<div class="name-character">v</div>
-					<div class="name-character">e</div>
-					<div class="name-character">z</div>
-				</div>
-			</div>
-
-			<div class="myrol">
-				Researcher, developer, writer
-			</div>
-		</div>
-
-		<div id="credits"></div>
-
-    <script src="art.js"></script>
+    <img id="mylogo" src="/imgs/logo1.png" alt="Responsive image">
 
   </body>
 </html>

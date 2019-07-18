@@ -1,4 +1,7 @@
-// Set background to canvas
+// Start with personal logo
+
+
+// Continue with artwork
 let sky_color = getComputedStyle(
   document.documentElement).getPropertyValue('--backgroundColor');
 let cnv = document.createElement('canvas');
