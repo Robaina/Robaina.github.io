@@ -1,11 +1,11 @@
 // Animate page transitions
 window.transitionToPage = function(href) {
-    document.querySelector('body').style.opacity = 0
+    document.querySelector('body').style.opacity = 0;
     setTimeout(function() {
-        window.location.href = href
-    }, 500)
+        window.location.href = href;
+    }, 1000)
 };
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    document.querySelector('body').style.opacity = 1
+    document.querySelector('body').style.opacity = 1;
 });
