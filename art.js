@@ -11,6 +11,7 @@ ctx.fillStyle = sky_color;
 ctx.fillRect(0, 0, cnv.width, cnv.height);
 
 makeStars(density=0.0001);
+// Set document background to canvas image
 document.body.style.background = 'url(' + cnv.toDataURL() + ')';
 
 function makeStars(density=0.75, min_size=1, max_size=3) {

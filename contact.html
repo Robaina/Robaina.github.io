@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Semidán - Contact</title>
+    <title>Semidán: Contact</title>
     <link rel="icon" type="image/png" sizes="32x32" href="imgs/logo1.png">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="/css/contact.css">
@@ -17,6 +17,8 @@
       $(function() {
         $("#credits").load("/credits.html");
       });
+      let logo = new Image();
+      logo.src = "/imgs/logo1.png";
     </script>
   </head>
 
@@ -24,11 +26,10 @@
 
     <div class="navbar-container" id="navbar"></div>
 
-    <!-- <a href="mailto:hello@semidanrobaina.com?sqs_title=Drop+us+a+line">Contact</a> -->
     <div class="contact-info">
       <p>Got any questions?</p>
 
-      <div class="logo-container">
+      <div class="contact-logo-container">
         <a href="mailto:hello@semidanrobaina.com?Subject=Hello" target="_top"><img class="contact-logo" id="mail" src="/imgs/email.png" alt="image"></a>
         <a href="https://twitter.com/srobainae" target="_blank"><img class="contact-logo" id="github" src="/imgs/GitHub-Mark-Light-120px-plus.png" alt="image"></a>
         <a href="https://github.com/Robaina" target="_blank"><img class="contact-logo" id="twitter" src="/imgs/Twitter_Social_Icon_Circle_Color.png" alt="image"></a>

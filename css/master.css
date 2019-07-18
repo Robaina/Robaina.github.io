@@ -11,7 +11,7 @@
   scroll-behavior: smooth;
 }
 body {
-   transition: opacity 1s;
+   transition: opacity 0.5s;
    opacity: 0;
    background-color: var(--BackgroundColor);
 }
