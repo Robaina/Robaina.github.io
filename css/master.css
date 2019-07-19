@@ -6,7 +6,7 @@
   --NavBarActiveColor: var(--FancyColor);
   --TextFontSize: 1.5vw;
   --ColumnWidth: 60vw;
-  --NavSeparatorWidth: 0.7vw;
+  --NavSeparatorWidth: 0.8vw;
   --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
 }
@@ -40,7 +40,8 @@ a {
   color: var(--FontColor);
   font-size: 2.2vw;
   text-align: center;
-  margin: var(--NavSeparatorWidth);
+  margin-left: var(--NavSeparatorWidth);
+  margin-right: var(--NavSeparatorWidth);
   display: inline-block;
   cursor: pointer;
 }
