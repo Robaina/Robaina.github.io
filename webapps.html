@@ -20,7 +20,7 @@
 				$("#navbar").load("/navbar.html");
 			});
 			$(function() {
-				$("#credits").load("/credits.html");
+				$("#footer").load("/credits.html");
 			});
 			let logo = new Image();
 			logo.src = "/imgs/logo1.png";
@@ -30,66 +30,72 @@
 
 	<body>
 
-    <div class="navbar-container" id="navbar"></div>
+		<div id="page-container">
+			<div id="content-wrap">
 
-		<div class="intro">
-			These are some of the web apps that I have made, mostly to have fun learning HTML5, CSS and vanilla JavaScript. I will update this section with new apps if they deserve to be shown...
+		    <div class="navbar-container" id="navbar"></div>
+
+				<div class="intro">
+					These are some of the web apps that I have made, mostly to have fun learning HTML5, CSS and vanilla JavaScript. I will update this section with new apps if they deserve to be shown...
+				</div>
+
+
+				<div class="grid_container">
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">The Pentagram of Venus</h1>
+						<img class="thumbnail" src="assets/pentagram.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/VenusPentagram/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/VenusPentagram">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Sudoku solver</h1>
+						<img class="thumbnail" src="assets/sudoku.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/Sudoku/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/Sudoku">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Metabolic flux orders</h1>
+						<img class="thumbnail" src="assets/fluxorders.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/fluxOrders/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/fluxOrders">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Ayumu's game</h1>
+						<img class="thumbnail" src="assets/ayumu.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/AyumuGame/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/AyumuGame">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Simon game</h1>
+						<img class="thumbnail" src="assets/simon.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/SimonGame/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/SimonGame">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Colorful N-Mobius</h1>
+						<img class="thumbnail" src="assets/mobiusart.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/mobiusArt/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/mobiusArt">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Oblate Spheroidal Coordinates</h1>
+						<img class="thumbnail" src="assets/oblatespheroidal.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/OblateSpheroidal/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/OblateSpheroidal">Code</a></button>
+					</div>
+					<div class="grid_item" tabindex="0">
+						<h1 class="grid_item_title">Function plotter</h1>
+						<img class="thumbnail" src="assets/functionplotter.png" alt="Responsive image">
+						<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/functionPlotter/">Deploy</a></button>
+						<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/functionPlotter">Code</a></button>
+					</div>
+
+				</div>
+
+			</div>
+
+    	<footer id="footer"></footer>
 		</div>
-
-
-		<div class="grid_container">
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">The Pentagram of Venus</h1>
-				<img class="thumbnail" src="assets/pentagram.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/VenusPentagram/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/VenusPentagram">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Sudoku solver</h1>
-				<img class="thumbnail" src="assets/sudoku.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/Sudoku/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/Sudoku">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Metabolic flux orders</h1>
-				<img class="thumbnail" src="assets/fluxorders.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/fluxOrders/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/fluxOrders">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Ayumu's game</h1>
-				<img class="thumbnail" src="assets/ayumu.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/AyumuGame/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/AyumuGame">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Simon game</h1>
-				<img class="thumbnail" src="assets/simon.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/SimonGame/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/SimonGame">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Colorful N-Mobius</h1>
-				<img class="thumbnail" src="assets/mobiusart.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/mobiusArt/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/mobiusArt">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Oblate Spheroidal Coordinates</h1>
-				<img class="thumbnail" src="assets/oblatespheroidal.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/OblateSpheroidal/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/OblateSpheroidal">Code</a></button>
-			</div>
-			<div class="grid_item" tabindex="0">
-				<h1 class="grid_item_title">Function plotter</h1>
-				<img class="thumbnail" src="assets/functionplotter.png" alt="Responsive image">
-				<button class="button deployButton" type="button"><a class="grid_link" href="https://robaina.github.io/functionPlotter/">Deploy</a></button>
-				<button class="button codeButton" type="button"><a class="grid_link" href="https://github.com/Robaina/functionPlotter">Code</a></button>
-			</div>
-
-		</div>
-
-    <div id="credits"></div>
 
 		<script src="/transitions.js"></script>
 

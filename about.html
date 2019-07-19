@@ -14,7 +14,7 @@
         $("#navbar").load("/navbar.html");
       });
       $(function() {
-        $("#credits").load("/credits.html");
+        $("#footer").load("/credits.html");
       });
       let logo = new Image();
       logo.src = "/imgs/logo1.png";
@@ -22,21 +22,28 @@
   </head>
   <body>
 
-    <div class="navbar-container" id="navbar"></div>
+    <div id="page-container">
+      <div id="content-wrap">
 
-    <article class="about" id="about-text">
+        <div class="navbar-container" id="navbar"></div>
+        <article class="about" id="about-text">
 
-      <h1>Hi there...</h1>
+          <h1>Hi there...</h1>
 
-      <p>and welcome to my site! First of all, a disclaimer: This personal webpage is an experiment. Indeed, I plan to use this site as a means to publicize part of who I am and what I do. However, to do so, I must violate a couple of well-known rules in the business. Particularly, (i) you won't find a coherent collection of topics in here, I will rather be writing about disparate topics such as biology, math, physics, geology, chemistry, art, music, coding, data science, statistics, literature... and (ii) I will write in both, English, the language that I have used most at work, and in Spanish, my mother tongue and my preferred language to write literature. I know that this behavior is absolutely not recommended to attract readers, but I can't help it, hence the experiment.</p>
+          <p>and welcome to my site! Semidán here &mdash; that's it, in case you didn't see my full name covering almost all the home page. I find it really hard to reduce myself to a couple of words, let's say for now that I'm a curious, sentient being, born and raised in the <a href="https://en.wikipedia.org/wiki/Canary_Islands">Canary Islands</a>, Spain (great place). I can only think of one invariant when it comes to my personal interests and the stuff that I have done: a strong passion to learn more about and get involved in everything that I find interesting at the time (sometimes sort-of-life-long passions, other times temporary ones). </p>
 
-      <p>I hope that you enjoy and find some of the content of this site useful. If you are interested in my formal education and research do take a look at my <a href="/assets/CV.pdf" target="_blank">CV</a> and <a href="/research.html">scientific publications</a>. If, on the other hand, you are curious about the kind of stuff that I do for fun, I recommend a visit to my <a href="blog.html">Blog</a> and the <a href="web.html">web Apps</a> that I have made. That's all for now...</p>
+          <p>This personal webpage is an experiment. I plan to use this site to share part of who I am and what I do. Consequently, I will be writing about a variety of topics such as (though not limited to), biology, math, physics, geology, chemistry, art, music, coding, data science, statistics, literature, distillation of my own understanding of the universe... I must apologize for that already: I know that we live in a society of specialization, but focusing in a single topic makes me sad. Additionally, I haven't made my mind about making this site fully bilingual or not. (That would be in English, the language I have used most at work, and Spanish, my mother tongue.) For the moment, I may include some posts in the <a href="blog.html">Blog</a> section in Spanish alongside other ones in English.</p>
 
-      <p>Cheers!</p>
+          <p>I hope that you enjoy and find some of the content of this site useful. If you are interested in my formal education and research do take a look at my <a href="/assets/CV.pdf" target="_blank">CV</a> and <a href="/research.html">scientific publications</a>. If, on the other hand, you are curious about the kind of stuff that I do for fun, pay a visit to my <a href="blog.html">Blog</a> and the <a href="web.html">web Apps</a> that I have made. That's all for now...</p>
 
-    </article>
+          <p>¡Hasta pronto!</p>
 
-    <div id="credits"></div>
+        </article>
+      </div>
+
+      <footer id="footer"></footer>
+
+    </div>
 
     <script src="/transitions.js"></script>
 

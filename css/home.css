@@ -48,13 +48,13 @@
     margin-top: 15vh;
   }
   #name {
-    margin-left: -25vw;
+    /* margin-left: -25vw; */
   }
   #surname1 {
     /* margin-left: -2vw; */
   }
   #surname2 {
-    margin-left: 25vw;
+    /* margin-left: 25vw; */
   }
 }
 

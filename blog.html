@@ -14,7 +14,7 @@
         $("#navbar").load("/navbar.html");
       });
       $(function() {
-        $("#credits").load("/credits.html");
+        $("#footer").load("/credits.html");
       });
       let logo = new Image();
       logo.src = "/imgs/logo1.png";
@@ -25,11 +25,16 @@
 
   <body>
 
-    <div class="navbar-container" id="navbar"></div>
+    <div id="page-container">
+      <div id="content-wrap">
 
-    <h1>Coming soon...</h1>
+        <div class="navbar-container" id="navbar"></div>
 
-    <div id="credits"></div>
+        <h1>Coming soon...</h1>
+      </div>
+
+      <footer id="footer"></footer>
+    </div>
 
     <script src="/transitions.js"></script>
 

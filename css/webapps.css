@@ -88,7 +88,3 @@ a {
 .codeButton {
   margin-left: calc(0.2 * var(--grid_item_width));
 }
-.credits {
-  position: static;
-  margin-bottom: 3vh;
-}

@@ -14,7 +14,7 @@
         $("#navbar").load("/navbar.html");
       });
       $(function() {
-        $("#credits").load("/credits.html");
+        $("#footer").load("/credits.html");
       });
       let logo = new Image();
       logo.src = "/imgs/logo1.png";
@@ -23,20 +23,25 @@
 
   <body>
 
-    <div class="navbar-container" id="navbar"></div>
+    <div id="page-container">
+      <div id="content-wrap">
 
-    <div class="contact-info">
-      <p>Got any questions?</p>
+        <div class="navbar-container" id="navbar"></div>
 
-      <div class="contact-logo-container">
-        <a href="mailto:hello@semidanrobaina.com?Subject=Hello" target="_top"><img class="contact-logo" id="mail" src="/imgs/email.png" alt="image"></a>
-        <a href="https://github.com/Robaina" target="_blank"><img class="contact-logo" id="github" src="/imgs/GitHub-Mark-Light-120px-plus.png" alt="image"></a>
-        <a href="https://twitter.com/srobainae" target="_blank"><img class="contact-logo" id="twitter" src="/imgs/Twitter_Social_Icon_Circle_Color.png" alt="image"></a>
+        <div class="contact-info">
+          <p>Got any questions?</p>
+
+          <div class="contact-logo-container">
+            <a href="mailto:hello@semidanrobaina.com?Subject=Hello" target="_top"><img class="contact-logo" id="mail" src="/imgs/email.png" alt="image"></a>
+            <a href="https://github.com/Robaina" target="_blank"><img class="contact-logo" id="github" src="/imgs/GitHub-Mark-Light-120px-plus.png" alt="image"></a>
+            <a href="https://twitter.com/srobainae" target="_blank"><img class="contact-logo" id="twitter" src="/imgs/Twitter_Social_Icon_Circle_Color.png" alt="image"></a>
+          </div>
+
+        </div>
       </div>
 
+      <footer id="footer"></footer>
     </div>
-
-    <div id="credits"></div>
 
     <script src="/transitions.js"></script>
 
