@@ -1,11 +1,11 @@
 :root {
   --BackgroundColor: rgb(0, 0, 0);
-  --FontColor: rgb(255, 255, 255);
+  --FontColor: rgb(212, 212, 212);
   --FancyColor: rgb(73, 201, 35);
   --HighlightColor: rgb(230, 197, 26);
   --NavBarActiveColor: var(--FancyColor);
-  --TextFontSize: 1.5vw;
-  --ColumnWidth: 60vw;
+  --TextFontSize: 1.4vw;
+  --ColumnWidth: 50vw;
   --NavSeparatorWidth: 0.8vw;
   --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
@@ -14,6 +14,8 @@ body {
    transition: opacity 0.4s;
    opacity: 0;
    background-color: var(--BackgroundColor);
+   font-family: 'Open Sans', sans-serif;
+   /* font-family: 'Lato', sans-serif; */
 }
 html, body {
   margin: 0;
