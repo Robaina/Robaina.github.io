@@ -1,4 +1,5 @@
 let loc_x, loc_y, scale_factor;
+let transition_time = 700;
 
 // Animate page transitions
 window.goToPage = function(href) {
@@ -25,7 +26,7 @@ window.goToPage = function(href) {
   draw_logo();
   setTimeout(function() {
       window.location.href = href;
-  }, 1000)
+  }, transition_time)
 };
 
 document.addEventListener('DOMContentLoaded', function(event) {

@@ -4,14 +4,14 @@
   --FancyColor: rgb(73, 201, 35);
   --HighlightColor: rgb(230, 197, 26);
   --NavBarActiveColor: var(--FancyColor);
-  --TextFontSize: 1.6vw;
+  --TextFontSize: 1.5vw;
   --ColumnWidth: 60vw;
   --NavSeparatorWidth: 0.7vw;
   --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
 }
 body {
-   transition: opacity 0.5s;
+   transition: opacity 0.4s;
    opacity: 0;
    background-color: var(--BackgroundColor);
 }
@@ -38,19 +38,20 @@ a {
 }
 .navbar-item {
   color: var(--FontColor);
-  font-size: 2.5vw;
+  font-size: 2.2vw;
   text-align: center;
   margin: var(--NavSeparatorWidth);
   display: inline-block;
   cursor: pointer;
 }
 #navbar-line-separator {
-  width: 55vw;
-  margin-left: 22.5vw;
+  width: 52vw;
+  margin-left: 24vw;
   height: 1px;
-  border-bottom: rgb(68, 68, 68) solid 3px;
+  border-bottom: rgb(68, 68, 68) solid 2px;
+  /* border-bottom: var(--FancyColor) solid 2px; */
 }
-.nav-bracket {
+.burguer-bracket {
   color: var(--FancyColor);
   font-size: 4em;
   display: inline-block;
@@ -99,7 +100,7 @@ a {
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   :root {
     --ColumnWidth: 80vw;
-    --TextFontSize: 3vw;
+    --TextFontSize: 2.8vw;
   }
   .credits-content {
     font-size: 3vw;
@@ -122,13 +123,7 @@ a {
     text-align: left;
     margin-left: 5.5vh;
   }
-  .navbar-separator {
-    display: none;
-  }
   #navbar-line-separator {
-    display: none;
-  }
-  .nav-bracket {
     display: none;
   }
   #burguer-menu {
@@ -163,11 +158,7 @@ a {
   .navbar-item {
     font-size: 1.5em;
   }
-  .nav-bracket {
-    color: var(--FancyColor);
-    font-size: 3em;
-  }
   .credits-content {
-    font-size: 2vw;
+    font-size: 1.6vw;
   }
 }

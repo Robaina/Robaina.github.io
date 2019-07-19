@@ -1,7 +1,4 @@
-// Start with personal logo
-
-
-// Continue with artwork
+// Deploy artwork
 let sky_color = getComputedStyle(
   document.documentElement).getPropertyValue('--backgroundColor');
 let cnv = document.createElement('canvas');
@@ -40,6 +37,7 @@ function randomExponential(gamma=1) {
 }
 
 // Change color of name characters
+let fading_time = 5000;
 let colors = ["rgb(94, 217, 69)", "rgb(250, 198, 44)", "rgb(246, 113, 71)",
               "rgb(51, 215, 201)", "rgb(217, 69, 189)", "rgb(71, 114, 241)",
               "rgb(132, 22, 242)"];
@@ -58,5 +56,5 @@ function changeColor(event) {
   elem.style.color = rand_color;
   setTimeout(function() {
     elem.style.color = regular_color;
-  }, 5000);
+  }, fading_time);
 }
