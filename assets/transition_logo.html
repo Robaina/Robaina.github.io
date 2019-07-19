@@ -6,16 +6,35 @@
 
     <style media="screen">
 
+      body {
+        background-color: rgba(0,0,0,1);
+      }
+
       .logo-container {
         --scaleFactor: 2.5;
         --logoWidth:  calc(var(--scaleFactor) * 20vw);
         --logoHeight:  calc(var(--scaleFactor) * 20vw);
 
-        /* display: block; */
         margin: auto;
+        padding-top: 32vh;
         width: var(--logoWidth);
         height: var(--logoHeight);
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0,0,0,1);
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+
+      #logo-bar-2{
+        /* fill: "red"; */
+        animation: bar-animation 5s infinite;
+      }
+
+      @keyframes bar-animation {
+       from {left: 0px;}
+       to {left: 200px;}
       }
 
     </style>
@@ -23,7 +42,7 @@
   <body>
 
     <div class="logo-container">
-      <svg id="mylogo" viewBox="0 0 100 100">
+      <svg xmlns="http://www.w3.org/2000/svg" id="mylogo" viewBox="0 0 100 100" width="500" height="500">
         <defs>
           <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
@@ -31,14 +50,17 @@
           </linearGradient>
         </defs>
 
-       <rect x="11.5" y="29" width="65" height="18" rx="10" ry="10"
-             fill="url(#grad2)" stroke="rgb(54, 54, 54)" stroke-width="1" transform = "rotate(-25,15,15)"/>
+       <rect x="18" y="31" width="65" height="18" rx="10" ry="10"
+             fill="url(#grad2)" stroke="rgb(54, 54, 54)" stroke-width="1"
+             transform = "rotate(-25,15,15)" id="logo-bar-1"/>
 
-       <rect x="10" y="53" width="40" height="18" rx="10" ry="10"
-             fill="url(#grad2)" stroke="rgb(54, 54, 54)" stroke-width="1" transform = "rotate(-25,15,15)"/>
+       <rect x="16" y="53" width="33" height="18" rx="10" ry="10"
+             fill="url(#grad2)" stroke="rgb(54, 54, 54)" stroke-width="1"
+             transform = "rotate(-25,15,15)" id="logo-bar-2"/>
 
-       <rect x="-17" y="77" width="65" height="18" rx="10" ry="10"
-             fill="url(#grad2)" stroke="rgb(54, 54, 54)" stroke-width="1" transform = "rotate(-25,15,15)"/>
+       <rect x="-18" y="75" width="65" height="18" rx="10" ry="10"
+             fill="url(#grad2)" stroke="rgb(54, 54, 54)" stroke-width="1"
+             transform = "rotate(-25,15,15)" id="logo-bar-3"/>
 
       </svg>
     </div>
