@@ -4,6 +4,7 @@
   --FancyColor: rgb(73, 201, 35);
   --HighlightColor: rgb(230, 197, 26);
   --NavBarActiveColor: var(--FancyColor);
+  --NavBarBackgroundColor: rgb(51, 51, 51);
   --TextFontSize: 1.4vw;
   --ColumnWidth: 50vw;
   --NavSeparatorWidth: 0.8vw;
@@ -14,8 +15,9 @@ body {
    transition: opacity 0.4s;
    opacity: 0;
    background-color: var(--BackgroundColor);
-   font-family: 'Open Sans', sans-serif;
+   /* font-family: 'Open Sans', sans-serif; */
    /* font-family: 'Lato', sans-serif; */
+   font-family: sans-serif;
 }
 html, body {
   margin: 0;
@@ -77,7 +79,7 @@ a {
   width: 52vw;
   margin-left: 24vw;
   height: 1px;
-  border-bottom: rgb(68, 68, 68) solid 2px;
+  border-bottom: var(--NavBarBackgroundColor) solid 2px;
   /* border-bottom: var(--FancyColor) solid 2px; */
 }
 .burguer-bracket {
@@ -121,12 +123,13 @@ a {
   }
   .navbar {
     position: absolute;
-    top: 8vh;
+    top: 6vh;
     width: 100vw;
     margin: 0;
+    padding-top: 3vh;
     display: none;
     text-align: left;
-    background-color: rgb(51, 51, 51);
+    background-color: var(--BackgroundColor);
   }
   .navbar-item {
     display: inherit;
@@ -140,8 +143,8 @@ a {
   #burguer-menu {
     display: block;
     margin-left: 5vh;
-    /* margin-top: 10vw; */
     cursor: pointer;
+    background-color: var(--BackgroundColor);
   }
   input:checked ~ .navbar {
     display: block;
