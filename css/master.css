@@ -6,7 +6,7 @@
   --NavBarActiveColor: var(--FancyColor);
   --TextFontSize: 1.6vw;
   --ColumnWidth: 60vw;
-  --NavSeparatorWidth: 0.5vw;
+  --NavSeparatorWidth: 0.7vw;
   --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
 }
@@ -23,6 +23,9 @@ a {
   text-decoration: none;
   color: var(--FancyColor);
 }
+#menu {
+  display: none;
+}
 .navbar-container {
   position: -webkit-sticky;
   position: sticky;
@@ -37,28 +40,28 @@ a {
   color: var(--FontColor);
   font-size: 2.5vw;
   text-align: center;
-  margin-bottom: 0.5vw;
+  margin: var(--NavSeparatorWidth);
   display: inline-block;
   cursor: pointer;
 }
-.vertical-bar {
-  display: inline-block;
-  color: var(--FancyColor);
-  font-size: 3vw;
-  margin: 0;
-  margin-left: var(--NavSeparatorWidth);
-  margin-right: var(--NavSeparatorWidth);
+#navbar-line-separator {
+  width: 55vw;
+  margin-left: 22.5vw;
+  height: 1px;
+  border-bottom: rgb(68, 68, 68) solid 3px;
 }
-.nav_bracket {
+.nav-bracket {
   color: var(--FancyColor);
-  font-size: 4vw;
+  font-size: 4em;
   display: inline-block;
   margin: 0;
+}
+.burguer-bracket, .nav-burguer-meat, #burger-meat-container #burguer-menu {
+  display: none;
 }
 .credits {
-  --container-width: 20vw;
+  --container-width: 100vw;
   width: var(--container-width);
-  /* height: 3vh; */
   position: absolute;
   bottom: 3vh;
   margin-left: calc((100vw - var(--container-width)) / 2);
@@ -93,24 +96,78 @@ a {
 }
 
 /* Adjust display for mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (orientation: portrait) {
   :root {
     --ColumnWidth: 80vw;
     --TextFontSize: 3vw;
   }
-  .navbar-item {
-    font-size: 3.5vw;
-  }
-  .vertical-bar {
-    font-size: 2.5vw;
-  }
-  .credits {
-    --container-width: 30vw;
-  }
   .credits-content {
-    font-size: 2vw;
+    font-size: 3vw;
   }
   .code-symbol {
     font-size: 3.5vw;
+  }
+  .navbar {
+    position: absolute;
+    top: 8vh;
+    width: 100vw;
+    margin: 0;
+    display: none;
+    text-align: left;
+    background-color: rgb(51, 51, 51);
+  }
+  .navbar-item {
+    display: inherit;
+    font-size: 4vh;
+    text-align: left;
+    margin-left: 5.5vh;
+  }
+  .navbar-separator {
+    display: none;
+  }
+  #navbar-line-separator {
+    display: none;
+  }
+  .nav-bracket {
+    display: none;
+  }
+  #burguer-menu {
+    display: block;
+    margin-left: 5vh;
+    margin-top: 10vw;
+    cursor: pointer;
+  }
+  input:checked ~ .navbar {
+    display: block;
+  }
+  .burguer-bracket {
+    display: inline-block;
+    font-size: 9vw;
+  }
+  #burguer-meat-container {
+    display: inline-block;
+  }
+  .nav-burguer-meat {
+    display: block;
+    width: 9vw;
+    height: 1vw;
+    margin-top: 2.7vw;
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+    margin-bottom: -1vw;
+    background-color: var(--FontColor);
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .navbar-item {
+    font-size: 1.5em;
+  }
+  .nav-bracket {
+    color: var(--FancyColor);
+    font-size: 3em;
+  }
+  .credits-content {
+    font-size: 2vw;
   }
 }

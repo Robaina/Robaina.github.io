@@ -1,27 +1,32 @@
-<nav class="navbar">
-  <p class="nav_bracket">[</p>
+<input type="checkbox" id="menu">
+<label for="menu" id="burguer-menu">
+  <div class="nav-bracket burguer-bracket">[</div>
+
+  <div id="burguer-meat-container">
+    <div class="nav-burguer-meat"></div>
+    <div class="nav-burguer-meat"></div>
+    <div class="nav-burguer-meat"></div>
+  </div>
+
+  <div class="nav-bracket burguer-bracket">]</div>
+</label>
+
+</input>
+
+<div class="navbar">
 
   <div class="navbar-item" id="home" onclick="goToPage('/home.html')">Home</div>
 
-  <p class="vertical-bar">|</p>
-
   <div class="navbar-item" id="about" onclick="goToPage('/about.html')">About</div>
-
-  <p class="vertical-bar">|</p>
 
   <div class="navbar-item" id="research" onclick="goToPage('/research.html')">Research</div>
 
-  <p class="vertical-bar">|</p>
-
   <div class="navbar-item" id="blog" onclick="goToPage('/blog.html')">Blog</div>
-
-  <p class="vertical-bar">|</p>
 
   <div class="navbar-item" id="webapps" onclick="goToPage('/webapps.html')">Apps</div>
 
-  <p class="vertical-bar">|</p>
-
   <div class="navbar-item" id="contact" onclick="goToPage('/contact.html')">Contact</div>
 
-  <p class="nav_bracket">]</p>
-</nav>
+</div>
+
+<div id="navbar-line-separator"></div>

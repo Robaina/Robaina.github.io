@@ -15,7 +15,7 @@ ctx.fillRect(0, 0, cnv.width, cnv.height);
 
 makeStars(density=0.0001);
 // Set document background to canvas image
-document.body.style.background = 'url(' + cnv.toDataURL() + ')';
+document.body.style["background-image"] = 'url(' + cnv.toDataURL() + ')';
 
 function makeStars(density=0.75, min_size=1, max_size=3) {
   for( let x = 0; x < cnv.width; x++ ){

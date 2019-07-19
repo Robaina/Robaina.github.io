@@ -45,7 +45,7 @@
     margin-bottom: 5vh;
   }
   .myname {
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
   #name {
     margin-left: -25vw;
@@ -55,5 +55,11 @@
   }
   #surname2 {
     margin-left: 25vw;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape){
+  .myname {
+    margin-top: 13vh;
   }
 }
