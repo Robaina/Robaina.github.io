@@ -6,7 +6,7 @@
   --NavBarActiveColor: var(--FancyColor);
   --NavBarBackgroundColor: rgb(51, 51, 51);
   --TextFontSize: 1.4vw;
-  --ColumnWidth: 50vw;
+  --ColumnWidth: 55vw;
   --NavSeparatorWidth: 0.8vw;
   --TopMarginToHeader: 8vh;
   scroll-behavior: smooth;
@@ -68,18 +68,20 @@ a {
 }
 .navbar-item {
   color: var(--FontColor);
-  font-size: 2.1vw;
+  font-size: 2.0vw;
   text-align: center;
   margin-left: var(--NavSeparatorWidth);
   margin-right: var(--NavSeparatorWidth);
+  padding-bottom: 1vh;
   display: inline-block;
   cursor: pointer;
 }
 #navbar-line-separator {
-  width: 52vw;
-  margin-left: 24vw;
+  width: 50vw;
+  margin-left: 25vw;
+  /* padding-top: 1vh; */
   height: 1px;
-  border-bottom: var(--NavBarBackgroundColor) solid 2px;
+  border-bottom: var(--NavBarBackgroundColor) solid 3px;
   /* border-bottom: var(--FancyColor) solid 2px; */
 }
 .burguer-bracket {
@@ -116,7 +118,7 @@ a {
     --TextFontSize: 2.8vw;
   }
   #footer-content {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
   .footer-code-symbol {
     font-size: 3.5vw;
