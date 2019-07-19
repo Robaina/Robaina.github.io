@@ -1,6 +1,6 @@
 :root {
   --BackgroundColor: rgb(0, 0, 0);
-  --FontColor: rgb(212, 212, 212);
+  --FontColor: rgb(189, 189, 189);
   --FancyColor: rgb(73, 201, 35);
   --HighlightColor: rgb(230, 197, 26);
   --NavBarActiveColor: var(--FancyColor);
@@ -68,7 +68,7 @@ a {
 }
 .navbar-item {
   color: var(--FontColor);
-  font-size: 2.2vw;
+  font-size: 2.1vw;
   text-align: center;
   margin-left: var(--NavSeparatorWidth);
   margin-right: var(--NavSeparatorWidth);
