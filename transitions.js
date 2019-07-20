@@ -18,7 +18,7 @@ window.goToPage = function(href) {
   }
   else if (window.innerWidth > 768) {
     loc_x = window.innerWidth / 2.2;
-    loc_y = window.innerHeight / 2.2;
+    loc_y = window.innerHeight / 2.4;
     scale_factor = 1/4;
   }
 
