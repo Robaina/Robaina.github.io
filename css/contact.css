@@ -17,7 +17,10 @@ h1 {
 }
 .contact-logo {
   width: 10vw;
-  margin: 3vw;
+  margin: 2vw;
+  padding: 1vw;
+  border: var(--FontColor) solid 2px;
+  border-radius: 25px;
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait){

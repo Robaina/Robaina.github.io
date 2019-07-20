@@ -2,9 +2,9 @@
   --BackgroundColor: rgb(0, 0, 0);
   --FontColor: rgb(189, 189, 189);
   --FancyColor: rgb(73, 201, 35);
-  --HighlightColor: rgb(230, 197, 26);
   --NavBarActiveColor: var(--FancyColor);
-  --NavBarBackgroundColor: rgb(51, 51, 51);
+  --NavBarSeparatorColor: rgb(51, 51, 51);
+  --TextHoverColor: rgb(93, 93, 93);
   --TextFontSize: 1.4vw;
   --ColumnWidth: 55vw;
   --NavSeparatorWidth: 0.8vw;
@@ -26,6 +26,42 @@ html, body {
 a {
   text-decoration: none;
   color: var(--FancyColor);
+}
+#settings-container {
+  position: absolute;
+  top: 0vh;
+  left: 80vw;
+  width: 20vw;
+}
+#settings {
+  display: none;
+}
+#settings-label {
+  margin-left: 45%;
+  cursor: pointer;
+}
+#settings-icon {
+  margin: auto;
+  padding: 0;
+  width: 2.6vw;
+}
+.settings-item {
+  display: none;
+  cursor: pointer;
+  color: var(--FontColor);
+  background-color: var(--BackgroundColor);
+
+  font-size: 2.0vw;
+  text-align: center;
+  margin-left: var(--NavSeparatorWidth);
+  margin-right: var(--NavSeparatorWidth);
+  padding-top: 1vh;
+}
+.settings-item:hover {
+  color: var(--TextHoverColor);
+}
+#settings:checked ~ .settings-item {
+  display: block;
 }
 #page-container {
   position: relative;
@@ -53,7 +89,6 @@ a {
   display: inline-block;
   font-family: monospace;
 }
-
 #menu {
   display: none;
 }
@@ -76,12 +111,15 @@ a {
   display: inline-block;
   cursor: pointer;
 }
+.navbar-item:hover {
+  color: var(--TextHoverColor);
+}
 #navbar-line-separator {
   width: 50vw;
   margin-left: 25vw;
   /* padding-top: 1vh; */
   height: 1px;
-  border-bottom: var(--NavBarBackgroundColor) solid 3px;
+  border-bottom: var(--NavBarSeparatorColor) solid 3px;
   /* border-bottom: var(--FancyColor) solid 2px; */
 }
 .burguer-bracket {
@@ -148,7 +186,7 @@ a {
     cursor: pointer;
     background-color: var(--BackgroundColor);
   }
-  input:checked ~ .navbar {
+  #menu:checked ~ .navbar {
     display: block;
   }
   .burguer-bracket {
@@ -167,6 +205,17 @@ a {
     margin-right: 0.2vw;
     margin-bottom: -1vw;
     background-color: var(--FontColor);
+  }
+  #settings-container {
+    top: 1.4vh;
+    left: 65vw;
+    width: 35vw;
+  }
+  #settings-icon {
+    width: 7vw;
+  }
+  .settings-item {
+    font-size: 3vh;
   }
 }
 

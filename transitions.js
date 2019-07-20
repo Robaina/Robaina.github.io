@@ -4,6 +4,16 @@ let transition_time = 700;
 // Animate page transitions
 window.goToPage = function(href) {
 
+  /* Home takes time to load due to the name divs, increase opacity transition
+     time to hide the screen flash while loading */
+  let page_name = href.split("/").pop();
+  let is_home_page = page_name === "home.html";
+  let is_contact_page = page_name === "contact.html";
+  let light_mode_selected = window.sessionStorage.lightModeSelected === "true";
+  if ((is_home_page || is_contact_page) && light_mode_selected) {
+    document.querySelector('body').style.transition = "opacity 1.6s";
+  }
+
   // Adjust logo to screen size
   let portrait_oriented = window.matchMedia("(orientation: portrait)").matches
 
@@ -36,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 function draw_logo() {
   // Draws logo over default background color
   let backgroundColor = getComputedStyle(
-    document.documentElement).getPropertyValue('--backgroundColor');
+    document.documentElement).getPropertyValue('--BackgroundColor');
 
   let cnv2 = document.createElement('canvas');
   let ctx2 = cnv2.getContext('2d');

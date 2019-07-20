@@ -24,9 +24,6 @@
   transition: color 0.5s, font-size 0.5s, transform 0.5s;
   transition-delay: 0.05s;
 }
-.name-character:hover {
-  color: var(--RandomColor);
-}
 .myrol {
   font-size: 3vw;
   margin-top: 0vh;
