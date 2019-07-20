@@ -50,6 +50,7 @@ function randomExponential(gamma=1) {
 deployArtWork();
 
 // Change color of name characters
+let timeouts = [];
 let fading_time = 5000;
 let colors = ["rgb(94, 217, 69)", "rgb(250, 198, 44)", "rgb(246, 113, 71)",
               "rgb(51, 215, 201)", "rgb(217, 69, 189)", "rgb(71, 114, 241)",
@@ -57,16 +58,30 @@ let colors = ["rgb(94, 217, 69)", "rgb(250, 198, 44)", "rgb(246, 113, 71)",
 let characters = document.getElementsByClassName("name-character");
 for (let i=0; i<characters.length; i++) {
   let char = characters[i];
-  char.addEventListener("mouseover", changeColor);
+  char.addEventListener("mouseover", changeCharacterColor);
 }
 
-function changeColor(event) {
+function changeCharacterColor(event) {
   let regular_color = getComputedStyle(document.documentElement)
       .getPropertyValue('--FontColor');
   let rand_color = colors[Math.floor(Math.random() * colors.length)];
   let elem = event.target || event.srcElement;
   elem.style.color = rand_color;
-  setTimeout(function() {
+  timeouts.push(setTimeout(function() {
     elem.style.color = regular_color;
-  }, fading_time);
+  }, fading_time));
+}
+
+function returnRegularColorToCharacters() {
+
+  for (timeout of timeouts) {
+    clearTimeout(timeout);
+  }
+  let characters = document.getElementsByClassName("name-character");
+  let regular_color = getComputedStyle(document.documentElement)
+      .getPropertyValue('--FontColor');
+  for (let i=0; i<characters.length; i++) {
+    let char = characters[i];
+    char.style.color = regular_color;
+  }
 }

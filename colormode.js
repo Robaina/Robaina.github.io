@@ -42,6 +42,7 @@ function setColorMode() {
   }
   if (is_home_page) {
     deployArtWork();
+    returnRegularColorToCharacters();
   }
   if (is_contact_page) {
     setRightLogosForColorMode();
