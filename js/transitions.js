@@ -6,9 +6,9 @@ window.goToPage = function(href) {
 
   /* Home takes time to load due to the name divs, increase opacity transition
      time to hide the screen flash while loading */
-  let page_name = href.split("/").pop();
-  let is_home_page = page_name === "home.html";
-  let is_contact_page = page_name === "contact.html";
+  let page_name = href.split("/").pop().split(".html")[0];
+  let is_home_page = page_name === "home";
+  let is_contact_page = page_name === "contact";
   let light_mode_selected = window.sessionStorage.lightModeSelected === "true";
   if ((is_home_page || is_contact_page) && light_mode_selected) {
     document.querySelector('body').style.transition = "opacity 1.6s";

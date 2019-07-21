@@ -29,9 +29,9 @@ function selectDarkMode() {
 }
 
 function setColorMode() {
-  let page_name = window.location.pathname.split("/").pop();
-  let is_home_page = page_name === "home.html";
-  let is_contact_page = page_name === "contact.html";
+  let page_name = window.location.pathname.split("/").pop().split(".html")[0];
+  let is_home_page = page_name === "home";
+  let is_contact_page = page_name === "contact";
   light_mode_selected = window.sessionStorage.lightModeSelected === "true";
 
   if (light_mode_selected) {
