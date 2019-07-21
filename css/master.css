@@ -29,7 +29,7 @@ a {
 }
 #settings-container {
   position: absolute;
-  top: 0vh;
+  top: -1.5vh;
   left: 80vw;
   width: 20vw;
 }
@@ -41,27 +41,40 @@ a {
   cursor: pointer;
 }
 #settings-icon {
+  display: block;
   margin: auto;
   padding: 0;
   width: 2.6vw;
+}
+#settings-icon:active {
+  animation: icon-rotation;
+  animation-duration: 1s;
+}
+@keyframes icon-rotation {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(45deg);}
 }
 .settings-item {
   display: none;
   cursor: pointer;
   color: var(--FontColor);
   background-color: var(--BackgroundColor);
-
+  width: 100%;
+  height: 5vh;
+  /* border-left: 1px solid var(--FontColor);
+  border-right: 1px solid var(--FontColor); */
   font-size: 2.0vw;
   text-align: center;
-  margin-left: var(--NavSeparatorWidth);
-  margin-right: var(--NavSeparatorWidth);
+  margin: 0vw;
+  /* margin-left: var(--NavSeparatorWidth); */
+  /* margin-right: var(--NavSeparatorWidth); */
   padding-top: 1vh;
 }
 .settings-item:hover {
-  color: var(--TextHoverColor);
+  background-color: var(--TextHoverColor);
 }
 #settings:checked ~ .settings-item {
-  display: block;
+  display: inline-block;
 }
 #page-container {
   position: relative;
@@ -207,7 +220,7 @@ a {
     background-color: var(--FontColor);
   }
   #settings-container {
-    top: 1.4vh;
+    top: -1.4vh;
     left: 65vw;
     width: 35vw;
   }
