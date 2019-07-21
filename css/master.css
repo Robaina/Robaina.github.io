@@ -141,7 +141,7 @@ a {
 #navbar-line-separator {
   width: 50vw;
   margin-left: 25vw;
-  /* padding-top: 1vh; */
+  padding-top: -2vh;
   height: 1px;
   border-bottom: var(--NavBarSeparatorColor) solid 3px;
   /* border-bottom: var(--FancyColor) solid 2px; */
