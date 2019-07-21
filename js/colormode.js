@@ -54,6 +54,17 @@ function setColorMode() {
   }
 
   hideSettingsOptions();
+  settings_expanded = !settings_expanded;
+}
+
+let settings_expanded = true;
+function expandSettingsOptions() {
+  settings_expanded = !settings_expanded;
+  if (settings_expanded) {
+    showSettingsOptions();
+  } else {
+    hideSettingsOptions();
+  }
 }
 
 function hideSettingsOptions() {

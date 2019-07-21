@@ -41,22 +41,16 @@ a {
 }
 #settings-container {
   position: absolute;
-  top: -1.6vh;
+  top: 0vh;
   left: 80vw;
   width: 15vw;
-}
-#settings {
-  display: none;
-}
-#settings-label {
-  margin-left: 45%;
-  cursor: pointer;
 }
 #settings-icon {
   display: block;
   margin: auto;
   padding: 0;
   width: 2.6vw;
+  cursor: pointer;
 }
 #settings-icon:active {
   animation: icon-rotation;
@@ -82,11 +76,7 @@ a {
 }
 .settings-item:hover {
   background-color: var(--TextHoverColor);
-  /* background-color: var(--FancyColor); */
 }
-/* #settings:checked ~ .settings-item {
-  display: inline-block;
-} */
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -231,12 +221,14 @@ a {
     background-color: var(--FontColor);
   }
   #settings-container {
-    top: -1.4vh;
+    top: 1vh;
     left: 65vw;
     width: 35vw;
+    display: inline-block;
   }
   #settings-icon {
     width: 7vw;
+    padding-bottom: 3vh;
   }
   .settings-item {
     font-size: 3vh;
