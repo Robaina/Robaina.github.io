@@ -14,17 +14,17 @@
 
 <div class="navbar">
 
-  <div class="navbar-item" id="home" onclick="goToPage('/home.html')">Home</div>
+  <div class="navbar-item" id="home" onclick="goToPage('home.html')">Home</div>
 
-  <div class="navbar-item" id="about" onclick="goToPage('/about.html')">About</div>
+  <div class="navbar-item" id="about" onclick="goToPage('about.html')">About</div>
 
-  <div class="navbar-item" id="research" onclick="goToPage('/research.html')">Research</div>
+  <div class="navbar-item" id="research" onclick="goToPage('research.html')">Research</div>
 
-  <div class="navbar-item" id="blog" onclick="goToPage('/blog.html')">Blog</div>
+  <div class="navbar-item" id="blog" onclick="goToPage('blog.html')">Blog</div>
 
-  <div class="navbar-item" id="webapps" onclick="goToPage('/webapps.html')">Apps</div>
+  <div class="navbar-item" id="webapps" onclick="goToPage('webapps.html')">Apps</div>
 
-  <div class="navbar-item" id="contact" onclick="goToPage('/contact.html')">Contact</div>
+  <div class="navbar-item" id="contact" onclick="goToPage('contact.html')">Contact</div>
 
 </div>
 
@@ -32,7 +32,7 @@
 
 <div id="settings-container">
   <input type="checkbox" id="settings">
-  <label for="settings" id="settings-label">
+  <label for="settings" id="settings-label" onclick="showSettingsOptions()">
     <img src="/imgs/settings.png" alt="settings symbol image" id="settings-icon">
   </label>
   <div class="settings-item" id="light-mode" onclick="selectLightMode()">Light mode</div>

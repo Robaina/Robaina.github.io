@@ -19,8 +19,11 @@ h1 {
   width: 10vw;
   margin: 2vw;
   padding: 1vw;
-  border: var(--FontColor) solid 2px;
+  border: var(--UnselectedBorderColor) solid 2px;
   border-radius: 25px;
+}
+.contact-logo:hover {
+  border-color: var(--FancyColor);
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait){

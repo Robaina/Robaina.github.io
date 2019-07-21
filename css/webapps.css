@@ -1,6 +1,6 @@
 body {
   --FancyColor_selected: rgb(15, 15, 15);
-  --BorderColor: rgb(121, 121, 121);
+  --BorderColor: var(--UnselectedBorderColor);
   --grid_width: var(--ColumnWidth);
   --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.01 * var(--grid_width));
@@ -17,9 +17,6 @@ img {
 }
 h1, p {
   color: var(--FontColor);
-}
-a {
-  color: rgb(124, 75, 222);
 }
 .grid_link {
   text-decoration: none;

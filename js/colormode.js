@@ -1,15 +1,20 @@
-// Provisional: change color mode
+// Change color mode
 let light_mode_selected;
-let light_color_mode = {
-  "--BackgroundColor": "rgb(205, 205, 205)",
-  "--FontColor": "rgb(0, 0, 0)",
-  "--FancyColor": "rgb(13, 79, 185)"
-};
-let dark_color_mode = {
-  "--BackgroundColor": "rgb(0, 0, 0)",
-  "--FontColor": "rgb(189, 189, 189)",
-  "--FancyColor": "rgb(73, 201, 35)"
-};
+let light_color_mode = {};
+let dark_color_mode = {};
+let properties = ["BackgroundColor", "FontColor", "FancyColor"];
+
+for (property of properties) {
+  light_color_mode["--" + property] = getComputedStyle(
+    document.documentElement).getPropertyValue("--" + "LightMode"
+    + property);
+  dark_color_mode["--" + property] = getComputedStyle(
+    document.documentElement).getPropertyValue("--" + "DarkMode"
+    + property);
+}
+
+sky_color = getComputedStyle(
+  document.documentElement).getPropertyValue('--BackgroundColor');
 
 function selectLightMode() {
   window.sessionStorage.lightModeSelected = true;
@@ -47,11 +52,22 @@ function setColorMode() {
   if (is_contact_page) {
     setRightLogosForColorMode();
   }
-  // Hide settings options: does not work, prevents items to appear again...
-  // let settings_items = document.getElementsByClassName("settings-item");
-  // for (let i=0; i<settings_items.length; i++) {
-  //   settings_items[i].style.display = "none";
-  // }
+
+  hideSettingsOptions();
+}
+
+function hideSettingsOptions() {
+  let settings_items = document.getElementsByClassName("settings-item");
+  for (let i=0; i<settings_items.length; i++) {
+    settings_items[i].style.display = "none";
+  }
+}
+
+function showSettingsOptions() {
+  let settings_items = document.getElementsByClassName("settings-item");
+  for (let i=0; i<settings_items.length; i++) {
+    settings_items[i].style.display = "inline-block";
+  }
 }
 
 function setRightLogosForColorMode() {

@@ -1,10 +1,22 @@
 :root {
-  --BackgroundColor: rgb(0, 0, 0);
-  --FontColor: rgb(189, 189, 189);
-  --FancyColor: rgb(73, 201, 35);
+  /* Dark mode color palette */
+  --DarkModeBackgroundColor: rgb(0, 0, 0);
+  --DarkModeFontColor: rgb(189, 189, 189);
+  --DarkModeFancyColor: rgb(73, 201, 35);
+
+  /* Light mode color palette */
+  --LightModeBackgroundColor: rgb(205, 205, 205);
+  --LightModeFontColor: rgb(0, 0, 0);
+  --LightModeFancyColor: rgb(13, 79, 185);
+
+  /* Master variables */
+  --BackgroundColor: var(--DarkModeBackgroundColor);
+  --FontColor: var(--DarkModeFontColor);
+  --FancyColor: var(--DarkModeFancyColor);
   --NavBarActiveColor: var(--FancyColor);
   --NavBarSeparatorColor: rgb(51, 51, 51);
   --TextHoverColor: rgb(93, 93, 93);
+  --UnselectedBorderColor: rgb(121, 121, 121);
   --TextFontSize: 1.4vw;
   --ColumnWidth: 55vw;
   --NavSeparatorWidth: 0.8vw;
@@ -29,9 +41,9 @@ a {
 }
 #settings-container {
   position: absolute;
-  top: -1.5vh;
+  top: -1.6vh;
   left: 80vw;
-  width: 20vw;
+  width: 15vw;
 }
 #settings {
   display: none;
@@ -66,16 +78,15 @@ a {
   font-size: 2.0vw;
   text-align: center;
   margin: 0vw;
-  /* margin-left: var(--NavSeparatorWidth); */
-  /* margin-right: var(--NavSeparatorWidth); */
   padding-top: 1vh;
 }
 .settings-item:hover {
   background-color: var(--TextHoverColor);
+  /* background-color: var(--FancyColor); */
 }
-#settings:checked ~ .settings-item {
+/* #settings:checked ~ .settings-item {
   display: inline-block;
-}
+} */
 #page-container {
   position: relative;
   min-height: 100vh;
