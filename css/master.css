@@ -51,14 +51,19 @@ a {
   padding: 0;
   width: 2.6vw;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 #settings-icon:active {
-  animation: icon-rotation;
-  animation-duration: 1s;
+  -webkit-animation: icon-rotation 1s;
+  animation: icon-rotation 1s;
 }
 @keyframes icon-rotation {
   0% {transform: rotate(0deg);}
   50% {transform: rotate(45deg);}
+}
+@-webkit-keyframes icon-rotation {
+  0% {-webkit-transform: rotate(0deg);}
+  50% {-webkit-transform: rotate(45deg);}
 }
 .settings-item {
   display: none;
@@ -224,11 +229,9 @@ a {
     top: 1vh;
     left: 65vw;
     width: 35vw;
-    display: inline-block;
   }
   #settings-icon {
     width: 7vw;
-    padding-bottom: 3vh;
   }
   .settings-item {
     font-size: 3vh;

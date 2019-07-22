@@ -24,13 +24,14 @@
 
       // Preload all images
 			let folder = "imgs/";
+			let imgs = [];
 			$.ajax({
 			    url : folder,
 			    success: function (data) {
 			        $(data).find("a").attr("href", function (i, val) {
 			            if( val.match(/\.(jpe?g|png|gif)$/) ) {
-										  let img = new Image();
-									  	img.src = val;
+										  imgs.push(new Image());
+									  	imgs.pop().src = val;
 			            }
 			        });
 			    }
