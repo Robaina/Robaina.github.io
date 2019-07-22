@@ -17,6 +17,7 @@
 		<!-- Preload images -->
 		<!-- <link rel="preload" as="image" href="/imgs/github_icon_dark.png"/> -->
 		<!-- <link rel="preload" as="image" href="/imgs/github_icon_light.png"/> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="/js/colormode.js"></script>
 
 		<script>
@@ -29,7 +30,7 @@
 			        $(data).find("a").attr("href", function (i, val) {
 			            if( val.match(/\.(jpe?g|png|gif)$/) ) {
 										  let img = new Image();
-									  	img.src = "/" + folder + val;
+									  	img.src = val;
 			            }
 			        });
 			    }
