@@ -14,14 +14,9 @@
 		<link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/index.css">
 
-		<!-- Preload images -->
-		<!-- <link rel="preload" as="image" href="/imgs/github_icon_dark.png"/> -->
-		<!-- <link rel="preload" as="image" href="/imgs/github_icon_light.png"/> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="/js/settings.js"></script>
-
 		<script>
-
       // Preload all images
 			let folder = "imgs/";
 			let imgs = [];
@@ -37,17 +32,22 @@
 			    }
 			});
 
+      // Redirect to Home when ready
 			function goToHome() {
 				setTimeout(function() {
 					window.location.href = "home";
 			  }, 2500)
 		  }
 
+			$(document).ready(function(){
+				goToHome();
+      });
+
 		</script>
 
 	</head>
 
-	<body onload="goToHome()">
+	<body>
 
     <img id="mylogo" src="/imgs/logo1.png" alt="Responsive image">
 
