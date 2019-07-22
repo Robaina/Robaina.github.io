@@ -21,6 +21,7 @@
   --ColumnWidth: 55vw;
   --NavSeparatorWidth: 0.8vw;
   --TopMarginToHeader: 8vh;
+  --IconRotationAngle: 45deg;
   scroll-behavior: smooth;
 }
 body {
@@ -59,11 +60,11 @@ a {
 }
 @keyframes icon-rotation {
   0% {transform: rotate(0deg);}
-  50% {transform: rotate(45deg);}
+  50% {transform: rotate(var(--IconRotationAngle));}
 }
 @-webkit-keyframes icon-rotation {
   0% {-webkit-transform: rotate(0deg);}
-  50% {-webkit-transform: rotate(45deg);}
+  50% {-webkit-transform: rotate(var(--IconRotationAngle));}
 }
 .settings-item {
   display: none;

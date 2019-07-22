@@ -69,16 +69,25 @@ function expandSettingsOptions() {
 
 function hideSettingsOptions() {
   let settings_items = document.getElementsByClassName("settings-item");
+  let icon_rotation_angle = getComputedStyle(
+    document.documentElement).getPropertyValue("--IconRotationAngle");
   for (let i=0; i<settings_items.length; i++) {
     settings_items[i].style.display = "none";
   }
+  document.documentElement.style
+    .setProperty("--IconRotationAngle", icon_rotation_angle.split("-").pop());
 }
 
 function showSettingsOptions() {
   let settings_items = document.getElementsByClassName("settings-item");
+  let icon_rotation_angle = getComputedStyle(
+    document.documentElement).getPropertyValue("--IconRotationAngle");
   for (let i=0; i<settings_items.length; i++) {
     settings_items[i].style.display = "inline-block";
   }
+  let neg_angle = ("-" + icon_rotation_angle).replace(" ", "");
+  document.documentElement.style
+    .setProperty("--IconRotationAngle", neg_angle);
 }
 
 function setRightLogosForColorMode() {
