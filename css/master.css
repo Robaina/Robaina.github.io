@@ -1,6 +1,6 @@
 :root {
   /* Dark mode color palette */
-  --DarkModeBackgroundColor: rgb(0, 0, 0);
+  --DarkModeBackgroundColor: rgb(25, 25, 25);
   --DarkModeFontColor: rgb(189, 189, 189);
   --DarkModeFancyColor: rgb(73, 201, 35);
 
