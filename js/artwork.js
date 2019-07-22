@@ -52,9 +52,9 @@ deployArtWork();
 // Change color of name characters
 let timeouts = [];
 let fading_time = 5000;
-let colors = ["rgb(94, 217, 69)", "rgb(250, 198, 44)", "rgb(246, 113, 71)",
-              "rgb(51, 215, 201)", "rgb(217, 69, 189)", "rgb(71, 114, 241)",
-              "rgb(132, 22, 242)"];
+let colors = ["rgb(80, 189, 58)", "rgb(214, 174, 55)", "rgb(212, 102, 68)",
+              "rgb(34, 167, 155)", "rgb(187, 61, 163)", "rgb(57, 95, 208)",
+              "rgb(113, 14, 212)"];
 let characters = document.getElementsByClassName("name-character");
 for (let i=0; i<characters.length; i++) {
   let char = characters[i];
