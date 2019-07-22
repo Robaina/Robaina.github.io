@@ -21,8 +21,19 @@
 
 		<script>
 
-			let logo = new Image();
-			logo.src = "/imgs/logo1.png";
+      // Preload all images
+			let folder = "imgs/";
+			$.ajax({
+			    url : folder,
+			    success: function (data) {
+			        $(data).find("a").attr("href", function (i, val) {
+			            if( val.match(/\.(jpe?g|png|gif)$/) ) {
+										  let img = new Image();
+									  	img.src = "/" + folder + val;
+			            }
+			        });
+			    }
+			});
 
 			function goToHome() {
 				setTimeout(function() {
