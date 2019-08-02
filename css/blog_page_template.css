@@ -1,0 +1,19 @@
+#blog {
+  color: var(--NavBarActiveColor);
+  pointer-events: none;
+}
+
+.blog-wrap {
+  width: var(--ColumnWidth);
+  margin-top: var(--TopMarginToHeader);
+  margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+  font-size: var(--TextFontSize);
+  text-align: justify;
+}
+
+.blog-title {
+  text-align: center;
+  font-size: calc(1.2 * var(--TextFontSize));
+}

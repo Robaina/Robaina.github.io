@@ -1,7 +1,7 @@
 body {
   --FancyColor_selected: rgb(15, 15, 15);
   --BorderColor: var(--UnselectedBorderColor);
-  --grid_width: var(--ColumnWidth);
+  --grid_width: calc(1.1 * var(--ColumnWidth));
   --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.01 * var(--grid_width));
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
@@ -42,6 +42,7 @@ h1, p {
 }
 .grid_item {
   width: var(--grid_item_width);
+  /* width: auto; */
   height: auto;
   border: var(--grid_item_border_width) solid var(--BorderColor);
   margin: var(--grid_item_margin);
@@ -61,6 +62,10 @@ h1, p {
 .thumbnail {
   width: calc(0.8 * var(--grid_item_width));
   margin-left: calc(0.1 * var(--grid_item_width));
+  /* width: auto; */
+  /* max-height: 100%; */
+  /* padding: 1vw; */
+  /* display: block; */
 }
 .button {
   font-size: calc(0.065 * var(--grid_item_width));
@@ -84,4 +89,16 @@ h1, p {
 }
 .codeButton {
   margin-left: calc(0.2 * var(--grid_item_width));
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  body {
+    --sclfactor: 2.4;
+    --grid_item_margin: calc(var(--sclfactor) * 0.02 * var(--grid_width));
+    --grid_item_border_width: calc(var(--sclfactor) * 0.01 * var(--grid_width));
+    --grid_item_width: calc(var(--sclfactor) * 0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
+  }
+  .grid_container {
+    grid-template-columns: auto;
+  }
 }

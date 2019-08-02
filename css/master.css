@@ -105,7 +105,7 @@ a {
 }
 .footer-code-symbol {
   color: var(--FancyColor);
-  font-size: 2.5vw;
+  font-size: 1.5em;
   display: inline-block;
   font-family: monospace;
 }
