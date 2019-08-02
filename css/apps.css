@@ -1,11 +1,7 @@
 body {
   --FancyColor_selected: rgb(15, 15, 15);
   --BorderColor: var(--UnselectedBorderColor);
-<<<<<<< HEAD
-  --grid_width: var(--ColumnWidth); /*calc(1.1 * var(--ColumnWidth));*/
-=======
-  --grid_width: calc(1.1 * var(--ColumnWidth));
->>>>>>> cb0b50793d09477223f53663db7e760df18a3522
+  --grid_width: var(--ColumnWidth); /*calc(1.1 * var(--ColumnWidth)); Not suported on Edge*/
   --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.01 * var(--grid_width));
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
@@ -102,10 +98,6 @@ h1, p {
     --grid_item_border_width: calc(var(--sclfactor) * 0.01 * var(--grid_width));
     --grid_item_width: calc(var(--sclfactor) * 0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> cb0b50793d09477223f53663db7e760df18a3522
   .grid_container {
     grid-template-columns: auto;
   }
