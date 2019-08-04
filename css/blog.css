@@ -1,12 +1,85 @@
 html {
   color: var(--FontColor);
 }
+
+body {
+  --FancyColor_selected: rgb(15, 15, 15);
+  --BorderColor: var(--UnselectedBorderColor);
+  --grid_width: 70vw;
+  --grid_item_margin: calc(0.03 * var(--grid_width));
+  --grid_item_border_width: calc(0.005 * var(--grid_width));
+  --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
+  overflow-x: hidden;
+}
+
+.grid_container {
+  display: grid;
+  /* grid-template-columns: auto auto; */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: row dense;
+  width: var(--grid_width);
+  margin-right: 0;
+  margin-left: calc((100vw - var(--grid_width)) / 2);
+  margin-bottom: 5vh;
+  margin-top: 20vh;
+  /* margin: auto; */
+}
+.grid_item {
+  /* width: var(--grid_item_width); */
+  width: auto;
+  height: auto;
+  /* border: var(--grid_item_border_width) solid var(--BorderColor); */
+  /* border-radius: 0px; */
+  margin: var(--grid_item_margin);
+  cursor: pointer;
+}
+.grid_item_content:hover > * {
+  /* border: var(--grid_item_border_width) solid var(--FancyColor); */
+  color: var(--UnselectedBorderColor);
+}
+.grid_item_content {
+  margin: 0;
+}
+.grid_item_title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.4em;
+  /* max-height: calc(0.15 * var(--grid_item_width)); */
+  margin: 0;
+}
+.thumbnail {
+  width: 100%;
+  margin-top: 1em;
+  /* width: calc(0.8 * var(--grid_item_width));
+  margin-left: calc(0.1 * var(--grid_item_width)); */
+  /* width: auto; */
+  /* max-height: 100%; */
+  /* padding: 1vw; */
+  /* display: block; */
+}
+
+/* img {
+  max-width: 100%;
+  max-height: auto;
+} */
+h1, p {
+  color: var(--FontColor);
+}
+.grid_link {
+  text-decoration: none;
+  color: var(--FontColor);
+}
+.content_preview {
+  text-align: justify;
+}
+
 #blog {
   color: var(--NavBarActiveColor);
   pointer-events: none;
 }
-h1 {
-  text-align: center;
-  font-size: 3vw;
-  margin-top: 40vh;
-}
+
+/* @media only screen and (max-width: 768px) and (orientation: portrait) {
+  .grid_container {
+    grid-template-columns: auto;
+  }
+} */

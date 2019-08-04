@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Semidán: Blog</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="/imgs/logo1.png">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/blog_page_template.css">
+    <script src="https://kit.fontawesome.com/b74ab0dc19.js"></script>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/transitions.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/blog-entry.js"></script>
+    <script>
+      $(function() {
+        $("#navbar").load("/navbar.html");
+      });
+      $(function() {
+        $("#footer").load("/credits.html");
+      });
+      $(function() {
+        $("#blog-navigator").load("/blog-navigator.html");
+      });
+      let logo = new Image();
+      logo.src = "/imgs/logo1.png";
+    </script>
+
+  </head>
+
+  <body>
+
+    <div id="page-container">
+      <div id="content-wrap">
+
+        <div class="navbar-container" id="navbar"></div>
+
+        <div class="blog-wrap">
+
+          <div class="blog-title">
+            <p>Making this website</p>
+          </div>
+
+          <article class="blog-content">
+
+            <p>I have been wanting to make my own personal website since I started my PhD. I knew it was something important to have but I just couldn't find the time to do it. Now that I have more time, I decided to go for it! I could have easily built my website using some content management system, or building on a website template, or even use one of the several available JavaScript libraries to help me do it. However, I wanted to build a website from scratch. That is, using pure HTML5, CSS3 and vanilla JavasCript. Partly because I wanted to learn in the process, but also to prove myself that I was able to do it&msdash;somehow building a website seemed like a mysterious process to me, oftentimes was told that I wouldn't be able to make a website without professional help. I can help, I like a challenge.</p>
+
+          </article>
+
+        </div>
+
+
+      </div>
+      	<footer id="footer"></footer>
+        <div id="blog-navigator"></div>
+    </div>
+
+  </body>
+</html>
