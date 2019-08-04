@@ -21,7 +21,7 @@ body {
   margin-right: 0;
   margin-left: calc((100vw - var(--grid_width)) / 2);
   margin-bottom: 5vh;
-  margin-top: 20vh;
+  margin-top: 15vh;
   /* margin: auto; */
 }
 .grid_item {
