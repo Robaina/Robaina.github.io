@@ -2,7 +2,7 @@
 let light_mode_selected;
 let light_color_mode = {};
 let dark_color_mode = {};
-let properties = ["BackgroundColor", "FontColor", "FancyColor"];
+let properties = ["BackgroundColor", "FontColor", "FancyColor", "EmphFontColor"];
 
 for (property of properties) {
   light_color_mode["--" + property] = getComputedStyle(

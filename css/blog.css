@@ -1,13 +1,8 @@
-html {
-  color: var(--FontColor);
-}
-
 body {
-  --FancyColor_selected: rgb(15, 15, 15);
   --BorderColor: var(--UnselectedBorderColor);
   --grid_width: 70vw;
   --grid_item_margin: calc(0.03 * var(--grid_width));
-  --grid_item_border_width: calc(0.005 * var(--grid_width));
+  --grid_item_border_width: calc(0.003 * var(--grid_width));
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   overflow-x: hidden;
 }
@@ -15,7 +10,7 @@ body {
 .grid_container {
   display: grid;
   /* grid-template-columns: auto auto; */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
   grid-auto-flow: row dense;
   width: var(--grid_width);
   margin-right: 0;
@@ -25,17 +20,17 @@ body {
   /* margin: auto; */
 }
 .grid_item {
-  /* width: var(--grid_item_width); */
   width: auto;
   height: auto;
   /* border: var(--grid_item_border_width) solid var(--BorderColor); */
-  /* border-radius: 0px; */
+  /* border-radius: 25px; */
+  padding: calc(0.2 * var(--grid_item_margin));
   margin: var(--grid_item_margin);
   cursor: pointer;
 }
 .grid_item_content:hover > * {
   /* border: var(--grid_item_border_width) solid var(--FancyColor); */
-  color: var(--UnselectedBorderColor);
+  color: var(--EmphFontColor);
 }
 .grid_item_content {
   margin: 0;
@@ -57,11 +52,6 @@ body {
   /* padding: 1vw; */
   /* display: block; */
 }
-
-/* img {
-  max-width: 100%;
-  max-height: auto;
-} */
 h1, p {
   color: var(--FontColor);
 }

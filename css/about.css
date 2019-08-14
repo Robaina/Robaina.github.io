@@ -11,3 +11,6 @@
   font-size: var(--TextFontSize);
   text-align: justify;
 }
+#content-wrap {
+  padding-bottom: 14vh; /* Temporary to avoid overflow */
+}

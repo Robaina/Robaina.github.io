@@ -21,7 +21,6 @@ function deployArtWork() {
   makeStars(density=0.0001);
   // Set document background to canvas image
   document.body.style["background-image"] = 'url(' + cnv.toDataURL() + ')';
-
 }
 
 function makeStars(density=0.75, min_size=1, max_size=3) {
@@ -47,7 +46,7 @@ function randomExponential(gamma=1) {
   return (1 - Math.E**(-gamma*Math.random()))
 }
 
-deployArtWork();
+//deployArtWork();
 
 // Change color of name characters
 let timeouts = [];
@@ -73,7 +72,6 @@ function changeCharacterColor(event) {
 }
 
 function returnRegularColorToCharacters() {
-
   for (timeout of timeouts) {
     clearTimeout(timeout);
   }
