@@ -3,28 +3,30 @@ body {
   --grid_width: 70vw;
   --grid_item_margin: calc(0.03 * var(--grid_width));
   --grid_item_border_width: calc(0.003 * var(--grid_width));
-  --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
+  /* --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin)))); */
   overflow-x: hidden;
 }
-h1, p {
+hr {
+  border-color: var(--FontColor);
+  display: none;
+}
+.grid-title {
+  --titleWidth: 60vw;
+  text-align: center;
+  font-size: 1.8em;
+  margin-top: 5vh;
+  width: var(--titleWidth);
+  margin-left: calc((100vw - var(--titleWidth)) / 2);
+  border-bottom: 2px double var(--FontColor);
   color: var(--FontColor);
 }
-h1 {
-  text-align: center;
-  font-size: 3vw;
-  margin-top: 40vh;
-}
-
 .grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
   grid-auto-flow: row dense;
-  width: var(--grid_width);
-  margin-right: 0;
-  margin-left: calc((100vw - var(--grid_width)) / 2);
-  margin-bottom: 5vh;
-  margin-top: 15vh;
-  /* margin: auto; */
+  width: auto;
+  justify-content: center;
+  margin: 5vh;
 }
 .grid_item {
   width: auto;
@@ -42,22 +44,25 @@ h1 {
 .grid_item_content {
   margin: 0;
 }
+.grid_item_header {
+  text-align: center;
+  color: var(--FontColor);
+  min-height: 10vh;
+  padding-bottom: auto;
+}
 .grid_item_title {
   width: 100%;
-  text-align: center;
-  font-size: 1.4em;
-  /* max-height: calc(0.15 * var(--grid_item_width)); */
+  font-size: 1.2em;
   margin: 0;
+  margin-top: auto;
+}
+.grid_item_authors {
+  margin-top: 0.5vh;
 }
 .thumbnail {
   width: 100%;
   margin-top: 1em;
-  /* width: calc(0.8 * var(--grid_item_width));
-  margin-left: calc(0.1 * var(--grid_item_width)); */
-  /* width: auto; */
-  /* max-height: 100%; */
-  /* padding: 1vw; */
-  /* display: block; */
+  height: 225px;
 }
 .grid_link {
   text-decoration: none;
@@ -65,6 +70,7 @@ h1 {
 }
 .content_preview {
   text-align: justify;
+  color: var(--FontColor);
 }
 #research {
   color: var(--NavBarActiveColor);
