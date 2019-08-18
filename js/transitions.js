@@ -35,13 +35,12 @@ window.goToPage = function(href) {
   document.querySelector('body').style.opacity = 0;
   if (window.scrollY > 0) {
     window.scrollTo(0, 0);
-    setTimeout(function() {
-      draw_logo();
-    }, 300);
+    // setTimeout(function() {
+    //   draw_logo();
+    // }, 300);
   } else {
     draw_logo();
   }
-
   setTimeout(function() {
       window.location.href = href;
   }, transition_time);

@@ -1,24 +1,9 @@
 body {
   --BorderColor: var(--UnselectedBorderColor);
   --grid_width: 70vw;
-  --grid_item_margin: calc(0.03 * var(--grid_width));
-  --grid_item_border_width: calc(0.003 * var(--grid_width));
-  /* --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin)))); */
+  --grid_item_margin: 2.1vw;
+  --grid_item_border_width: 0.21vw;
   overflow-x: hidden;
-}
-hr {
-  border-color: var(--FontColor);
-  display: none;
-}
-.grid-title {
-  --titleWidth: 60vw;
-  text-align: center;
-  font-size: 1.8em;
-  margin-top: 5vh;
-  width: var(--titleWidth);
-  margin-left: calc((100vw - var(--titleWidth)) / 2);
-  border-bottom: 2px double var(--FontColor);
-  color: var(--FontColor);
 }
 .grid_container {
   display: grid;
@@ -31,14 +16,11 @@ hr {
 .grid_item {
   width: auto;
   height: auto;
-  /* border: var(--grid_item_border_width) solid var(--BorderColor); */
-  /* border-radius: 25px; */
   padding: calc(0.2 * var(--grid_item_margin));
   margin: var(--grid_item_margin);
   cursor: pointer;
 }
-.grid_item_content:hover > * {
-  /* border: var(--grid_item_border_width) solid var(--FancyColor); */
+.grid_item_content:hover > *
   color: var(--EmphFontColor);
 }
 .grid_item_content {
@@ -47,7 +29,7 @@ hr {
 .grid_item_header {
   text-align: center;
   color: var(--FontColor);
-  min-height: 10vh;
+  min-height: 7vh;
   padding-bottom: auto;
 }
 .grid_item_title {
@@ -59,9 +41,26 @@ hr {
 .grid_item_authors {
   margin-top: 0.5vh;
 }
+.papertag {
+  margin-top: 3%;
+  width: 30%;
+  border-radius: 10px;
+  color: var(--LightModeFontColor);
+  text-align: center;
+  font-size: 1em;
+}
+.published {
+  background-color: rgb(24, 133, 203);
+}
+.preprint {
+  background-color: rgb(2, 212, 26);
+}
+.ongoing {
+  background-color: rgb(236, 180, 11);
+}
 .thumbnail {
   width: 100%;
-  margin-top: 1em;
+  margin-top: 0.4em;
   height: 225px;
 }
 .grid_link {
@@ -71,6 +70,7 @@ hr {
 .content_preview {
   text-align: justify;
   color: var(--FontColor);
+  font-size: 0.8em;
 }
 #research {
   color: var(--NavBarActiveColor);
