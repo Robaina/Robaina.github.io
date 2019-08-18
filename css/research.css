@@ -20,7 +20,7 @@ body {
   margin: var(--grid_item_margin);
   cursor: pointer;
 }
-.grid_item_content:hover > *
+.grid_item_content:hover > * {
   color: var(--EmphFontColor);
 }
 .grid_item_content {
