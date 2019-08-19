@@ -6,13 +6,13 @@ body {
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   overflow-x: hidden;
 }
-.grid_container {
+#grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
   grid-auto-flow: row dense;
   width: auto;
   justify-content: center;
-  margin: 5vh;
+  margin: 5vw;
   margin-top: 15vh;
 }
 .grid_item {
@@ -33,21 +33,44 @@ body {
   width: 100%;
   text-align: center;
   font-size: 1.4em;
-  /* max-height: calc(0.15 * var(--grid_item_width)); */
   margin: 0;
+  margin-bottom: 3%;
+  color: var(--FontColor);
 }
 .thumbnail {
   width: 100%;
-  margin-top: 1em;
-  /* width: calc(0.8 * var(--grid_item_width));
-  margin-left: calc(0.1 * var(--grid_item_width)); */
-  /* width: auto; */
-  /* max-height: 100%; */
-  /* padding: 1vw; */
-  /* display: block; */
+  margin-top: 0.4em;
 }
-h1, p {
-  color: var(--FontColor);
+.blogtag {
+  --tagwidth: 5em;
+  display: inline-block;
+  margin-top: 0;
+  width: var(--tagwidth);
+  font-size: 0.9em;
+  border-radius: 10px;
+  color: var(--LightModeFontColor);
+  text-align: center;
+}
+#tag-container {
+  text-align: right;
+}
+.Coding {
+  background-color: rgb(153, 57, 224);
+}
+.Biology {
+  background-color: rgb(2, 212, 26);
+}
+.Math {
+  background-color: rgb(236, 180, 11);
+}
+.Physics {
+  background-color: rgb(24, 133, 203);
+}
+.Geology {
+  background-color: rgb(182, 77, 18);
+}
+.Miscellaneous {
+  background-color: rgb(122, 122, 122);
 }
 .grid_link {
   text-decoration: none;
@@ -55,15 +78,10 @@ h1, p {
 }
 .content_preview {
   text-align: justify;
+  color: var(--FontColor);
 }
 
 #blog {
   color: var(--NavBarActiveColor);
   pointer-events: none;
 }
-
-/* @media only screen and (max-width: 768px) and (orientation: portrait) {
-  .grid_container {
-    grid-template-columns: auto;
-  }
-} */

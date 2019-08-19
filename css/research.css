@@ -14,13 +14,13 @@ body {
   font-size: var(--TextFontSize);
   text-align: justify;
 }
-.grid_container {
+#grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
   grid-auto-flow: row dense;
   width: auto;
   justify-content: center;
-  margin: 5vh;
+  margin: 5vw;
 }
 .grid_item {
   width: auto;

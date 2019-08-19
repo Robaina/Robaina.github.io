@@ -6,6 +6,7 @@ function initializeBlogNavigator() {
   $.get("/blog/index.html", function (data) {
       $(data).find(".entry_link").each(function() {
         link_urls.push(this.href);
+        console.log(link_urls);
       });
 
       current_entry = window.location.href;
