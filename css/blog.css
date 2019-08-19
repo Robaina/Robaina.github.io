@@ -6,38 +6,6 @@ body {
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   overflow-x: hidden;
 }
-
-
-#blog-dropdown-menu {
-  color: var(--FontColor);
-  text-align: right;
-  margin-top: 2em;
-  margin-right: calc((100vw - var(--ColumnWidth)) / 2);
-}
-#topic-form {
-  display: inline-block;
-  color: inherit;
-  padding: 0.8em;
-  border-radius: 25px;
-  background-color: var(--NavBarSeparatorColor);
-}
-#select-label {
-
-}
-#select-list {
-  font-size: 1.8em;
-  text-align-last: center;
-  color: var(--FontColor);
-  background-color: var(--BackgroundColor);
-  max-width: 100%;
-  outline: none;
-}
-select option {
-  background-color: var(--BackgroundColor);
-  font-size: 1.2em;
-}
-
-
 #grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 350px));

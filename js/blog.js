@@ -83,31 +83,9 @@ function createGridItems() {
     let grid = document.getElementById("grid_container");
     fillGridContainer(blogEntryValues);
     writePostPreviews();
-    // filterBlogEntriesByTag("Biology");
-    // createTopicDropDownMenu();
     createTopicTagBanner();
   });
 }
-
-// function createTopicDropDownMenu() {
-//   let blogEntryValues = Object.values(blogEntries);
-//   let topicTags = ['All'];
-//   for (entry of blogEntryValues) {
-//     topicTags.push.apply(topicTags, entry.tags);
-//   }
-//   // Get only unique values
-//   topicTags = topicTags.filter(function(itm, i, topicTags) {
-//     return i == topicTags.indexOf(itm)
-//   });
-//
-//   for (tag of topicTags) {
-//     let option = document.createElement('option');
-//     option.text = tag;
-//     option.value = tag;
-//     option.setAttribute("id", "topic_option_" + tag);
-//     document.getElementById("select-list").add(option);
-//   }
-// }
 
 function createTopicTagBanner() {
   let blogEntryValues = Object.values(blogEntries);
@@ -137,8 +115,6 @@ function createTopicTagBanner() {
 
 function filterBlogEntriesByTag(elem) {
 
-  // let selector = document.getElementById("select-list");
-  // let tag = selector[selector.selectedIndex].value;
   let tag = elem.innerHTML;
   $(".topic-banner-entry").attr("class", "topic-banner-entry");
   $(elem).addClass(tag);
