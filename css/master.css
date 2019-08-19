@@ -153,6 +153,21 @@ a {
   display: none;
 }
 
+/*Blog and Research topic tags*/
+.topictag {
+  --tagwidth: 5.2em;
+  display: inline-block;
+  margin-top: 3%;
+  width: var(--tagwidth);
+  font-size: 0.9em;
+  border-radius: 10px;
+  color: var(--LightModeFontColor);
+  text-align: center;
+}
+.tag-container {
+  text-align: right;
+}
+
 /* Scroll bar */
 ::-webkit-scrollbar {
   width: 1vw;

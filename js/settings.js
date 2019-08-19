@@ -100,4 +100,12 @@ function setRightLogosForColorMode() {
 
 }
 
+function setTopicTag() {
+  let tags = document.getElementsByClassName("topictag");
+  for (let i=0; i<tags.length; i++) {
+    let tagName = tags[i].classList[1];
+    tags[i].innerHTML = tagName;
+  }
+}
+
 setColorMode();

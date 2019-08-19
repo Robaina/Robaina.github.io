@@ -27,13 +27,13 @@ function initializeBlogEntry() {
   setTopicTag();
 }
 
-function setTopicTag() {
-  let tags = document.getElementsByClassName("blogtag");
-  for (let i=0; i<tags.length; i++) {
-    let tagName = tags[i].classList[1];
-    tags[i].innerHTML = tagName;
-  }
-}
+// function setTopicTag() {
+//   let tags = document.getElementsByClassName("topictag");
+//   for (let i=0; i<tags.length; i++) {
+//     let tagName = tags[i].classList[1];
+//     tags[i].innerHTML = tagName;
+//   }
+// }
 
 // Control previous and next buttons
 function goToNextPost(sense) {

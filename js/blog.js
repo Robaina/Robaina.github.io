@@ -44,7 +44,7 @@ function createGridItems() {
 
       let tags = "";
       for (tag of tagClasses) {
-        tags += `<div class="blogtag ${tag}">${tag}</div> `;
+        tags += `<div class="topictag ${tag}">${tag}</div> `;
       }
 
       let thumbnail;
@@ -62,7 +62,7 @@ function createGridItems() {
          <a class="entry_link" href="/blog/${href}">
           <div class="grid_item_content">
             <h1 class="grid_item_title">${title}</h1>
-            <div id="tag-container">
+            <div class="tag-container">
               ${tags}
             </div>
             ${thumbnail}

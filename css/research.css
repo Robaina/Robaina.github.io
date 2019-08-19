@@ -50,21 +50,14 @@ body {
 .grid_item_authors {
   margin-top: 0.5vh;
 }
-.papertag {
-  margin-top: 3%;
-  width: 30%;
-  border-radius: 10px;
-  color: var(--LightModeFontColor);
-  text-align: center;
-  font-size: 1em;
-}
-.published {
+/* Paper type tag classes: must start with capital letter */
+.Published {
   background-color: rgb(24, 133, 203);
 }
-.preprint {
+.Preprint {
   background-color: rgb(2, 212, 26);
 }
-.ongoing {
+.Ongoing {
   background-color: rgb(236, 180, 11);
 }
 .thumbnail {
