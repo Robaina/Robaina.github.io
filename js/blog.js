@@ -77,25 +77,84 @@ function fillGridContainer(entryValues) {
 
 let blogEntries;
 function createGridItems() {
-
   $.getScript("/blog/blog-entries.json", function(result) {
     blogEntries = JSON.parse(result);
     let blogEntryValues = Object.values(blogEntries);
     let grid = document.getElementById("grid_container");
     fillGridContainer(blogEntryValues);
     writePostPreviews();
-    filterBlogEntriesByTag("Biology");
+    // filterBlogEntriesByTag("Biology");
+    // createTopicDropDownMenu();
+    createTopicTagBanner();
   });
 }
 
-function filterBlogEntriesByTag(tag) {
+// function createTopicDropDownMenu() {
+//   let blogEntryValues = Object.values(blogEntries);
+//   let topicTags = ['All'];
+//   for (entry of blogEntryValues) {
+//     topicTags.push.apply(topicTags, entry.tags);
+//   }
+//   // Get only unique values
+//   topicTags = topicTags.filter(function(itm, i, topicTags) {
+//     return i == topicTags.indexOf(itm)
+//   });
+//
+//   for (tag of topicTags) {
+//     let option = document.createElement('option');
+//     option.text = tag;
+//     option.value = tag;
+//     option.setAttribute("id", "topic_option_" + tag);
+//     document.getElementById("select-list").add(option);
+//   }
+// }
 
+function createTopicTagBanner() {
   let blogEntryValues = Object.values(blogEntries);
-  let filteredEntryValues = blogEntryValues.filter(function(value, index) {
-    return value.tags.indexOf(tag) > -1
+  let topicTags = ['All'];
+  for (entry of blogEntryValues) {
+    topicTags.push.apply(topicTags, entry.tags);
+  }
+  // Get only unique values
+  topicTags = topicTags.filter(function(itm, i, topicTags) {
+    return i == topicTags.indexOf(itm)
   });
 
+  let tags = "";
+  let setAll;
+  for (tag of topicTags) {
+    if (tag === "All") {
+      setAll = "All";
+    } else {
+      setAll = "";
+    }
+    tags += `<div class="topic-banner-entry ${setAll}" onclick="filterBlogEntriesByTag(this)">${tag}</div>`;
+  }
+
+  $("#topic-tag-banner").append(tags);
 }
 
-// Needs to go inside callback function, e.g. in dropdown menu
-// filterBlogEntriesByTag("Biology");
+
+function filterBlogEntriesByTag(elem) {
+
+  // let selector = document.getElementById("select-list");
+  // let tag = selector[selector.selectedIndex].value;
+  let tag = elem.innerHTML;
+  $(".topic-banner-entry").attr("class", "topic-banner-entry");
+  $(elem).addClass(tag);
+
+  let filteredEntryValues;
+  let blogEntryValues = Object.values(blogEntries);
+  if (tag === "All") {
+    filteredEntryValues = blogEntryValues;
+  } else {
+    filteredEntryValues = blogEntryValues.filter(function(value, index) {
+      return value.tags.indexOf(tag) > -1
+    });
+  }
+
+  $("#grid_container").empty();
+  fillGridContainer(filteredEntryValues);
+  writePostPreviews();
+
+}

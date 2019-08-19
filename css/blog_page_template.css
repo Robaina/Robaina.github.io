@@ -20,13 +20,14 @@
 }
 
 .entry-title {
-  font-size: calc(1.5 * var(--TextFontSize));
+  font-size: calc(1 * var(--TextFontSize));
+  margin-top: 0.5em;
   margin-bottom: 0;
 }
 
 .entry-date {
-  font-size: var(--TextFontSize);
-  margin-top: 0.5em;
+  font-size: calc(0.5 * var(--TextFontSize));
+  margin-top: 0.6em;
 }
 
 #content-wrap {

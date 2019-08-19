@@ -6,7 +6,7 @@
   --DarkModeEmphFontColor: rgb(255, 255, 255);
 
   /* Light mode color palette */
-  --LightModeBackgroundColor: rgb(189, 189, 189);
+  --LightModeBackgroundColor: rgb(157, 157, 157);
   --LightModeFontColor: rgb(41, 41, 41);
   --LightModeFancyColor: rgb(13, 79, 185);
   --LightModeEmphFontColor: rgb(74, 74, 74);
@@ -20,10 +20,10 @@
   --NavBarSeparatorColor: rgb(51, 51, 51);
   --TextHoverColor: rgb(93, 93, 93);
   --UnselectedBorderColor: rgb(121, 121, 121);
-  --TextFontSize: 1.4vw;
+  --TextFontSize: 1.2em;
   --ColumnWidth: 55vw;
   --NavSeparatorWidth: 0.8vw;
-  --TopMarginToHeader: 6vh;
+  --TopMarginToHeader: 7vh;
   --IconRotationAngle: 45deg;
   scroll-behavior: smooth;
 }
@@ -49,7 +49,7 @@ a {
   margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
-  font-size: var(--TextFontSize);
+  font-size: calc(0.85 * var(--TextFontSize));
   text-align: justify;
 }
 #settings-container {
@@ -113,11 +113,11 @@ a {
   text-align: center;
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
-  font-size: 1.3vw;
+  font-size: 1.3em;
 }
 .footer-code-symbol {
   color: var(--FancyColor);
-  font-size: 1.5em;
+  font-size: 1.4em;
   display: inline-block;
   font-family: monospace;
 }
@@ -198,14 +198,14 @@ a {
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   :root {
     --ColumnWidth: 80vw;
-    --TextFontSize: 2.8vw;
+    /* --TextFontSize: 1.2em; */
   }
   #footer-content {
-    font-size: 2.2vw;
+    font-size: 1.1em;
   }
-  .footer-code-symbol {
+  /* .footer-code-symbol {
     font-size: 3.5vw;
-  }
+  } */
   .navbar {
     position: absolute;
     top: 6vh;
@@ -269,6 +269,6 @@ a {
     font-size: 2.5vw;
   }
   #footer-content {
-    font-size: 1.4vw;
+    font-size: 1.1em;
   }
 }

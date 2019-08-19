@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="https://semidanrobaina.com/imgs/logo1.png">
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/blog.css">
+    <!-- <link rel="stylesheet" href="/vendor/fontawesome_all.min.css"> -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet"> -->
 
     <script src="/vendor/jquery-3.4.1.min.js"></script>
@@ -34,8 +35,18 @@
         <div class="navbar-container" id="navbar"></div>
 
         <div class="page-intro">
-            I plan to write about a variety of topics, which probably will involve things that I'm studying/learning about at the time. But no worries, you can sort filter blog entries by topic using the dropdown menu!
+            I plan to write about a variety of topics, which probably will involve things that I'm studying/learning about at the time. But no worries, you can filter blog entries by topic using the dropdown menu!
         </div>
+
+        <!-- <div id="blog-dropdown-menu">
+          <form id="topic-form">
+            <label id="select-label" for="topics">Filter by topic:</label>
+            <select name="topics" id="select-list" onchange="filterBlogEntriesByTag()"></select>
+          </form>
+        </div> -->
+
+        <div id="topic-tag-banner" class="tag-container"></div>
+        <!-- <i class="fas fa-filter"></i> -->
 
         <div id="grid_container"></div>
 

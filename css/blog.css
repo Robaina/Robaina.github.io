@@ -6,6 +6,38 @@ body {
   --grid_item_width: calc(0.5 * (var(--grid_width) - 4 * (var(--grid_item_border_width) + var(--grid_item_margin))));
   overflow-x: hidden;
 }
+
+
+#blog-dropdown-menu {
+  color: var(--FontColor);
+  text-align: right;
+  margin-top: 2em;
+  margin-right: calc((100vw - var(--ColumnWidth)) / 2);
+}
+#topic-form {
+  display: inline-block;
+  color: inherit;
+  padding: 0.8em;
+  border-radius: 25px;
+  background-color: var(--NavBarSeparatorColor);
+}
+#select-label {
+
+}
+#select-list {
+  font-size: 1.8em;
+  text-align-last: center;
+  color: var(--FontColor);
+  background-color: var(--BackgroundColor);
+  max-width: 100%;
+  outline: none;
+}
+select option {
+  background-color: var(--BackgroundColor);
+  font-size: 1.2em;
+}
+
+
 #grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
@@ -48,7 +80,27 @@ body {
   width: 100%;
   margin-top: 0.4em;
 }
+#topic-tag-banner {
+  text-align: center;
+  margin-top: 1em;
+}
+.topic-banner-entry {
+  --tagwidth: 5.2em;
+  display: inline-block;
+  margin: 0.1em;
+  width: var(--tagwidth);
+  /* height: 2em; */
+  font-size: 1em;
+  border-radius: 5px;
+  color: var(--LightModeFontColor);
+  text-align: center;
+  background-color: rgb(122, 122, 122);
+  cursor: pointer;
+}
 /* Blog topic tag classes: must start with capital letter */
+.All {
+  background-color: rgb(217, 217, 217);
+}
 .Coding {
   background-color: rgb(153, 57, 224);
 }
@@ -65,7 +117,7 @@ body {
   background-color: rgb(182, 77, 18);
 }
 .Miscellaneous {
-  background-color: rgb(122, 122, 122);
+  background-color: rgb(198, 60, 60);
 }
 .grid_link {
   text-decoration: none;
