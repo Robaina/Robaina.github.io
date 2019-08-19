@@ -2,25 +2,37 @@
 let link_urls = [];
 let current_entry, current_entry_idx;
 
-function initializeBlogNavigator() {
-  $.get("/blog/index.html", function (data) {
-      $(data).find(".entry_link").each(function() {
-        link_urls.push(this.href);
-        console.log(link_urls);
-      });
+function initializeBlogEntry() {
 
-      current_entry = window.location.href;
-      current_entry_idx = link_urls.indexOf(current_entry);
+  $.getScript("/blog/blog-entries.json", function(result) {
 
-      if (current_entry_idx === 0) {
-        let left_button = document.getElementById("left-blog-navigator-button");
-        left_button.style.visibility = "hidden";
-      } else if (current_entry_idx === (link_urls.length - 1)) {
-          let right_button = document.getElementById("right-blog-navigator-button");
-          right_button.style.visibility = "hidden";
-      }
+    let blogEntries = JSON.parse(result);
+    for (let entry of blogEntries) {
+       link_urls.push(entry.name);
+     }
+
+     current_entry = window.location.href.split("/").pop();
+     current_entry_idx = link_urls.indexOf(current_entry);
+
+     if (current_entry_idx === 0) {
+       let left_button = document.getElementById("left-blog-navigator-button");
+       left_button.style.visibility = "hidden";
+     } else if (current_entry_idx === (link_urls.length - 1)) {
+         let right_button = document.getElementById("right-blog-navigator-button");
+         right_button.style.visibility = "hidden";
+     }
 
   });
+
+  setTopicTag();
+}
+
+function setTopicTag() {
+  let tags = document.getElementsByClassName("blogtag");
+  for (let i=0; i<tags.length; i++) {
+    let tagName = tags[i].classList[1];
+    tags[i].innerHTML = tagName;
+  }
 }
 
 // Control previous and next buttons
@@ -31,4 +43,4 @@ function goToNextPost(sense) {
   }
 }
 
-$(initializeBlogNavigator);
+$(initializeBlogEntry);

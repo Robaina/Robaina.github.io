@@ -32,44 +32,48 @@ function trimPreviewText(text_string, n_words) {
 
 function createGridItems() {
 
-  let grid = document.getElementById("grid_container");
-  for (let entry of Object.values(blogEntries)) {
+  $.getScript("/blog/blog-entries.json", function(result) {
+    let blogEntries = JSON.parse(result);
 
-    let href = entry.name;
-    let title = entry.title;
-    let tagClasses = entry.tags;
+    let grid = document.getElementById("grid_container");
+    for (let entry of Object.values(blogEntries)) {
 
-    let tags = "";
-    for (tag of tagClasses) {
-      tags += `<div class="blogtag ${tag}">${tag}</div> `;
-    }
+      let href = entry.name;
+      let title = entry.title;
+      let tagClasses = entry.tags;
 
-    let thumbnail;
-    let img_href = `/imgs/blog/${href}.png`;
-    let img_template = `<img class="thumbnail" src="${img_href}" alt="Responsive image">`;
+      let tags = "";
+      for (tag of tagClasses) {
+        tags += `<div class="blogtag ${tag}">${tag}</div> `;
+      }
 
-    if (entry.hasThumbnail) {
-      thumbnail = img_template;
-    } else {
-      thumbnail = "";
-    }
+      let thumbnail;
+      let img_href = `/imgs/blog/${href}.png`;
+      let img_template = `<img class="thumbnail" src="${img_href}" alt="Responsive image">`;
 
-    let template = `
-    <div class="grid_item" tabindex="0">
-       <a class="entry_link" href="/blog/${href}">
-        <div class="grid_item_content">
-          <h1 class="grid_item_title">${title}</h1>
-          <div id="tag-container">
-            ${tags}
+      if (entry.hasThumbnail) {
+        thumbnail = img_template;
+      } else {
+        thumbnail = "";
+      }
+
+      let template = `
+      <div class="grid_item" tabindex="0">
+         <a class="entry_link" href="/blog/${href}">
+          <div class="grid_item_content">
+            <h1 class="grid_item_title">${title}</h1>
+            <div id="tag-container">
+              ${tags}
+            </div>
+            ${thumbnail}
+            <p class="content_preview"></p>
           </div>
-          ${thumbnail}
-          <p class="content_preview"></p>
-        </div>
-      </a>
-    </div>`;
+        </a>
+      </div>`;
 
-    $("#grid_container").append(template);
-  }
+      $("#grid_container").append(template);
+    }
 
-  writePostPreviews();
+    writePostPreviews();
+  });
 }
