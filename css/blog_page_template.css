@@ -13,9 +13,20 @@
   text-align: justify;
 }
 
-.blog-title {
+.blog-entry-header {
   text-align: center;
-  font-size: calc(1.2 * var(--TextFontSize));
+  font-size: calc(1.5 * var(--TextFontSize));
+  margin-bottom: 1.5em;
+}
+
+.entry-title {
+  font-size: calc(1.5 * var(--TextFontSize));
+  margin-bottom: 0;
+}
+
+.entry-date {
+  font-size: var(--TextFontSize);
+  margin-top: 0.5em;
 }
 
 #content-wrap {

@@ -40,6 +40,7 @@ function createGridItems() {
 
       let href = entry.name;
       let title = entry.title;
+      let date = entry.date;
       let tagClasses = entry.tags;
 
       let tags = "";
@@ -57,11 +58,16 @@ function createGridItems() {
         thumbnail = "";
       }
 
+      // <h1 class="grid_item_title">${title}</h1>
+
       let template = `
       <div class="grid_item" tabindex="0">
          <a class="entry_link" href="/blog/${href}">
           <div class="grid_item_content">
-            <h1 class="grid_item_title">${title}</h1>
+            <div class="grid_item_header">
+              <div class="grid_item_title">${title}</div>
+              <div class="grid_item_date">(${date})</div>
+            </div>
             <div class="tag-container">
               ${tags}
             </div>

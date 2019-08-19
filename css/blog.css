@@ -29,12 +29,20 @@ body {
 .grid_item_content {
   margin: 0;
 }
+.grid_item_header {
+  text-align: center;
+  color: var(--FontColor);
+  /* min-height: 7vh; */
+  padding-bottom: auto;
+}
 .grid_item_title {
   width: 100%;
-  text-align: center;
   font-size: 1.4em;
   margin: 0;
-  color: var(--FontColor);
+  margin-top: auto;
+}
+.grid_item_date {
+  margin-top: 0.5em;
 }
 .thumbnail {
   width: 100%;
