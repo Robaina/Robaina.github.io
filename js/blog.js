@@ -59,7 +59,7 @@ function fillGridContainer(entryValues) {
         <div class="grid_item_content">
           <div class="grid_item_header">
             <div class="grid_item_title">${title}</div>
-            <div class="grid_item_date">(${date})</div>
+            <div class="grid_item_date">${date}</div>
           </div>
           <div class="tag-container">
             ${tags}
