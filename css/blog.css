@@ -12,8 +12,8 @@ body {
   grid-auto-flow: row dense;
   width: auto;
   justify-content: center;
-  margin: 5vw;
-  margin-top: 15vh;
+  margin: 4em;
+  margin-top: 2em;
 }
 .grid_item {
   width: auto;

@@ -13,16 +13,6 @@ body {
   text-decoration: none;
   color: var(--FontColor);
 }
-.intro {
-  width: var(--ColumnWidth);
-  margin-top: var(--TopMarginToHeader);
-  margin-bottom: 5vh;
-  margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
-  background-color: var(--BackgroundColor);
-  color: var(--FontColor);
-  font-size: var(--TextFontSize);
-  text-align: justify;
-}
 #grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 360px));

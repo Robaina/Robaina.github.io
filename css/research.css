@@ -4,23 +4,14 @@ body {
   --grid_item_border_width: 0.21vw;
   overflow-x: hidden;
 }
-.intro {
-  width: var(--ColumnWidth);
-  margin-top: var(--TopMarginToHeader);
-  margin-bottom: 5vh;
-  margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
-  background-color: var(--BackgroundColor);
-  color: var(--FontColor);
-  font-size: var(--TextFontSize);
-  text-align: justify;
-}
 #grid_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
   grid-auto-flow: row dense;
   width: auto;
   justify-content: center;
-  margin: 5vw;
+  margin: 4em;
+  margin-top: 2em;
 }
 .grid_item {
   width: auto;

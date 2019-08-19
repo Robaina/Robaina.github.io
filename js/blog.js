@@ -30,56 +30,72 @@ function trimPreviewText(text_string, n_words) {
     return trim_text
 }
 
+function fillGridContainer(entryValues) {
+  for (let entry of entryValues) {
+
+    let href = entry.name;
+    let title = entry.title;
+    let date = entry.date;
+    let tagClasses = entry.tags;
+
+    let tags = "";
+    for (tag of tagClasses) {
+      tags += `<div class="topictag ${tag}">${tag}</div> `;
+    }
+
+    let thumbnail;
+    let img_href = `/imgs/blog/${href}.png`;
+    let img_template = `<img class="thumbnail" src="${img_href}" alt="Responsive image">`;
+
+    if (entry.hasThumbnail) {
+      thumbnail = img_template;
+    } else {
+      thumbnail = "";
+    }
+
+    let template = `
+    <div class="grid_item" tabindex="0">
+       <a class="entry_link" href="/blog/${href}">
+        <div class="grid_item_content">
+          <div class="grid_item_header">
+            <div class="grid_item_title">${title}</div>
+            <div class="grid_item_date">(${date})</div>
+          </div>
+          <div class="tag-container">
+            ${tags}
+          </div>
+          ${thumbnail}
+          <p class="content_preview"></p>
+        </div>
+      </a>
+    </div>`;
+
+    $("#grid_container").append(template);
+  }
+
+}
+
+let blogEntries;
 function createGridItems() {
 
   $.getScript("/blog/blog-entries.json", function(result) {
-    let blogEntries = JSON.parse(result);
-
+    blogEntries = JSON.parse(result);
+    let blogEntryValues = Object.values(blogEntries);
     let grid = document.getElementById("grid_container");
-    for (let entry of Object.values(blogEntries)) {
-
-      let href = entry.name;
-      let title = entry.title;
-      let date = entry.date;
-      let tagClasses = entry.tags;
-
-      let tags = "";
-      for (tag of tagClasses) {
-        tags += `<div class="topictag ${tag}">${tag}</div> `;
-      }
-
-      let thumbnail;
-      let img_href = `/imgs/blog/${href}.png`;
-      let img_template = `<img class="thumbnail" src="${img_href}" alt="Responsive image">`;
-
-      if (entry.hasThumbnail) {
-        thumbnail = img_template;
-      } else {
-        thumbnail = "";
-      }
-
-      // <h1 class="grid_item_title">${title}</h1>
-
-      let template = `
-      <div class="grid_item" tabindex="0">
-         <a class="entry_link" href="/blog/${href}">
-          <div class="grid_item_content">
-            <div class="grid_item_header">
-              <div class="grid_item_title">${title}</div>
-              <div class="grid_item_date">(${date})</div>
-            </div>
-            <div class="tag-container">
-              ${tags}
-            </div>
-            ${thumbnail}
-            <p class="content_preview"></p>
-          </div>
-        </a>
-      </div>`;
-
-      $("#grid_container").append(template);
-    }
-
+    fillGridContainer(blogEntryValues);
     writePostPreviews();
+    filterBlogEntriesByTag("Biology");
   });
 }
+
+function filterBlogEntriesByTag(tag) {
+
+  let blogEntryValues = Object.values(blogEntries);
+  let filteredEntryValues = blogEntryValues.filter(function(value, index) {
+    return value.tags.indexOf(tag) > -1
+  });
+
+}
+
+// Needs to go inside callback function, e.g. in dropdown menu
+// filterBlogEntriesByTag("Biology");

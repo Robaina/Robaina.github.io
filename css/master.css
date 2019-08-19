@@ -23,7 +23,7 @@
   --TextFontSize: 1.4vw;
   --ColumnWidth: 55vw;
   --NavSeparatorWidth: 0.8vw;
-  --TopMarginToHeader: 8vh;
+  --TopMarginToHeader: 6vh;
   --IconRotationAngle: 45deg;
   scroll-behavior: smooth;
 }
@@ -42,6 +42,15 @@ html, body {
 a {
   text-decoration: none;
   color: var(--FancyColor);
+}
+.page-intro {
+  width: var(--ColumnWidth);
+  margin-top: var(--TopMarginToHeader);
+  margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+  font-size: var(--TextFontSize);
+  text-align: justify;
 }
 #settings-container {
   position: absolute;
