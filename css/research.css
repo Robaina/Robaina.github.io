@@ -1,7 +1,4 @@
 body {
-  --BorderColor: var(--UnselectedBorderColor);
-  --grid_item_margin: 2.1vw;
-  --grid_item_border_width: 0.21vw;
   overflow-x: hidden;
 }
 #grid_container {
@@ -16,8 +13,6 @@ body {
 .grid_item {
   width: auto;
   height: auto;
-  padding: calc(0.2 * var(--grid_item_margin));
-  margin: var(--grid_item_margin);
   cursor: pointer;
 }
 .grid_item_content:hover > * {
@@ -25,6 +20,7 @@ body {
 }
 .grid_item_content {
   margin: 0;
+  padding: 1.2em;
 }
 .grid_item_header {
   text-align: center;
@@ -68,4 +64,10 @@ body {
 #research {
   color: var(--NavBarActiveColor);
   pointer-events: none;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  #grid_container {
+    margin: 2em;
+  }
 }

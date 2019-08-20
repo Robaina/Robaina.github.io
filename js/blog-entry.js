@@ -36,3 +36,8 @@ function goToNextPost(sense) {
 }
 
 $(initializeBlogEntry);
+
+// Suggested readings section
+function addSuggestedReadings() {
+  
+}

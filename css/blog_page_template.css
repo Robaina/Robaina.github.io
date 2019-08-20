@@ -57,6 +57,10 @@
   color: var(--FancyColor);
 }
 
+/* #suggested-readings {
+  color: var(--FontColor);
+} */
+
 @media only screen and (max-width: 768px) {
   .blog-navigator-button {
     font-size: 3.5em;
