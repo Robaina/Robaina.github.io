@@ -27,7 +27,7 @@ body {
   padding: calc(0.2 * var(--grid_item_margin));
   margin: var(--grid_item_margin);
   border: var(--grid_item_border_width) solid var(--BorderColor);
-  border-radius: 0px;
+  border-radius: 10px;
   cursor: pointer;
 }
 .grid_item:hover{

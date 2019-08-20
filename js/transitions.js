@@ -13,6 +13,8 @@ window.goToPage = function(href) {
   if ((is_home_page || is_contact_page) && light_mode_selected) {
     document.querySelector('body').style.transition = "opacity 1.6s";
   }
+  // Hide all elements
+  document.querySelector('body').style.opacity = 0;
 
   // Adjust logo to screen size
   let portrait_oriented = window.matchMedia("(orientation: portrait)").matches
@@ -31,16 +33,15 @@ window.goToPage = function(href) {
     loc_y = window.innerHeight / 2.4;
     scale_factor = 1/4;
   }
-
-  document.querySelector('body').style.opacity = 0;
-  if (window.scrollY > 0) {
-    window.scrollTo(0, 0);
-    // setTimeout(function() {
-    //   draw_logo();
-    // }, 300);
-  } else {
-    draw_logo();
-  }
+  // if (window.scrollY > 0) {
+  //   window.scrollTo(0, 0);
+  //   setTimeout(function() {
+  //     draw_logo();
+  //   }, 200);
+  // } else {
+  //   draw_logo();
+  // }
+  draw_logo();
   setTimeout(function() {
       window.location.href = href;
   }, transition_time);
@@ -67,5 +68,8 @@ function draw_logo() {
     scale_factor * logo.width, scale_factor * logo.height);
 
   document.body.style["background-image"] = 'url(' + cnv2.toDataURL() + ')';
+  // Changing the following properties in root: of master.css has no effect:
+  document.body.style["overflow-y"] = "hidden";
+  document.body.style["background-attachment"] = "fixed";
 
 }

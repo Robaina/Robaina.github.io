@@ -4,18 +4,21 @@
   --DarkModeFontColor: rgb(189, 189, 189);
   --DarkModeFancyColor: rgb(73, 201, 35);
   --DarkModeEmphFontColor: rgb(255, 255, 255);
+  --DarkModeGridItemColor: rgb(51, 51, 51);
 
   /* Light mode color palette */
   --LightModeBackgroundColor: rgb(157, 157, 157);
   --LightModeFontColor: rgb(41, 41, 41);
   --LightModeFancyColor: rgb(13, 79, 185);
   --LightModeEmphFontColor: rgb(74, 74, 74);
+  --LightModeGridItemColor: rgb(94, 94, 94);
 
   /* Master variables */
   --BackgroundColor: var(--DarkModeBackgroundColor);
   --FontColor: var(--DarkModeFontColor);
   --FancyColor: var(--DarkModeFancyColor);
   --EmphFontColor: var(--DarkModeEmphFontColor);
+  --GridItemColor: var(--DarkModeGridItemColor);
   --NavBarActiveColor: var(--FancyColor);
   --NavBarSeparatorColor: rgb(51, 51, 51);
   --TextHoverColor: rgb(93, 93, 93);
