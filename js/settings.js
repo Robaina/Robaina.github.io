@@ -109,9 +109,10 @@ function setTopicTag() {
 }
 
 function changeNavBarColor() {
-  const is_portrait_mobile = (
-    window.innerWidth <= 768 & (window.innerWidth < window.innerHeight)
-  );
+  // const is_portrait_mobile = (
+  //   window.innerWidth <= 768 & (window.innerWidth < window.innerHeight)
+  // );
+  is_portrait_mobile = false;
   if (!is_portrait_mobile) {
     let navbar = document.getElementById("navbar-container");
     if (window.scrollY > 100) {
@@ -121,5 +122,5 @@ function changeNavBarColor() {
     }
   }
 }
+setColorMode();
 window.onscroll = changeNavBarColor;
-window.onload = setColorMode;

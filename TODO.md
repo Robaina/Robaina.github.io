@@ -4,4 +4,4 @@
 * Add suggested readings section after blog post. This can be done by including a sample of posts with similar topic tags. Say random sample of size n.
 * Add background color to navbar upon scrolling down. Possibly in some sort of animation like fading in. You can use:
 ```<element onscroll="myScript">```
-* Allow pdf documents!! CV.pdf not in GitHub
+* Sticky navbar does not work on Firefox...
