@@ -33,14 +33,6 @@ window.goToPage = function(href) {
     loc_y = window.innerHeight / 2.4;
     scale_factor = 1/4;
   }
-  // if (window.scrollY > 0) {
-  //   window.scrollTo(0, 0);
-  //   setTimeout(function() {
-  //     draw_logo();
-  //   }, 200);
-  // } else {
-  //   draw_logo();
-  // }
   draw_logo();
   setTimeout(function() {
       window.location.href = href;

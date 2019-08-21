@@ -57,7 +57,7 @@ a {
 }
 #settings-container {
   position: absolute;
-  top: 0vh;
+  top: 0;
   left: 80vw;
   width: 15vw;
 }
@@ -127,14 +127,16 @@ a {
 #menu {
   display: none;
 }
-.navbar-container {
+#navbar-container {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-}
-.navbar {
-  text-align: center;
+  top: 0px;
+  padding-top: 1.5em;
   background-color: var(--BackgroundColor);
+  transition: background-color 1s;
+}
+#navbar {
+  text-align: center;
 }
 .navbar-item {
   color: var(--FontColor);
@@ -209,7 +211,10 @@ a {
   /* .footer-code-symbol {
     font-size: 3.5vw;
   } */
-  .navbar {
+  #navbar-container {
+    padding-top: 0;
+  }
+  #navbar {
     position: absolute;
     top: 6vh;
     width: 100vw;
@@ -234,7 +239,7 @@ a {
     cursor: pointer;
     background-color: var(--BackgroundColor);
   }
-  #menu:checked ~ .navbar {
+  #menu:checked ~ #navbar {
     display: block;
   }
   .burguer-bracket {

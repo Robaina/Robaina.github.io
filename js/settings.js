@@ -108,4 +108,18 @@ function setTopicTag() {
   }
 }
 
-setColorMode();
+function changeNavBarColor() {
+  const is_portrait_mobile = (
+    window.innerWidth <= 768 & (window.innerWidth < window.innerHeight)
+  );
+  if (!is_portrait_mobile) {
+    let navbar = document.getElementById("navbar-container");
+    if (window.scrollY > 100) {
+      navbar.style["background-color"] = "var(--GridItemColor)";
+    } else {
+      navbar.style["background-color"] = "var(--BackgroundColor)";
+    }
+  }
+}
+window.onscroll = changeNavBarColor;
+window.onload = setColorMode;
