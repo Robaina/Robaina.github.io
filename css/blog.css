@@ -15,7 +15,7 @@ body {
   width: auto;
   justify-content: center;
   margin: 4em;
-  margin-top: 2em;
+  margin-top: 4em;
   margin-bottom: 0em;
 }
 .grid_item {
@@ -67,33 +67,33 @@ body {
   border-radius: 5px;
   color: var(--LightModeFontColor);
   text-align: center;
-  background-color: rgb(122, 122, 122);
+  background-color: rgb(170, 170, 170)/*var(--GridItemColor)*/;
   cursor: pointer;
 }
 /* Blog topic tag classes: must start with capital letter */
 .All {
-  background-color: rgb(217, 217, 217);
+  background-color: rgb(255, 255, 255);
 }
 .Coding {
-  background-color: rgb(153, 57, 224);
+  background-color: rgb(154, 112, 195);
 }
 .Biology {
   background-color: rgb(2, 212, 26);
 }
 .Chemistry {
-  background-color: rgb(207, 49, 179);
+  background-color: rgb(218, 101, 196);
 }
 .Math {
-  background-color: rgb(236, 180, 11);
+  background-color: rgb(224, 205, 79);
 }
 .Physics {
-  background-color: rgb(24, 133, 203);
+  background-color: rgb(106, 134, 218);
 }
 .Geology {
-  background-color: rgb(182, 77, 18);
+  background-color: rgb(231, 168, 95);
 }
 .General {
-  background-color: rgb(198, 60, 60);
+  background-color: rgb(210, 106, 106);
 
 }
 .grid_link {

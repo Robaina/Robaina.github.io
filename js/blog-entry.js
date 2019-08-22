@@ -1,6 +1,7 @@
 // Global variables
 let link_urls = [];
 let current_entry, current_entry_idx;
+let max_number_suggested_posts = 3;
 
 function initializeBlogEntry() {
 
@@ -25,7 +26,7 @@ function initializeBlogEntry() {
   });
 
   setTopicTag();
-  addSuggestedReadings();
+  addSuggestedReadings(max_number_suggested_posts);
 }
 
 // Control previous and next buttons
@@ -114,7 +115,7 @@ function fillGridContainer(blogEntryValues, containerID) {
 
 }
 
-function addSuggestedReadings() {
+function addSuggestedReadings(max_suggested=3) {
   let entry_tags = [];
   let tag_elems = document.getElementsByClassName("topictag");
   for (let i=0; i<tag_elems.length; i++) {
@@ -134,7 +135,6 @@ function addSuggestedReadings() {
               & value.name !== current_post_url)
     });
 
-    let max_suggested = 2;
     let n_filtered_entries = filteredEntryValues.length;
     // If more than max_suggested entries, suggest a random sample
     if (n_filtered_entries > max_suggested) {

@@ -7,11 +7,11 @@
   --DarkModeGridItemColor: rgb(51, 51, 51);
 
   /* Light mode color palette */
-  --LightModeBackgroundColor: rgb(184, 184, 184);
-  --LightModeFontColor: rgb(41, 41, 41);
+  --LightModeBackgroundColor: rgb(235, 233, 233);
+  --LightModeFontColor: rgb(54, 53, 53);
   --LightModeFancyColor: rgb(13, 79, 185);
-  --LightModeEmphFontColor: rgb(74, 74, 74);
-  --LightModeGridItemColor: rgb(94, 94, 94);
+  --LightModeEmphFontColor: rgb(0, 0, 0);
+  --LightModeGridItemColor: rgb(201, 201, 201);
 
   /* Master variables */
   --BackgroundColor: var(--DarkModeBackgroundColor);
@@ -52,7 +52,7 @@ a {
   margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
-  font-size: calc(0.85 * var(--TextFontSize));
+  font-size: calc(1 * var(--TextFontSize));
   text-align: justify;
 }
 #settings-container {
