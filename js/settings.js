@@ -2,7 +2,7 @@
 let light_mode_selected;
 let light_color_mode = {};
 let dark_color_mode = {};
-let properties = ["BackgroundColor", "FontColor", "FancyColor", "EmphFontColor", "GridItemColor"];
+let properties = ["GridItemColor", "BackgroundColor", "FontColor", "FancyColor", "EmphFontColor"];
 
 for (property of properties) {
   light_color_mode["--" + property] = getComputedStyle(
@@ -109,9 +109,6 @@ function setTopicTag() {
 }
 
 function changeNavBarColor() {
-  // const is_portrait_mobile = (
-  //   window.innerWidth <= 768 & (window.innerWidth < window.innerHeight)
-  // );
   is_portrait_mobile = false;
   if (!is_portrait_mobile) {
     let navbar = document.getElementById("navbar-container");

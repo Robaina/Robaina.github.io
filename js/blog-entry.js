@@ -25,6 +25,7 @@ function initializeBlogEntry() {
   });
 
   setTopicTag();
+  addSuggestedReadings();
 }
 
 // Control previous and next buttons
@@ -38,6 +39,133 @@ function goToNextPost(sense) {
 $(initializeBlogEntry);
 
 // Suggested readings section
+function writePostPreviews() {
+  //Load text preview in blog entry thumbnail.
+  const max_words = 35;
+  let entry_links = document.getElementsByClassName("entry_link");
+
+  for (let i=0; i < entry_links.length; i++) {
+    let link = entry_links[i];
+    let preview = $(link).find(".content_preview")[0];
+    let start_idx = link.href.indexOf("blog");
+    let href = link.href.slice(start_idx);
+
+    $.get("/" + href + ".html", function (data) {
+        data = $(data).find(".blog-content > p:first").text();
+        let preview_text = trimPreviewText(data, max_words) + "...";
+        preview.innerHTML = preview_text;
+    });
+  }
+}
+
+function trimPreviewText(text_string, n_words) {
+    let words = text_string.split(" ");
+    let trim_text;
+    if (words.length > n_words) {
+        trim_text = words.slice(0, n_words).join(" ");
+    } else {
+        trim_text = words.join(" ");
+    }
+    return trim_text
+}
+
+function fillGridContainer(blogEntryValues, containerID) {
+  for (let entry of blogEntryValues) {
+
+    let href = entry.name;
+    let title = entry.title;
+    let date = entry.date;
+    let tagClasses = entry.tags;
+
+    let tags = "";
+    for (tag of tagClasses) {
+      tags += `<div class="topictag ${tag}">${tag}</div> `;
+    }
+
+    let thumbnail;
+    let img_href = `/imgs/blog/${href}.png`;
+    let img_template = `<img class="thumbnail" src="${img_href}" alt="Responsive image">`;
+
+    if (entry.hasThumbnail) {
+      thumbnail = img_template;
+    } else {
+      thumbnail = "";
+    }
+
+    let template = `
+    <div class="grid_item" tabindex="0">
+       <a class="entry_link" href="/blog/${href}">
+        <div class="grid_item_content">
+          <div class="grid_item_header">
+            <div class="grid_item_title">${title}</div>
+            <div class="grid_item_date">${date}</div>
+          </div>
+          <div class="tag-container">
+            ${tags}
+          </div>
+          ${thumbnail}
+          <p class="content_preview"></p>
+        </div>
+      </a>
+    </div>`;
+
+    $("#" + containerID).append(template);
+  }
+
+}
+
 function addSuggestedReadings() {
-  
+  let entry_tags = [];
+  let tag_elems = document.getElementsByClassName("topictag");
+  for (let i=0; i<tag_elems.length; i++) {
+    entry_tags.push(tag_elems.item(i).classList[1]);
+  }
+
+  $.getScript("/blog/blog-entries.json", function(result) {
+    let blogEntries = JSON.parse(result);
+    let blogEntryValues = Object.values(blogEntries);
+
+    let filteredEntryValues;
+    let current_post_url = window.location.href.split(
+      "/").pop().split(".html")[0];
+    // List all posts which contain at least one of the current topics
+    filteredEntryValues = blogEntryValues.filter(function(value) {
+      return (value.tags.some(tag => entry_tags.includes(tag))
+              & value.name !== current_post_url)
+    });
+
+    let max_suggested = 2;
+    let n_filtered_entries = filteredEntryValues.length;
+    // If more than max_suggested entries, suggest a random sample
+    if (n_filtered_entries > max_suggested) {
+      let random_idxs = getRandomSample(0, n_filtered_entries-1, max_suggested);
+      filteredEntryValues = extractSubArray(filteredEntryValues, random_idxs);
+    }
+
+    fillGridContainer(filteredEntryValues, "suggested_readings_grid");
+    writePostPreviews();
+  });
+
+}
+
+function getRandomSample(minInt, maxInt, size) {
+  let numbers = []
+  for (i = minInt; i < maxInt + 1; i++) {
+    numbers.push(i);
+  }
+  randomSample = [];
+  for (let i = 0; i < size; i++) {
+    let sampledNumber = numbers.splice(
+      Math.floor(Math.random() * numbers.length), 1)[0];
+    randomSample.push(sampledNumber);
+  }
+  return randomSample
+}
+
+function extractSubArray(array, indices) {
+  let subarray = [];
+  for (idx of indices) {
+    subarray.push(array[idx])
+  }
+  return subarray
 }

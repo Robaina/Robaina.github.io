@@ -31,15 +31,15 @@
 }
 
 #content-wrap {
-  padding-bottom: 35vh;
+  padding-bottom: 80vh;
 }
 
 #blog-navigator {
   position: absolute;
-  bottom: 20vh;
+  bottom: 50vh;
   text-align: center;
   width: 100%;
-  height: 10vh;
+  height: 20vh;
 }
 
 .blog-navigator-button {
@@ -57,9 +57,36 @@
   color: var(--FancyColor);
 }
 
-/* #suggested-readings {
+#suggested-readings {
+  position: absolute;
+  bottom: 10vh;
+  text-align: center;
+  width: 100%;
+  height: 40vh;
   color: var(--FontColor);
-} */
+}
+
+#suggested_readings_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+  grid-auto-flow: row dense;
+  width: auto;
+  justify-content: center;
+  margin: 2em;
+  margin-top: 2em;
+  margin-bottom: 0em;
+}
+
+.grid_item {
+  margin: 1em;
+}
+
+#footer {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+}
 
 @media only screen and (max-width: 768px) {
   .blog-navigator-button {

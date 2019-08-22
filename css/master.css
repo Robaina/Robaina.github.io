@@ -133,7 +133,7 @@ a {
   top: 0px;
   padding-top: 1.5em;
   background-color: var(--BackgroundColor);
-  transition: background-color 1s;
+  /* transition: background-color 1s; */
 }
 #navbar {
   text-align: center;

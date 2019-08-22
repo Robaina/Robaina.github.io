@@ -2,7 +2,7 @@
 
 function writePostPreviews() {
   //Load text preview in blog entry thumbnail.
-  let max_words = 35;
+  const max_words = 35;
   let entry_links = document.getElementsByClassName("entry_link");
 
   for (let i=0; i < entry_links.length; i++) {
@@ -30,8 +30,8 @@ function trimPreviewText(text_string, n_words) {
     return trim_text
 }
 
-function fillGridContainer(entryValues) {
-  for (let entry of entryValues) {
+function fillGridContainer(blogEntryValues, containerID) {
+  for (let entry of blogEntryValues) {
 
     let href = entry.name;
     let title = entry.title;
@@ -70,7 +70,7 @@ function fillGridContainer(entryValues) {
       </a>
     </div>`;
 
-    $("#grid_container").append(template);
+    $("#" + containerID).append(template);
   }
 
 }
@@ -80,8 +80,7 @@ function createGridItems() {
   $.getScript("/blog/blog-entries.json", function(result) {
     blogEntries = JSON.parse(result);
     let blogEntryValues = Object.values(blogEntries);
-    let grid = document.getElementById("grid_container");
-    fillGridContainer(blogEntryValues);
+    fillGridContainer(blogEntryValues, "grid_container");
     writePostPreviews();
     createTopicTagBanner();
   });
@@ -125,12 +124,13 @@ function filterBlogEntriesByTag(elem) {
     filteredEntryValues = blogEntryValues;
   } else {
     filteredEntryValues = blogEntryValues.filter(function(value, index) {
-      return value.tags.indexOf(tag) > -1
+      // return value.tags.indexOf(tag) > -1
+      return value.tags.includes(tag)
     });
   }
 
   $("#grid_container").empty();
-  fillGridContainer(filteredEntryValues);
+  fillGridContainer(filteredEntryValues, "grid_container");
   writePostPreviews();
 
 }
