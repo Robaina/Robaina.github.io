@@ -111,25 +111,34 @@ a {
   bottom: 0;
   width: 100%;
   height: 10vh;
-  /* background-color: var(--GridItemColor); */
+  display: inline-block;
 }
 #footer-content {
   text-align: center;
-  /* background-color: var(--BackgroundColor); */
+  background-color: var(--BackgroundColor);
   color: var(--FontColor);
-  font-size: 1.3em;
+  margin-top: 1.5em;
+}
+#myname {
+  display: inline-block;
+  color: var(--FontColor);
+  font-size: calc(0.9 * var(--TextFontSize));
+  margin: 0.5em;
+}
+#code-symbol {
+  margin: 0.5em;
+  margin-right: 0em;
 }
 .footer-code-symbol {
   color: var(--FancyColor);
-  font-size: 1.4em;
+  font-size: 2em;
   display: inline-block;
   font-family: monospace;
 }
 #cc-license {
-  display: inline-block;
-  position: absolute;
-  bottom: 3vh;
-  left: 70vw;
+  margin: 0.5em;
+  margin-bottom: 0em;
+  vertical-align:sub;
 }
 #menu {
   display: none;
