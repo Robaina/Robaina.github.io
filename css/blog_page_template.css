@@ -3,6 +3,10 @@
   pointer-events: all;
 }
 
+h1 {
+  text-align: left;
+}
+
 .blog-wrap {
   width: var(--ColumnWidth);
   margin-top: var(--TopMarginToHeader);
