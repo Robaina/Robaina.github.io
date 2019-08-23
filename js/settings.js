@@ -53,8 +53,21 @@ function setColorMode() {
     setRightLogosForColorMode();
   }
 
+  loadHighlightJSStyles(light_mode_selected);
   hideSettingsOptions();
   settings_expanded = !settings_expanded;
+}
+
+function loadHighlightJSStyles(lightMode=false) {
+  let link=document.createElement("link");
+  link.setAttribute("rel", "stylesheet");
+  link.setAttribute("type", "text/css");
+  if (lightMode) {
+    link.setAttribute("href", "/vendor/highlight_js/styles/tomorrow.css");
+  } else {
+      link.setAttribute("href", "/vendor/highlight_js/styles/tomorrow-night.css");
+  }
+  document.getElementsByTagName("head")[0].appendChild(link);
 }
 
 let settings_expanded = true;

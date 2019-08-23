@@ -134,6 +134,7 @@ a {
   padding-top: 1.5em;
   background-color: var(--BackgroundColor);
   /* transition: background-color 1s; */
+  z-index: 2;
 }
 #navbar {
   text-align: center;
