@@ -111,10 +111,11 @@ a {
   bottom: 0;
   width: 100%;
   height: 10vh;
+  /* background-color: var(--GridItemColor); */
 }
 #footer-content {
   text-align: center;
-  background-color: var(--BackgroundColor);
+  /* background-color: var(--BackgroundColor); */
   color: var(--FontColor);
   font-size: 1.3em;
 }
@@ -123,6 +124,12 @@ a {
   font-size: 1.4em;
   display: inline-block;
   font-family: monospace;
+}
+#cc-license {
+  display: inline-block;
+  position: absolute;
+  bottom: 3vh;
+  left: 70vw;
 }
 #menu {
   display: none;

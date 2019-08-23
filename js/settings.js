@@ -63,7 +63,7 @@ function loadHighlightJSStyles(lightMode=false) {
   link.setAttribute("rel", "stylesheet");
   link.setAttribute("type", "text/css");
   if (lightMode) {
-    link.setAttribute("href", "/vendor/highlight_js/styles/tomorrow.css");
+    link.setAttribute("href", "/vendor/highlight_js/styles/atom-one-light.css");
   } else {
       link.setAttribute("href", "/vendor/highlight_js/styles/tomorrow-night.css");
   }
