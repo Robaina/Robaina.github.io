@@ -1,37 +1,53 @@
 [
   {
     "name": "first-blog-entry",
-    "title": "First blog entry",
+    "title": "First blog post",
     "date": "21 August, 2019",
-    "hasThumbnail": false,
-    "tags": ["General", "Math"]
-  },
-  {
-    "name": "my-blog-entry",
-    "title": "My blog entry",
-    "date": "18 August, 2019",
-    "hasThumbnail": false,
-    "tags": ["Math", "Biology", "Geology"]
-  },
-  {
-    "name": "the-fibonacci-numbers",
-    "title": "Fibonacci numbers",
-    "date": "1 August, 2019",
-    "hasThumbnail": false,
-    "tags": ["Math", "Physics"]
-  },
-  {
-    "name": "why-is-biology-different",
-    "title": "Why is Biology different?",
-    "date": "1 July, 2019",
-    "hasThumbnail": false,
-    "tags": ["Math", "Biology", "Chemistry"]
+    "tags": [
+      "General"
+    ],
+    "hasThumbnail": false
   },
   {
     "name": "making-this-website",
     "title": "Making this website",
     "date": "20 August, 2019",
-    "hasThumbnail": false,
-    "tags": ["Math", "Coding"]
+    "tags": [
+      "Coding",
+      "General"
+    ],
+    "hasThumbnail": false
+  },
+  {
+    "name": "my-blog-entry",
+    "title": "My blog entry",
+    "date": "18 June, 2019",
+    "tags": [
+      "Geology",
+      "Biology",
+      "Math"
+    ],
+    "hasThumbnail": false
+  },
+  {
+    "name": "the-fibonacci-numbers",
+    "title": "The Fibonacci numbers",
+    "date": "1 August, 2019",
+    "tags": [
+      "Math",
+      "Physics"
+    ],
+    "hasThumbnail": false
+  },
+  {
+    "name": "why-is-biology-different",
+    "title": "Why is biology different?",
+    "date": "1 July, 2019",
+    "tags": [
+      "Biology",
+      "Chemistry",
+      "Math"
+    ],
+    "hasThumbnail": false
   }
 ]

@@ -95,7 +95,7 @@ function fillGridContainer(blogEntryValues, containerID) {
 
     let template = `
     <div class="grid_item" tabindex="0">
-       <a class="entry_link" href="/blog/${href}">
+       <a class="entry_link" href="/blog/posts/${href}">
         <div class="grid_item_content">
           <div class="grid_item_header">
             <div class="grid_item_title">${title}</div>
