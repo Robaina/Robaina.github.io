@@ -143,10 +143,9 @@ function addSuggestedReadings(max_suggested=3) {
     }
     // Deploy suggested readings, if any
     if (filteredEntryValues.length > 0) {
+      document.getElementById("suggested-readings").style.display = "block";
       fillGridContainer(filteredEntryValues, "suggested_readings_grid");
       writePostPreviews();
-    } else {
-      document.getElementById("suggested-readings").style.display = "none";
     }
 
   });

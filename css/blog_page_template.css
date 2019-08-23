@@ -56,6 +56,7 @@
   width: 100%;
   margin-top: 5vh;
   color: var(--FontColor);
+  display: none;
 }
 
 #suggested_readings_grid {
