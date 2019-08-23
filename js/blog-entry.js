@@ -141,9 +141,14 @@ function addSuggestedReadings(max_suggested=3) {
       let random_idxs = getRandomSample(0, n_filtered_entries-1, max_suggested);
       filteredEntryValues = extractSubArray(filteredEntryValues, random_idxs);
     }
+    // Deploy suggested readings, if any
+    if (filteredEntryValues.length > 0) {
+      fillGridContainer(filteredEntryValues, "suggested_readings_grid");
+      writePostPreviews();
+    } else {
+      document.getElementById("suggested-readings").style.display = "none";
+    }
 
-    fillGridContainer(filteredEntryValues, "suggested_readings_grid");
-    writePostPreviews();
   });
 
 }

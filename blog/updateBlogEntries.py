@@ -1,7 +1,8 @@
 """
-This module updates the JSON file containing the list of blog entries contained in the
+This script updates the JSON file containing the list of blog entries contained in the
 "posts" folder. The idea is to run this file every time a new blog post is saved to
-the posts folder. Call from command line within the directory: /blog
+the posts folder. Call from command line within the directory: /blog. Thanks to
+atom-python-run, it can also be run by pressing F5.
 """
 import os
 import json
