@@ -55,6 +55,48 @@ a {
   font-size: calc(1 * var(--TextFontSize));
   text-align: justify;
 }
+#navbar-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  height: 7vh;
+  padding-top: 1.5em;
+  background-color: var(--BackgroundColor);
+  /* transition: background-color 1s; */
+  z-index: 2;
+}
+#navbar {
+  text-align: center;
+  background-color: inherit;
+}
+.navbar-item {
+  color: var(--FontColor);
+  font-size: 2.0vw;
+  text-align: center;
+  margin-left: var(--NavSeparatorWidth);
+  margin-right: var(--NavSeparatorWidth);
+  padding-bottom: 1vh;
+  display: inline-block;
+  cursor: pointer;
+  background-color: inherit;
+}
+.navbar-item:hover {
+  color: var(--TextHoverColor);
+}
+#navbar-line-separator {
+  width: 50vw;
+  margin-left: 25vw;
+  height: 0px;
+  border-bottom: var(--NavBarSeparatorColor) solid 3px;
+}
+#my-logo-container {
+  position: absolute;
+  top: 0.3em;
+  left: 7vw;
+}
+#my-logo {
+  width: 5em;
+}
 #settings-container {
   position: absolute;
   top: 1.3em;
@@ -139,42 +181,11 @@ a {
   margin: 0.5em;
   margin-bottom: 0em;
   vertical-align:sub;
+  border-width: 0;
+  width: 4em;
 }
 #menu {
   display: none;
-}
-#navbar-container {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  padding-top: 1.5em;
-  background-color: var(--BackgroundColor);
-  /* transition: background-color 1s; */
-  z-index: 2;
-}
-#navbar {
-  text-align: center;
-  background-color: inherit;
-}
-.navbar-item {
-  color: var(--FontColor);
-  font-size: 2.0vw;
-  text-align: center;
-  margin-left: var(--NavSeparatorWidth);
-  margin-right: var(--NavSeparatorWidth);
-  padding-bottom: 1vh;
-  display: inline-block;
-  cursor: pointer;
-  background-color: inherit;
-}
-.navbar-item:hover {
-  color: var(--TextHoverColor);
-}
-#navbar-line-separator {
-  width: 50vw;
-  margin-left: 25vw;
-  height: 0px;
-  border-bottom: var(--NavBarSeparatorColor) solid 3px;
 }
 .burguer-bracket {
   color: var(--FancyColor);
@@ -203,7 +214,7 @@ a {
 
 /* Scroll bar */
 ::-webkit-scrollbar {
-  width: 1vw;
+  width: 0.5vw;
   background-color: var(--BackgroundColor);
 }
 ::-webkit-scrollbar-track {
@@ -230,6 +241,9 @@ a {
   /* .footer-code-symbol {
     font-size: 3.5vw;
   } */
+  #my-logo-container {
+    display: none;
+  }
   #navbar-container {
     padding-top: 0;
   }
@@ -295,6 +309,15 @@ a {
 @media only screen and (max-width: 768px) and (orientation: landscape) {
   .navbar-item {
     font-size: 2.5vw;
+  }
+  #my-logo-container {
+    top: 0.5em;
+  }
+  #my-logo {
+    width: 3em;
+  }
+  #settings-icon {
+    width: 4vw;
   }
   #footer-content {
     font-size: 1.1em;

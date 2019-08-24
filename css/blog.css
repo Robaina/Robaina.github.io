@@ -1,6 +1,6 @@
 body {
   --grid_width: 70vw;
-  --grid_item_margin: calc(0.005 * var(--grid_width));
+  --grid_item_margin: calc(0.02 * var(--grid_width));
   --grid_item_border_width: calc(0.003 * var(--grid_width));
   --ThumbnailMargin: 10%;
   overflow-x: hidden;

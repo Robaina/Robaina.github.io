@@ -12,7 +12,7 @@ function writePostPreviews() {
     let href = link.href.slice(start_idx);
 
     $.get("/" + href + ".html", function (data) {
-        data = $(data).find(".blog-content > p:first").text();
+        data = $(data).find("#blog-content > p:first").text();
         let preview_text = trimPreviewText(data, max_words) + "...";
         preview.innerHTML = preview_text;
     });

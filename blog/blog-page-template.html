@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Blog of Semidan Robaina Estevez">
+    <meta name="keywords" content="blog, science, coding">
+    <meta name="author" content="Semidan Robaina Estevez">
+
     <title>Semidán: Blog</title>
-		<link rel="icon" type="image/png" sizes="32x32" href="/imgs/logo1.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/imgs/my-logo.png">
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/blog.css">
     <link rel="stylesheet" href="/css/blog_entry.css">
@@ -32,7 +37,7 @@
         $("#blog-navigator").load("/blog-navigator.html");
       });
       let logo = new Image();
-      logo.src = "/imgs/logo1.png";
+      logo.src = "/imgs/my-logo.png";
     </script>
     <script src="/js/transitions.js"></script>
     <script src="/js/settings.js"></script>
@@ -51,24 +56,28 @@
 
         <div id="navbar-container"></div>
 
-        <div class="blog-wrap">
+        <div id="blog-wrap">
 
           <div class="tag-container">
             <div class="topictag Coding"></div>
             <div class="topictag Math"></div>
           </div>
 
-          <div class="blog-entry-header">
-            <p class="entry-title">Title</p>
-            <p class="entry-date">15 June, 2019</p>
-          </div>
+<div id="blog-entry-header">
+  <p id="entry-title">Title</p>
+  <p id="entry-date">15 June, 2019</p>
+</div>
 
-          <article class="blog-content">
+<!-- <div id="return-to-start-arrow">
+  <i class="fas fa-arrow-alt-circle-up"></i>
+</div> -->
 
-            <p>Ok, so this is the actual blog. Let's see if MathJax works now:
-               $$f(x) = \sum_{n=0}^{\inf} x^n.$$
-               The previous was a display formula, an example of an inline formula is this: $\log{x} + x^2 = k$.
-             </p>
+<article id="blog-content">
+
+  <p>Ok, so this is the actual blog. Let's see if MathJax works now:
+     $$f(x) = \sum_{n=0}^{\inf} x^n.$$
+     The previous was a display formula, an example of an inline formula is this: $\log{x} + x^2 = k$.
+   </p>
 
 <!-- code inside pre tags must be placed here, otherwise all whitespaces are rendered! -->
 <pre>
@@ -83,26 +92,14 @@
  </code>
 </pre>
 
-<pre>
- <code>
-   f <- function(x) {
-     return x^2
-   }
-   for (i in seq(1, 10)) {
-     print(f(i))
-   }
-
- </code>
-</pre>
-
-          </article>
+</article>
 
         </div>
 
         <div id="blog-navigator"></div>
         <div id="suggested-readings">
-          <h2>Further reading:</h2>
-          <div id="suggested_readings_grid"></div>
+          <h1 id="suggested-readings-title">Related posts:</h1>
+          <div id="suggested-readings-grid"></div>
         </div>
 
       </div>

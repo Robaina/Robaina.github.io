@@ -122,15 +122,16 @@ function setTopicTag() {
 }
 
 function changeNavBarColor() {
-  is_portrait_mobile = false;
-  if (!is_portrait_mobile) {
-    let navbar = document.getElementById("navbar-container");
-    if (window.scrollY > 100) {
-      navbar.style["background-color"] = "var(--GridItemColor)";
-    } else {
-      navbar.style["background-color"] = "var(--BackgroundColor)";
-    }
+  let navbar = document.getElementById("navbar-container");
+  let navbarSeparator = document.getElementById("navbar-line-separator");
+  if (window.scrollY > 100) {
+    navbar.style["background-color"] = "var(--GridItemColor)";
+    navbarSeparator.style.display = "none";
+  } else {
+    navbar.style["background-color"] = "var(--BackgroundColor)";
+    navbarSeparator.style.display = "block";
   }
 }
+
 setColorMode();
 window.onscroll = changeNavBarColor;

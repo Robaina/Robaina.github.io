@@ -3,30 +3,16 @@ let link_urls = [];
 let current_entry, current_entry_idx;
 let max_number_suggested_posts = 3;
 
-function initializeBlogEntry() {
-
-  $.getScript("/blog/blog-entries.json", function(result) {
-
-    let blogEntries = JSON.parse(result);
-    for (let entry of blogEntries) {
-       link_urls.push(entry.name);
-     }
-
-     current_entry = window.location.href.split("/").pop();
-     current_entry_idx = link_urls.indexOf(current_entry);
-
-     if (current_entry_idx === 0) {
-       let left_button = document.getElementById("left-blog-navigator-button");
-       left_button.style.visibility = "hidden";
-     } else if (current_entry_idx === (link_urls.length - 1)) {
-         let right_button = document.getElementById("right-blog-navigator-button");
-         right_button.style.visibility = "hidden";
-     }
-
-  });
-
-  setTopicTag();
-  addSuggestedReadings(max_number_suggested_posts);
+function setPostDate() {
+  let dateContainer = document.getElementById("entry-date");
+  if (dateContainer.innerHTML === "") {
+    const date = new Date();
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', {month: 'long'});
+    let current_date = day + " " + month + ", " + year;
+    dateContainer.innerHTML = current_date;
+  }
 }
 
 // Control previous and next buttons
@@ -36,8 +22,6 @@ function goToNextPost(sense) {
     window.location.href = link_urls[next_url_idx];
   }
 }
-
-$(initializeBlogEntry);
 
 // Suggested readings section
 function writePostPreviews() {
@@ -52,7 +36,7 @@ function writePostPreviews() {
     let href = link.href.slice(start_idx);
 
     $.get("/" + href + ".html", function (data) {
-        data = $(data).find(".blog-content > p:first").text();
+        data = $(data).find("#blog-content > p:first").text();
         let preview_text = trimPreviewText(data, max_words) + "...";
         preview.innerHTML = preview_text;
     });
@@ -144,7 +128,7 @@ function addSuggestedReadings(max_suggested=3) {
     // Deploy suggested readings, if any
     if (filteredEntryValues.length > 0) {
       document.getElementById("suggested-readings").style.display = "block";
-      fillGridContainer(filteredEntryValues, "suggested_readings_grid");
+      fillGridContainer(filteredEntryValues, "suggested-readings-grid");
       writePostPreviews();
     }
 
@@ -173,3 +157,32 @@ function extractSubArray(array, indices) {
   }
   return subarray
 }
+
+function initializeBlogEntry() {
+
+  $.getScript("/blog/blog-entries.json", function(result) {
+
+    let blogEntries = JSON.parse(result);
+    for (let entry of blogEntries) {
+       link_urls.push(entry.name);
+     }
+
+     current_entry = window.location.href.split("/").pop();
+     current_entry_idx = link_urls.indexOf(current_entry);
+
+     if (current_entry_idx === 0) {
+       let left_button = document.getElementById("left-blog-navigator-button");
+       left_button.style.visibility = "hidden";
+     } else if (current_entry_idx === (link_urls.length - 1)) {
+         let right_button = document.getElementById("right-blog-navigator-button");
+         right_button.style.visibility = "hidden";
+     }
+
+  });
+
+  setPostDate()
+  setTopicTag();
+  addSuggestedReadings(max_number_suggested_posts);
+}
+
+$(initializeBlogEntry);

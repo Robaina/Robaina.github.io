@@ -9,6 +9,15 @@
     "hasThumbnail": false
   },
   {
+    "name": "how-I-made-this-blog",
+    "title": "How I made this blog",
+    "date": "24 August, 2019",
+    "tags": [
+      "Coding"
+    ],
+    "hasThumbnail": false
+  },
+  {
     "name": "making-this-website",
     "title": "Making this website",
     "date": "20 August, 2019",

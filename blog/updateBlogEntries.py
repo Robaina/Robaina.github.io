@@ -31,11 +31,11 @@ for f in files:
         topic = s[:s.find('">')]
         topics.append(topic)
 
-    s = str(soup.find('p', {'class': 'entry-title'}))
+    s = str(soup.find('p', {'id': 'entry-title'}))
     s = s.split('entry-title">')[1]
     title = s[:s.find('<')]
 
-    s = str(soup.find('p', {'class': 'entry-date'}))
+    s = str(soup.find('p', {'id': 'entry-date'}))
     s = s.split('entry-date">')[1]
     date = s[:s.find('<')]
 
