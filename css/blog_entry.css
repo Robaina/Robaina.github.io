@@ -11,6 +11,7 @@ pre, code {
   text-align: left;
   white-space: pre;
   border-radius: 20px;
+  white-space:pre;
 }
 
 #blog-wrap {
@@ -20,7 +21,7 @@ pre, code {
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
   font-size: var(--TextFontSize);
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 h1, h2 {
@@ -57,6 +58,11 @@ h1, h2 {
 #entry-date {
   font-size: calc(0.5 * var(--TextFontSize));
   margin-top: 0.6em;
+}
+
+#blog-content {
+  line-height: 1.6;
+  font-size: calc(0.9 * var(--TextFontSize));
 }
 
 #blog-navigator {

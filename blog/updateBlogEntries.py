@@ -31,13 +31,14 @@ for f in files:
         topic = s[:s.find('">')]
         topics.append(topic)
 
-    s = str(soup.find('p', {'id': 'entry-title'}))
-    s = s.split('entry-title">')[1]
-    title = s[:s.find('<')]
+    title_str = str(soup.find('p', {'id': 'entry-title'}))
+    title_str = title_str.split('entry-title">')[1]
+    title = title_str[:title_str.find('<')]
 
-    s = str(soup.find('p', {'id': 'entry-date'}))
-    s = s.split('entry-date">')[1]
-    date = s[:s.find('<')]
+    date_div = soup.find('p', {'id': 'entry-date'})
+    date_str = str(date_div)
+    date_str = date_str.split('entry-date">')[1]
+    date = date_str[:date_str.find('<')]
 
     entry['name'] = name
     entry['title'] = title
@@ -48,3 +49,18 @@ for f in files:
 
 with open('blog-entries.json', 'w') as fout:
     json.dump(entries_info, fout, indent=2)
+
+
+"""
+Replace empty date with current date:
+
+from datetime import date
+today = date.today()
+current_date = today.strftime('%d %B, %Y')
+
+if date_div.string == '':
+    date_div.string = current_date
+
+with open("example_modified.html", "wb") as f_output:
+    f_output.write(soup.prettify("utf-8"))
+"""

@@ -82,11 +82,11 @@ function createGridItems() {
     let blogEntryValues = Object.values(blogEntries);
     fillGridContainer(blogEntryValues, "grid_container");
     writePostPreviews();
-    createTopicTagBanner();
+    createTopicTagBanner(blogEntries);
   });
 }
 
-function createTopicTagBanner() {
+function createTopicTagBanner(blogEntries) {
   let blogEntryValues = Object.values(blogEntries);
   let topicTags = ['All'];
   for (entry of blogEntryValues) {

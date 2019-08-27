@@ -11,7 +11,7 @@
   {
     "name": "how-I-made-this-blog",
     "title": "How I made this blog",
-    "date": "24 August, 2019",
+    "date": "25 August, 2019",
     "tags": [
       "Coding"
     ],
@@ -45,6 +45,15 @@
     "tags": [
       "Math",
       "Physics"
+    ],
+    "hasThumbnail": false
+  },
+  {
+    "name": "what-I-learned-about-writing-clean-code",
+    "title": "What I learned about writing clean code",
+    "date": "26 August, 2019",
+    "tags": [
+      "Coding"
     ],
     "hasThumbnail": false
   },

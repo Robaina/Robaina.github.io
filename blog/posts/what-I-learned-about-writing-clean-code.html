@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Blog of Semidan Robaina Estevez">
+    <meta name="keywords" content="blog, science, coding">
+    <meta name="author" content="Semidan Robaina Estevez">
+
+    <title>Semidán: Blog</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="/imgs/my-logo.png">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/blog_entry.css">
+    <link rel="stylesheet" href="/vendor/fontawesome_all.min.css">
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default" async></script>
+
+    <script src="/vendor/jquery-3.4.1.min.js"></script>
+    <script>
+      $(function() {
+        $("#navbar-container").load("/navbar.html");
+      });
+      $(function() {
+        $("#footer").load("/credits.html");
+      });
+      $(function() {
+        $("#blog-navigator").load("/blog-navigator.html");
+      });
+      let logo = new Image();
+      logo.src = "/imgs/my-logo.png";
+    </script>
+    <script src="/js/transitions.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/blog-entry.js"></script>
+    <!-- highlight.js, styles loaded dynamically in settings.js -->
+    <script src="/vendor/highlight_js/highlight.pack.js"></script>
+    <!-- <script>hljs.initHighlightingOnLoad();</script> : Moved to blog-entry.js otherwise highlight_js doesn't work after trimming first blank line in code snippets.-->
+
+  </head>
+
+  <body>
+
+    <div id="page-container">
+      <div id="content-wrap">
+
+        <div id="navbar-container"></div>
+
+        <div id="blog-wrap">
+
+          <div class="tag-container">
+            <div class="topictag Coding"></div>
+          </div>
+
+<div id="blog-entry-header">
+  <p id="entry-title">What I learned about writing clean code</p>
+  <p id="entry-date">26 August, 2019</p>
+</div>
+
+<!-- <div id="return-to-start-arrow">
+  <i class="fas fa-arrow-alt-circle-up"></i>
+</div> -->
+
+<article id="blog-content">
+
+<p>I'm a classically trained molecular biologist. I never took any formal lessons about coding or programming. I learned coding by myself, out of necessity. Even though this is entirely possible these days, with all the multiple resources available out there, I always felt that I lacked a solid background. That I always was missing on something, some tricks that I wouldn't know and most importantly, some general practices that would facilite my life as an incipient programmer. One of those things that I was missing was a solid base on good coding practices that would guarantee the production of clean, organized, easy-to-follow code.</p>
+
+<p>I started coding my programs in long scripts, I was only interested in the result. If the script worked and solved my problem &mdash; some simulations of metabolic systems back then &mdash; then I was more than satisfied. I never paid attention to things like readability of my code, or the capacity to quickly find bugs and isolate corrupt sections in the code. This philosophy was just fine for the small projects I was doing at the time. Although, even then, I realized that, oftentimes, I wouldn't have the slightest idea about how my code worked when I came back to it after some months. I just took this as a fact of the programmer's life. Something to deal with, take a coffee and expend a couple or hours deciphering the meaning of all these variables in my long script, normal life stuff.</p>
+
+<p>It wasn't until I read <a href="https://www.oreilly.com/library/view/clean-code/9780136083238/">Clean Code</a>: A Handbook of Agile Software Craftsmanship, by Robert C. Martin, that I realized how <em>dirty</em> my code was. This book provided me with the base knowledge about good coding practices that I was lacking. Even tough all examples in the book are based on Java, the information there is general enough to be applied to any programming language. Further, you will benefit from following good coding practices even if, like me, most of your code is intended to solve specific problems &mdash; such as the computational work required by a scientific study &mdash; rather than being part of an application. Here, I'll summarize the points from the book that helped me the most. I'll use some small examples written in Python to illustrate the ideas. Hope you find it useful!</p>
+
+<h1>1. Is all about names</h1>
+<p>Giving meaningful and consistent names to the objects you create while coding is perhaps the most important tip. Oftentimes, I found myself naming variables and functions with very short, cryptic names. Typically, I would write something like:</p>
+
+<pre><code class="python">
+  a = 3
+  b = 4
+  def function(a, b):
+      return a + b
+</code></pre>
+
+<p>Instead of this, give object names that describe what the object <em>is</em>: it's preferable to use long names that describe the object than short but cryptic ones. This way, there is no room for confusion, one knows what the object is about just by reading the name. Additionally, we can differentiate between inanimate objects such as numbers and arrays and functions or methods, which perform an action on other objects, by using verbs. For instance, it's common practice to start a function name by a verb that better describes the action it perform follow by a descriptive object of this action. For instance:</p>
+
+<pre><code class="python">
+  max_number_of_steps = 10
+  step_size = 1
+  def updateFunction(step_size, max_number_of_steps):
+      return updated
+</code></pre>
+
+<p>Additionally, I always start naming functions with lowercase, to further differentiate them from other objects such as classes &mdash; which I begin with upper case. This way a quick look at the name tells me that an object is a function and directs me towards what it does. The previous steps are aimed at improving your code semantics: your code will look more like regular prose and will reduce the need of including explanatory comment lines for your future self. After all, why use comment lines to describe objects when you can do it in the name?</p>
+
+<h1>2. Functions should be small</h1>
+<p>I would write very long functions in the old days, containing tens of lines of code, multiple arguments and typically performing multiple tasks. Essentially, one or two gigantic functions would perform most of the workflow in my script. Now, why is that a bad practice? I see two main reasons. First, a giant function may work just fine, but you will most likely get lost when coming back to it and try to figure out what is doing. This is particularly important when debugging your code, when you will hopelessly jump from one line to another just to realize that you made a typo in that variable definition at the beginning. Second, making smaller functions facilitates modularity and function recycling in your code. In many occasions, functions can be partitioned into subroutines which are basic enough to be re-used, either in other parts of your project or in future projects.</p>
+
+<p>So, how small functions should be? Well, Robert C. Martin says that functions should ideally perform a single task and occupy a handful of lines. I find this a bit too restrictive for everyday scripts. I would say that functions should perform as few tasks as possible. Sometimes makes more sense for a function to perform a coupled of small related tasks rather than split the function two microfunctions. Still, the general idea makes sense.</p>
+
+<h1>3. Group functions in higher categories</h1>
+<p>Now that we have split our long script into a bunch of small functions, we will find that probably many of them are related. For instance, they may be all subroutines which together perform a single task, or they may share some arguments.</p>
+
+<h1>4. Write meaningful conditional expressions</h1>
+<p>Conditional expressions are all over the place. And no wonder about that, they endow our code with the ability to be responsive, to behave differently depending on the circumstances. Sometimes, conditional expressions are simple enough. However, other times they can get pretty messy.</p>
+
+<pre><code class="python">
+  if ( (x > 0 and len(x) < max_length)
+      or (x < 0 and len(x) > min_length) ):
+     return myfunction(x)
+</code></pre>
+
+<p>and compare with:</p>
+
+<pre><code class="python">
+  is_valid_input = ( (x > 0 and len(x) < max_length)
+                     or (x < 0 and len(x) > min_length) )
+  if is_valid_input(x):
+      return myfunction(x)
+</code></pre>
+
+<p>By naming our condition, we have gone from a confusing conditional expression &mdash; particularly when coming back to it after some time &mdash; to a semantic one, in which we just need to read to get an idea about what the conditional expression is doing.</p>
+
+<h1>5. Don't be afraid of line breaks</h1>
+<p>Just like in regular prose, code lines that are too long are hard to read. It's better to break long lines into shorter ones. In my case, I tend to break lines of around 100 characters, which more or less corresponds to half my laptop's screen. This is because often I need to see two scripts side by side while working on my code. However, sometimes it makes sense to go for a new line even when the current is well below the limit. One of such cases corresponds to conditional expressions, like the one we saw before. When the conditional expression is formed by several conditions, it's useful to me to dedicate an independent line to each condition. This way I can quickly break down the conditional expression into its constituent conditions, which comes handy when trying to understand what the conditional expression is evaluating, particularly during debugging.</p>
+
+<h1>Concluding...</h1>
+<p>Code is written for humans! That's the whole purpose of programming languages: serve as a human-readable interface between machine code and the way we humans process information. Hence, it makes sense to treat code as any other piece of writing, and make an effort to increase readability. Hence, I have found that dedicating some effort to make clean code worth the extra time expended. In fact, these practices will greatly reduce the time required to understand your script, either by someone else, or by you after some time. It will also facilite debugging and most likely reduce the number of bugs in your code by establishing a logical, semantic structure to your code. So</p>
+
+
+</article>
+
+        </div>
+
+        <div id="blog-navigator"></div>
+        <div id="suggested-readings">
+          <h1 id="suggested-readings-title">Related posts:</h1>
+          <div id="suggested-readings-grid"></div>
+        </div>
+
+      </div>
+
+      <footer id="footer"></footer>
+
+    </div>
+
+  </body>
+</html>

@@ -3,18 +3,6 @@ let link_urls = [];
 let current_entry, current_entry_idx;
 let max_number_suggested_posts = 3;
 
-function setPostDate() {
-  let dateContainer = document.getElementById("entry-date");
-  if (dateContainer.innerHTML === "") {
-    const date = new Date();
-    const day = date.getDate();
-    const year = date.getFullYear();
-    const month = date.toLocaleString('default', {month: 'long'});
-    let current_date = day + " " + month + ", " + year;
-    dateContainer.innerHTML = current_date;
-  }
-}
-
 // Control previous and next buttons
 function goToNextPost(sense) {
   let next_url_idx = current_entry_idx + sense;
@@ -137,6 +125,9 @@ function addSuggestedReadings(max_suggested=3) {
 }
 
 function getRandomSample(minInt, maxInt, size) {
+  /* Draw random sample of specified size, without repetition,
+     from a sequence of numbers between minInt and maxInt
+  */
   let numbers = []
   for (i = minInt; i < maxInt + 1; i++) {
     numbers.push(i);
@@ -156,6 +147,11 @@ function extractSubArray(array, indices) {
     subarray.push(array[idx])
   }
   return subarray
+}
+
+function removeFirstBlankLineOfCodeSnippets() {
+  const code = document.querySelectorAll("pre code");
+  [...code].forEach(el => el.textContent = el.textContent.replace(/^\n/,''));
 }
 
 function initializeBlogEntry() {
@@ -178,11 +174,13 @@ function initializeBlogEntry() {
          right_button.style.visibility = "hidden";
      }
 
-  });
+  })
 
-  setPostDate()
   setTopicTag();
   addSuggestedReadings(max_number_suggested_posts);
+  removeFirstBlankLineOfCodeSnippets();
+  // Initialize Highlight.js
+  hljs.initHighlightingOnLoad();
 }
 
 $(initializeBlogEntry);

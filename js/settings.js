@@ -124,12 +124,14 @@ function setTopicTag() {
 function changeNavBarColor() {
   let navbar = document.getElementById("navbar-container");
   let navbarSeparator = document.getElementById("navbar-line-separator");
-  if (window.scrollY > 100) {
-    navbar.style["background-color"] = "var(--GridItemColor)";
-    navbarSeparator.style.display = "none";
-  } else {
-    navbar.style["background-color"] = "var(--BackgroundColor)";
-    navbarSeparator.style.display = "block";
+  if (navbar !== null & navbarSeparator !== null) {
+    if (window.scrollY > 100) {
+      navbar.style["background-color"] = "var(--GridItemColor)";
+      navbarSeparator.style.display = "none";
+    } else {
+      navbar.style["background-color"] = "var(--BackgroundColor)";
+      navbarSeparator.style.display = "block";
+    }
   }
 }
 

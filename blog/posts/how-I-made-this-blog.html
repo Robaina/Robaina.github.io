@@ -64,14 +64,17 @@
 
 <div id="blog-entry-header">
 <p id="entry-title">How I made this blog</p>
-<p id="entry-date"></p>
+<p id="entry-date">25 August, 2019</p>
 </div>
 
 <article id="blog-content">
 
-<p>
-  I had three objectives in mind prior to building this blog. First, I wanted to have an index section in which thumbnails of recent posts would be shown in a grid format. The thumbnail would include the first words of the post, as a small description, and possibly a picture. Second, I wanted each post to include one or several topic tags, and to implement a system to filter posts by topic. This way, could quickly search for posts about a topic of interest. Third, I wanted to have a section recommending related posts at the end of each blog post, which would select and display a sample of posts of related topics automatically. Finally, I wanted the blog style to be aligned with that of my website. Also, I wanted the blog to be highly customizable, with the possibility to add features as needed, such as, displaying code snippets, mathematical formulae, or even fragments of Jupyter Notebooks. To accommodate all these requirements, and also for the fun of it, I decided to build the blog section from scratch, just like the rest of my webpage. So, I thought I could explain how I made some of the features of this blog, in the hopes that this would be helpful to you! Let's get to it.
-</p>
+<p>I had several objectives in mind prior to building this blog. First, I wanted to have an index section in which thumbnails of recent posts would be shown in a grid format. The thumbnail would include the first words of the post, as a small description, and possibly a picture. Second, I wanted each post to include one or several topic tags, and to implement a system to filter posts by topic. This way, could quickly search for posts about a topic of interest. Third, I wanted to have a section recommending related posts at the end of each blog post, which would select and display a sample of posts of related topics automatically.</p>
+
+<p>Finally, I wanted the blog style to be aligned with that of my website. Also, I wanted the blog to be highly customizable, with the possibility to add features as needed, such as, displaying code snippets, mathematical formulae, or even fragments of Jupyter Notebooks. To accommodate all these requirements, and also for the fun of it, I decided to build the blog section from scratch, just like the rest of my webpage. So, I thought I could explain how I made some of the features of this blog, in the hopes that this would be helpful to you! Let's get to it.</p>
+
+<h1>1. Preparing the index page and post thumbnails</h1>
+<p>CSS grid is awesome! it's definitely the way to go if you are looking for a fully responsive grid layout. I knew that I would be </p>
 
 <pre><code>  def f(x):
      return x ** 2
@@ -91,6 +94,7 @@
   <h1 id="suggested-readings-title">Related posts:</h1>
   <div id="suggested-readings-grid"></div>
 </div>
+
 
 </div>
 
