@@ -5,6 +5,7 @@
   --DarkModeFancyColor: rgb(73, 201, 35);
   --DarkModeEmphFontColor: rgb(255, 255, 255);
   --DarkModeGridItemColor: rgb(51, 51, 51);
+  --DarkModeNavBarColor: rgb(37, 37, 37);
 
   /* Light mode color palette */
   --LightModeBackgroundColor: rgb(235, 233, 233);
@@ -12,6 +13,7 @@
   --LightModeFancyColor: rgb(13, 79, 185);
   --LightModeEmphFontColor: rgb(0, 0, 0);
   --LightModeGridItemColor: rgb(201, 201, 201);
+  --LightModeNavBarColor: rgb(224, 224, 224);
 
   /* Master variables */
   --BackgroundColor: var(--DarkModeBackgroundColor);
@@ -19,6 +21,7 @@
   --FancyColor: var(--DarkModeFancyColor);
   --EmphFontColor: var(--DarkModeEmphFontColor);
   --GridItemColor: var(--DarkModeGridItemColor);
+  --NavBarColor: var(--DarkModeNavBarColor);
   --NavBarActiveColor: var(--FancyColor);
   --NavBarSeparatorColor: rgb(51, 51, 51);
   --TextHoverColor: rgb(93, 93, 93);
@@ -39,8 +42,8 @@ body {
    font-family: sans-serif;
 }
 html, body {
-  margin: 0;
-  padding:0;
+  margin: 0px;
+  padding: 0px;
 }
 a {
   text-decoration: none;
@@ -58,7 +61,7 @@ a {
 #navbar-container {
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
+  top: 1px;
   height: 7vh;
   padding-top: 1.5em;
   background-color: var(--BackgroundColor);
@@ -321,5 +324,8 @@ a {
   }
   #footer-content {
     font-size: 1.1em;
+  }
+  #navbar-line-separator {
+    display: block;
   }
 }

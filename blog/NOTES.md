@@ -18,3 +18,7 @@
 * General tips about making a website/blog that I have learnt: making urls, organizing project, etc
 * Brief tips that I learnt about keeping clean, readable code (after reading Clean code by this guy)
 * A post about this magic hexagon game, how I solved it with a MILP and my generalization: the magic-gon. Probably good opportunity to port code to JavaScript.
+* A post about the dependency graph generated from Euclid's Elements and link to application. That's so cool...
+
+# Tips to writing engaging blogs
+* Add a call to action to each post such as, "if you enjoyed this post, please share in Twitter/Facebook" or "please leave a comment or drop me a line!"

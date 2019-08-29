@@ -74,16 +74,18 @@
 
 <p>I'm a classically trained molecular biologist. I never took any formal lessons about coding or programming. I learned coding by myself, out of necessity. Even though this is entirely possible these days, with all the multiple resources available out there, I always felt that I lacked a solid background. That I always was missing on something, some tricks that I wouldn't know and most importantly, some general practices that would facilite my life as an incipient programmer. One of those things that I was missing was a solid base on good coding practices that would guarantee the production of clean, organized, easy-to-follow code.</p>
 
-<p>I started coding my programs in long scripts, I was only interested in the result. If the script worked and solved my problem &mdash; some simulations of metabolic systems back then &mdash; then I was more than satisfied. I never paid attention to things like readability of my code, or the capacity to quickly find bugs and isolate corrupt sections in the code. This philosophy was just fine for the small projects I was doing at the time. Although, even then, I realized that, oftentimes, I wouldn't have the slightest idea about how my code worked when I came back to it after some months. I just took this as a fact of the programmer's life. Something to deal with, take a coffee and expend a couple or hours deciphering the meaning of all these variables in my long script, normal life stuff.</p>
+<p>I started coding my programs in long scripts: I was only interested in the result. If the script worked and solved my problem &mdash; some simulations of metabolic systems back then &mdash; then I was more than satisfied. I never paid attention to things like readability of my code, or the capacity to quickly find bugs and isolate corrupt sections in the code. This philosophy was just fine for the small projects I was doing at the time. However, oftentimes I wouldn't have the slightest idea about how my code worked when I came back to it after some months. I just took this as a fact of the programmer's life. Something to deal with, take a coffee and expend a couple or hours deciphering the meaning of all these variables in my long script. Normal life stuff.</p>
 
-<p>It wasn't until I read <a href="https://www.oreilly.com/library/view/clean-code/9780136083238/">Clean Code</a>: A Handbook of Agile Software Craftsmanship, by Robert C. Martin, that I realized how <em>dirty</em> my code was. This book provided me with the base knowledge about good coding practices that I was lacking. Even tough all examples in the book are based on Java, the information there is general enough to be applied to any programming language. Further, you will benefit from following good coding practices even if, like me, most of your code is intended to solve specific problems &mdash; such as the computational work required by a scientific study &mdash; rather than being part of an application. Here, I'll summarize the points from the book that helped me the most. I'll use some small examples written in Python to illustrate the ideas. Hope you find it useful!</p>
+<p>It wasn't until I read <a href="https://www.oreilly.com/library/view/clean-code/9780136083238/">Clean Code</a>: A Handbook of Agile Software Craftsmanship, by Robert C. Martin, that I realized how <em>dirty</em> my code was. This book provided me with base knowledge about good coding practices. Even tough all examples in the book are based on Java, the information there is general enough to be applied to any programming language. Further, you will benefit from following good coding practices even if, like me, most of your code is intended to solve specific problems &mdash; such as the computational work required by a scientific study &mdash; rather than being part of an application. Here, I'll summarize the points from the book that helped me the most. I'll use some small examples written in Python to illustrate the ideas. Hope you find it useful!</p>
 
 <h1>1. Is all about names</h1>
 <p>Giving meaningful and consistent names to the objects you create while coding is perhaps the most important tip. Oftentimes, I found myself naming variables and functions with very short, cryptic names. Typically, I would write something like:</p>
 
 <pre><code class="python">
-  a = 3
-  b = 4
+  x = 0
+  n = 3
+  t_int = 1
+  # update state
   def function(a, b):
       return a + b
 </code></pre>
@@ -104,8 +106,8 @@
 
 <p>So, how small functions should be? Well, Robert C. Martin says that functions should ideally perform a single task and occupy a handful of lines. I find this a bit too restrictive for everyday scripts. I would say that functions should perform as few tasks as possible. Sometimes makes more sense for a function to perform a coupled of small related tasks rather than split the function two microfunctions. Still, the general idea makes sense.</p>
 
-<h1>3. Group functions in higher categories</h1>
-<p>Now that we have split our long script into a bunch of small functions, we will find that probably many of them are related. For instance, they may be all subroutines which together perform a single task, or they may share some arguments.</p>
+<h1>3. Group related functions in higher categories</h1>
+<p>Now that we have split our long script into a bunch of small functions, we will find that probably many of them are related. For instance, they may be all subroutines which together perform a single task, or they may share some arguments. In this case, it makes sense to group related functions in a larger category. Classes are the broader categories that are typically employed in object-oriented programming. A class is a collection of functions (called class methods) and attributes, which oftentimes serve as arguments to</p>
 
 <h1>4. Write meaningful conditional expressions</h1>
 <p>Conditional expressions are all over the place. And no wonder about that, they endow our code with the ability to be responsive, to behave differently depending on the circumstances. Sometimes, conditional expressions are simple enough. However, other times they can get pretty messy.</p>
@@ -125,14 +127,13 @@
       return myfunction(x)
 </code></pre>
 
-<p>By naming our condition, we have gone from a confusing conditional expression &mdash; particularly when coming back to it after some time &mdash; to a semantic one, in which we just need to read to get an idea about what the conditional expression is doing.</p>
+<p>By naming our condition, we have gone from a confusing conditional expression &mdash; particularly when coming back to it after some time &mdash; to a semantic one, in which we just need to read it to get an idea about what the conditional expression is evaluating.</p>
 
 <h1>5. Don't be afraid of line breaks</h1>
-<p>Just like in regular prose, code lines that are too long are hard to read. It's better to break long lines into shorter ones. In my case, I tend to break lines of around 100 characters, which more or less corresponds to half my laptop's screen. This is because often I need to see two scripts side by side while working on my code. However, sometimes it makes sense to go for a new line even when the current is well below the limit. One of such cases corresponds to conditional expressions, like the one we saw before. When the conditional expression is formed by several conditions, it's useful to me to dedicate an independent line to each condition. This way I can quickly break down the conditional expression into its constituent conditions, which comes handy when trying to understand what the conditional expression is evaluating, particularly during debugging.</p>
+<p>Just like in regular prose, code lines that are too long are hard to read. It's better to break long lines into shorter ones. In my case, I tend to break lines at around 100 characters, which more or less corresponds to half my laptop's screen. This is because often I need to see two scripts side by side while working on my code. However, sometimes it makes sense to go for a new line even when the current is well below the limit. One of such cases corresponds to conditional expressions like the one we saw before. When the conditional expression is formed by several conditions, it's useful to dedicate an independent line to each condition. This way I can quickly break down the conditional expression into its constituent conditions, which comes handy when trying to understand what the conditional expression is evaluating, particularly during debugging.</p>
 
-<h1>Concluding...</h1>
-<p>Code is written for humans! That's the whole purpose of programming languages: serve as a human-readable interface between machine code and the way we humans process information. Hence, it makes sense to treat code as any other piece of writing, and make an effort to increase readability. Hence, I have found that dedicating some effort to make clean code worth the extra time expended. In fact, these practices will greatly reduce the time required to understand your script, either by someone else, or by you after some time. It will also facilite debugging and most likely reduce the number of bugs in your code by establishing a logical, semantic structure to your code. So</p>
-
+<h1>In conclusion</h1>
+<p>Code is written for humans! That's the whole purpose of programming languages: serve as a human-readable interface between machine code and the way we humans process information. Hence, it makes sense to treat code as any other piece of writing and make an effort to increase readability. I have found that dedicating some effort to make clean code worth the extra time expended. In fact, these practices greatly reduce the time required to understand your script, either by someone else, or by you after some time. It also facilites debugging and most likely reduce the number of bugs in your code by establishing a logical, semantic structure. Finally, I don't apply all these tips at once. Typically, I begin writing code that works. Later on, I edit &mdash; refactor in the jargon &mdash; the code to make it look cleaner. Again much like regular prose, in which one first would write the bulk of a text and then polish it during edition. So, if you are like I used to be and write these monstruos, hardy-readable scripts, I encourage you to make your code pretty. You won't regret it!</p>
 
 </article>
 

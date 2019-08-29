@@ -7,3 +7,5 @@
 * Perhaps add arrow button on scroll down to return up, and perhaps remove sticky navbar (solving Firefox issue)
 * How can one add a shared on Twitter, Facebook button? e.g.: https://elc.github.io/posts/embed-interactive-notebooks/#topbar
 * Also, remember to add comments section, probably easiest to start with disqus and see how it goes.
+* I would like to be able to write blog drafts and store them while working on them. Ideally only the article part, not the whole html. Then, once finished, I could run a python program to insert the article into an html in the posts folder.
+* Should dedicate a folder to each blog entry, to host pictures in there rather than in imgs?

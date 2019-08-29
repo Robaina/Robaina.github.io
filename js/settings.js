@@ -2,7 +2,8 @@
 let light_mode_selected;
 let light_color_mode = {};
 let dark_color_mode = {};
-let properties = ["GridItemColor", "BackgroundColor", "FontColor", "FancyColor", "EmphFontColor"];
+let properties = ["GridItemColor", "BackgroundColor", "FontColor",
+                  "FancyColor", "EmphFontColor", "NavBarColor"];
 
 for (property of properties) {
   light_color_mode["--" + property] = getComputedStyle(
@@ -122,18 +123,29 @@ function setTopicTag() {
 }
 
 function changeNavBarColor() {
+
+  const is_landscape_oriented = window.innerWidth > window.innerHeight;
+  const is_mobile = window.innerWidth < 768;
   let navbar = document.getElementById("navbar-container");
   let navbarSeparator = document.getElementById("navbar-line-separator");
-  if (navbar !== null & navbarSeparator !== null) {
+
+  if (is_mobile && !is_landscape_oriented) {
+    navbarSeparator.style.display = "none";
+  }
+
+  if (navbar !== null && navbarSeparator !== null) {
     if (window.scrollY > 100) {
-      navbar.style["background-color"] = "var(--GridItemColor)";
+      navbar.style["background-color"] = "var(--NavBarColor)";
       navbarSeparator.style.display = "none";
     } else {
       navbar.style["background-color"] = "var(--BackgroundColor)";
-      navbarSeparator.style.display = "block";
+      if (!is_mobile || (is_mobile && is_landscape_oriented)) {
+        navbarSeparator.style.display = "block";
+      }
     }
   }
 }
 
 setColorMode();
 window.onscroll = changeNavBarColor;
+window.onresize = changeNavBarColor;
