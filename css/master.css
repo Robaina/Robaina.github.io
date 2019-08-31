@@ -211,7 +211,7 @@ a {
   color: var(--LightModeFontColor);
   text-align: center;
 }
-.tag-container {
+#tag-container {
   text-align: right;
 }
 

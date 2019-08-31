@@ -1,93 +1,102 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Semidán: Blog</title>
-		<link rel="icon" type="image/png" sizes="32x32" href="/imgs/my-logo.png">
-    <link rel="stylesheet" href="/css/master.css">
-    <link rel="stylesheet" href="/css/blog.css">
-    <link rel="stylesheet" href="/css/blog_entry.css">
-    <link rel="stylesheet" href="/vendor/fontawesome_all.min.css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet"> -->
-
-    <script src="/vendor/jquery-3.4.1.min.js"></script>
-    <script>
-      $(function() {
-        $("#navbar-container").load("/navbar.html");
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="Blog of Semidan Robaina Estevez" name="description"/>
+  <meta content="blog, science, coding" name="keywords"/>
+  <meta content="Semidan Robaina Estevez" name="author"/>
+  <title>
+   Semidán: Blog
+  </title>
+  <link href="/imgs/my-logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/css/master.css" rel="stylesheet"/>
+  <link href="/css/blog.css" rel="stylesheet"/>
+  <link href="/css/blog_entry.css" rel="stylesheet"/>
+  <link href="/vendor/fontawesome_all.min.css" rel="stylesheet"/>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
       });
-      $(function() {
-        $("#footer").load("/credits.html");
-      });
-      $(function() {
-        $("#blog-navigator").load("/blog-navigator.html");
-      });
-      let logo = new Image();
-      logo.src = "/imgs/my-logo.png";
-    </script>
-    <script src="/js/transitions.js"></script>
-    <script src="/js/settings.js"></script>
-    <script src="/js/blog-entry.js"></script>
-
-  </head>
-
-  <body>
-
-    <div id="page-container">
-      <div id="content-wrap">
-
-        <div id="navbar-container"></div>
-
-        <div id="blog-wrap">
-
-          <div class="tag-container">
-            <div class="topictag Coding"></div>
-            <div class="topictag Math"></div>
-          </div>
-
-          <!-- <div id="return-to-start-arrow">
-            <i class="fas fa-arrow-alt-circle-up"></i>
-          </div> -->
-
-          <div id="blog-entry-header">
-            <p id="entry-title">Making this website</p>
-            <p id="entry-date">20 August, 2019</p>
-          </div>
-
-          <article id="blog-content">
-
-            <p>I have been wanting to make my website since I started my Ph.D. I knew it was something important to have, but I just couldn't find the time to do it. Now that I have more time, I have decided to go for it! I could have easily built my website using some content management system, or I could have employed some available website template, or even use one of the several available JavaScript libraries to help me do it. However, I wanted to build a website from scratch, that is, using pure HTML5, CSS3, and vanilla JavaScript. On the one hand, I wanted to learn more about web development stuff during the process. On the other hand, I enjoy coding, and building a website from scratch, with full freedom to do whatever I wanted, seemed like a fun thing to do! Anyway, I thought I could share some tips I wish I would have told me when I started this project. So, here we go.</p>
-
-            <h1>1. Keep your project well organized</h1>
-            <p>You are going to generate a large quantity of files. This includes naming your folders in such a way that urls are human-readable. This way your address will be much easier to remember.</p>
-
-            <h1>2. Keep things simple</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <h1>3. Your website is a work in progress</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <h1>4. Consider a free hosting service like GitHub or GitLab pages</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <h1>5. CSS variables are awesome, use them more often</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-          </article>
-
-        </div>
-
-        <div id="blog-navigator"></div>
-        <div id="suggested-readings">
-          <h1 id="suggested-readings-title">Related posts:</h1>
-          <div id="suggested-readings-grid"></div>
-        </div>
-
-      </div>
-
-      <footer id="footer"></footer>
-
+  </script>
+  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  </script>
+  <script src="/vendor/jquery-3.4.1.min.js">
+  </script>
+  <script>
+   $(function() {
+      $("#navbar-container").load("/navbar.html");
+    });
+    $(function() {
+      $("#footer").load("/credits.html");
+    });
+    $(function() {
+      $("#blog-navigator").load("/blog-navigator.html");
+    });
+    let logo = new Image();
+    logo.src = "/imgs/my-logo.png";
+  </script>
+  <script src="/js/transitions.js">
+  </script>
+  <script src="/js/settings.js">
+  </script>
+  <script src="/js/blog-entry.js">
+  </script>
+  <!-- highlight.js -->
+  <!-- styles loaded dynamically in settings.js -->
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
+ </head>
+ <body>
+  <div id="page-container">
+   <div id="content-wrap">
+    <div id="navbar-container">
     </div>
-
-  </body>
+    <div id="blog-wrap">
+     <div id="tag-container">
+      <div class="topictag Coding"></div>
+     </div>
+     <div id="blog-entry-header">
+      <p id="entry-title">
+       Making this website
+      </p>
+      <p id="entry-date">
+       20 August, 2019
+      </p>
+     </div>
+     <article id="blog-content">
+      <p>I have been wanting to make my website since I started my Ph.D. I knew it was something important to have, but I just couldn't find the time to do it. Now that I have more time, I have decided to go for it! I could have easily built my website using some content management system, or I could have employed some available website template, or even use one of the several available JavaScript libraries to help me do it. However, I wanted to build a website from scratch, that is, using pure HTML5, CSS3, and vanilla JavaScript. On the one hand, I wanted to learn more about web development stuff during the process. On the other hand, I enjoy coding, and building a website from scratch, with full freedom to do whatever I wanted, seemed like a fun thing to do! Anyway, I thought I could share some tips I wish I would have told me when I started this project. So, here we go.</p>
+<h1>1. Keep your project well organized</h1>
+<p>You are going to generate a large quantity of files. This includes naming your folders in such a way that urls are human-readable. This way your address will be much easier to remember.</p>
+<h1>2. Keep things simple</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1>3. Your website is a work in progress</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1>4. Consider a free hosting service like GitHub or GitLab pages</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1>5. CSS variables are awesome, use them more often</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     </article>
+    </div>
+    <div id="blog-navigator">
+    </div>
+    <div id="suggested-readings">
+     <h1 id="suggested-readings-title">
+      Related posts:
+     </h1>
+     <div id="suggested-readings-grid">
+     </div>
+    </div>
+   </div>
+   <footer id="footer">
+   </footer>
+  </div>
+  <!-- <div id="return-to-start-arrow">
+      <i class="fas fa-arrow-alt-circle-up"></i>
+    </div> -->
+ </body>
 </html>

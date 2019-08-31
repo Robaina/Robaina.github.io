@@ -73,7 +73,7 @@ function fillGridContainer(blogEntryValues, containerID) {
             <div class="grid_item_title">${title}</div>
             <div class="grid_item_date">${date}</div>
           </div>
-          <div class="tag-container">
+          <div id="tag-container">
             ${tags}
           </div>
           ${thumbnail}

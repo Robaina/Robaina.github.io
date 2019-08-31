@@ -22,3 +22,8 @@
 
 # Tips to writing engaging blogs
 * Add a call to action to each post such as, "if you enjoyed this post, please share in Twitter/Facebook" or "please leave a comment or drop me a line!"
+
+# Writing in markdown
+1. Go through all md files and check which one doesn't have a html version in posts
+2. Create an html version
+3. Integrate these scripts with the one updating the JSON data
