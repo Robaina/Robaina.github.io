@@ -186,6 +186,7 @@ function initializeBlogEntry() {
   // Initialize Highlight.js
   hljs.initHighlightingOnLoad();
 
+
   // Initialize comment system
   let commentsFontColor = getComputedStyle(document.documentElement)
   .getPropertyValue("--CommentsFontColor");
@@ -193,6 +194,8 @@ function initializeBlogEntry() {
     textColor: commentsFontColor,
     subtextColor: commentsFontColor
   });
+
 }
 
 $(initializeBlogEntry);
+// commentBox("5693177776308224-proj");

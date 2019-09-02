@@ -21,8 +21,8 @@ pre, code {
 }
 
 img {
-  width: calc(0.6 * var(--ColumnWidth));
-  margin-left: calc(0.2 * var(--ColumnWidth));
+  width: calc(0.8 * var(--ColumnWidth));
+  margin-left: calc(0.1 * var(--ColumnWidth));
 }
 
 #blog-wrap {
@@ -125,8 +125,10 @@ h1, h2 {
 }
 
 .commentbox {
-  width: 80vw;
-  margin-left: 10vw;
+  width: 70vw;
+  margin-left: 15vw;
+  display: grid;
+  margin-top: 5vw;
 }
 
 @media only screen and (max-width: 768px) {
