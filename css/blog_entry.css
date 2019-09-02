@@ -11,7 +11,14 @@ pre, code {
   text-align: left;
   white-space: pre;
   border-radius: 20px;
-  white-space:pre;
+  white-space: pre;
+  background-color: var(--NavBarColor);
+  /* padding: 0.5em; */
+}
+
+img {
+  width: calc(0.6 * var(--ColumnWidth));
+  margin-left: calc(0.2 * var(--ColumnWidth));
 }
 
 #blog-wrap {
@@ -116,5 +123,15 @@ h1, h2 {
 @media only screen and (max-width: 768px) {
   .blog-navigator-button {
     font-size: 3.5em;
+  }
+  pre, code {
+      overflow-x: scroll;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  img {
+    width: calc(0.9 * var(--ColumnWidth));
+    margin-left: calc(0.05 * var(--ColumnWidth));
   }
 }

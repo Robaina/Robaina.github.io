@@ -1,37 +1,11 @@
 [
   {
-    "name": "how-i-made-this-blog",
-    "title": "How I made this blog",
-    "date": "25 August, 2019",
+    "name": "why-you-should-start-using-python-environments-and-how-to-do-it",
+    "title": "Why you should start using python environments and how to do it",
+    "date": "01 September, 2019",
     "tags": [
+      "Python",
       "Coding"
-    ],
-    "hasThumbnail": false
-  },
-  {
-    "name": "making-this-website",
-    "title": "Making this website",
-    "date": "20 August, 2019",
-    "tags": [
-      "Coding"
-    ],
-    "hasThumbnail": false
-  },
-  {
-    "name": "what-i-learned-about-writing-clean-code",
-    "title": "What I learned about writing clean code",
-    "date": "26 August, 2019",
-    "tags": [
-      "Coding"
-    ],
-    "hasThumbnail": false
-  },
-  {
-    "name": "why-is-biology-different",
-    "title": "Why is biology different?",
-    "date": "1 July, 2019",
-    "tags": [
-      "Biology"
     ],
     "hasThumbnail": false
   }

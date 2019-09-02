@@ -9,3 +9,6 @@
 * Also, remember to add comments section, probably easiest to start with disqus and see how it goes.
 * I would like to be able to write blog drafts and store them while working on them. Ideally only the article part, not the whole html. Then, once finished, I could run a python program to insert the article into an html in the posts folder.
 * Should dedicate a folder to each blog entry, to host pictures in there rather than in imgs?
+* Install npm install live-server -g It solves the issue of catching and apparently updates the page as soon as you save file with changes, no need to refresh.
+* Improve blog-entries.json. Append new entries instead of going through the whole list and make sure entries are sorted by date in the json. Also, automatically detect if it has thumbnail by looking in the preamble.
+* Parse md files which are not ready even if html exists (for debugging purposes). Look in preamble for this.

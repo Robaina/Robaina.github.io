@@ -20,6 +20,8 @@ def createHTMLPostFromMD(markdown_file_name):
     title = preamble.find('h1', {'id': 'title'}).string
     date = preamble.find('h3', {'id': 'date'}).string
     tags = preamble.find('h4', {'id': 'tags'}).string.split(',')
+    # has_images = preamble.find('h4', {'id': 'has-images'}).string
+    # has_thumbnail = preamble.find('h4', {'id': 'has-thumbnail-image'}).string
 
     # Insert post metadata
     entry_title = template.find('p', {'id': 'entry-title'})
@@ -42,6 +44,13 @@ def createHTMLPostFromMD(markdown_file_name):
     with open(f'posts/{html_name}.html', mode='w') as f_out:
         f_out.write(template.prettify(formatter=None))  # formatter=None does not replace < tags
     f_out.close()
+
+    # Create blog images directory
+    post_has_images = '<img' in str(content)
+    if post_has_images:
+        directory = f'\\imgs\\blog\\{html_name}'
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
 
 # Find all md files
@@ -67,7 +76,7 @@ md_to_convert = [md for md in md_files
                  if md.lower() not in html_files]
 
 
-# Convert to html
+# Convert to html and update blog-entries.json
 for md_file in md_to_convert:
     # Make temporal copy for node.js
     os.popen(f'copy md-posts\\{md_file}.md temp.md')

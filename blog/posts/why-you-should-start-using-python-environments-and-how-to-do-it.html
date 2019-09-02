@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="Blog of Semidan Robaina Estevez" name="description"/>
+  <meta content="blog, science, coding" name="keywords"/>
+  <meta content="Semidan Robaina Estevez" name="author"/>
+  <title>
+   Semidán: Blog
+  </title>
+  <link href="/imgs/my-logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/css/master.css" rel="stylesheet"/>
+  <link href="/css/blog.css" rel="stylesheet"/>
+  <link href="/css/blog_entry.css" rel="stylesheet"/>
+  <link href="/vendor/fontawesome_all.min.css" rel="stylesheet"/>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+  </script>
+  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  </script>
+  <script src="/vendor/jquery-3.4.1.min.js">
+  </script>
+  <script>
+   $(function() {
+      $("#navbar-container").load("/navbar.html");
+    });
+    $(function() {
+      $("#footer").load("/credits.html");
+    });
+    $(function() {
+      $("#blog-navigator").load("/blog-navigator.html");
+    });
+    let logo = new Image();
+    logo.src = "/imgs/my-logo.png";
+  </script>
+  <script src="/js/transitions.js">
+  </script>
+  <script src="/js/settings.js">
+  </script>
+  <script src="/js/blog-entry.js">
+  </script>
+  <!-- highlight.js -->
+  <!-- styles loaded dynamically in settings.js -->
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
+ </head>
+ <body>
+  <div id="page-container">
+   <div id="content-wrap">
+    <div id="navbar-container">
+    </div>
+    <div id="blog-wrap">
+     <div id="tag-container">
+      <div class="topictag Python"></div>
+      <div class="topictag Coding"></div>
+     </div>
+     <div id="blog-entry-header">
+      <p id="entry-title">
+       Why you should start using python environments and how to do it
+      </p>
+      <p id="entry-date">
+       01 September, 2019
+      </p>
+     </div>
+     <article id="blog-content">
+      <p>I began using python as my main language for scientific computing about a year ago. Before that, I only used Matlab and R for my projects and, while I promptly started coding in python, I wasn't aware of many of the features that this language has to offer. One of them was python environments. I had heard of them, but I considered at the time that I didn't need that for my applications. How wrong I was! Had I paid more attention to python environments, I would have saved a considerable amount of time and effort! In the following, I'll explain why I think everyone should start using environments and how to set them in your python and Jupyter installation.</p>
+<h2>Setting up python environments</h2>
+<p>If — like my past me — you are not using <a href="https://virtualenv.pypa.io/en/latest/userguide/">python environments</a>, you probably will have your preferred python version installed in some root directory. Moreover, you would have installed several python libraries with pip — or conda, if that's your thing — to which your root python has access. That's good enough, you think. You can go ahead and use python and your libraries in your projects, and that's it. Or is it? Chances are that you have encountered one of these situations: (i) one or more of your python libraries conflict with each other because they require different versions of other libraries or of python itself, and (ii) after installing a different version of one or more of your libraries, new conflicts are created which break code that otherwise use to run without trouble. At least, that's what happened to me more often than I was willing to deal with. Python environments solve this issue by creating independent instancies of python and whatever libraries you want to install. This way, one can upgrade or downgrade libraries — or even use a different python version — in one environment without affecting the other ones. Let's begin — I'll show commands directed at Windows since it's my current OS (I know).</p>
+<p>To create a new python environment, go to the command prompt and type:</p>
+<pre><code class="nohighlight"> python -m venv path_to_environments\env_name
+</code></pre>
+<p>This command will create a new environment named <em>env_name</em> in the directory specified in <em>path_to_environments</em>. Any time you use this environment, you will need to activate it. To this end, you need to type:</p>
+<pre><code class="nohighlight"> .\path_to_environments\env_name\Scripts\activate.
+</code></pre>
+<p>If everything went fine, you will see that your terminal looks like:</p>
+<pre><code class="nohighlight"> (env_name) c:\\user_name
+</code></pre>
+<p>indicating that the environment is active. This means that only your local copy of python and its libraries will be invoked while the environment is active. This also holds for pip. In fact, pip-installing libraries while the environment is active will install the libraries only in this environment.</p>
+<p>Now, sometimes, you may want your environment to access libraries installed in your root python installation. If that's the case, you only need to add the flag: --system-site-packages, when creating the environment, like this:</p>
+<pre><code class="nohighlight"> python -m venv --system-site-packages path_to_environmentsγenv_name
+</code></pre>
+<p>If you decide that you want the environment to be totally isolated after creating it, you can revoke the access adding the file: <em>no-global-site-packages.txt</em> to the environment directory. See more details in the <a href="https://virtualenv.pypa.io/en/latest/userguide/">official documentation</a>.</p>
+<p>Finally, when you are done using your environment, you should deactivate it with the command: deactivate. Also, if you want to remove your environment, you just need to deactivate the environment and then delete the folder containing the environment.</p>
+<h2>Dedicating Jupyter kernels to each environment</h2>
+<p>I regularly use <a href="https://jupyter.org/">Jupyter Lab</a> to do my exploratory analyses and to share code with my collaborators. So, when I started using python environments, I wanted to have a dedicated Jupyter kernel for each environment. This way, I could easily select the environment that I wanted to use for each Jupyter Notebook. Setting a Jupyter kernel for a python environment is quite easy. First, activate your environment, then type:</p>
+<pre><code class="nohighlight"> python -m ipykernel install --user --name=env_name.
+</code></pre>
+<p>That's it, next time you start Jupyter(Lab) you will see a new kernel named Python [env_name] with the python icon if in Jupyter Lab. If you find this behavior unacceptable and want to customize the kernel's name and icon, you are in luck. It's fairly straightforward. You just need to go edit the <em>kernel.json</em> file in the Jupyter kernel directory. You can find its location by running:</p>
+<pre><code class="nohighlight"> jupyter kernelspec list
+</code></pre>
+<p>which will list the paths to all your available Jupyter kernels. In <em>kernel.json</em> edit the field <em>displayed name</em> to add a custom name to your kernel. To change the icon, you just need to substitute the default <em>logo-64x64.png</em> file for your custom logo image, and that's it. If everything went well, next time you start Jupyter Lab, you will see your new environment-specific python kernel with the custom name and icon. For instance, I work a lot with metabolic networks, so I created an environment named <em>metabolism</em> which contains a bunch of libraries used in metabolic modeling. Here is a screenshot of the kernel displayed by Jupyter Lab:</p>
+<p><img alt="Jupyter Kernel" src="/imgs/blog/why-you-should-start-using-python-environments-and-how-to-do-it/Jupyter_kernels.png"/></p>
+<p>Cool, isn't it? (I think so). Now, one can easily select the python environment when creating a new Jupyter Notebook. Finally, once you are done using your python environment, you can remove the Jupyter kernel by tipping:</p>
+<pre><code class="nohighlight"> jupyter kernelspec uninstall env_name
+</code></pre>
+<p>Using python environments guarantees that your python installation is tidy and safe from incompatibility drama. Give python environments a try. You won't regret it! And, don't hesitate to leave a comment down below if you have any questions/suggestions!</p>
+     </article>
+    </div>
+    <div id="blog-navigator">
+    </div>
+    <div id="suggested-readings">
+     <h1 id="suggested-readings-title">
+      Related posts:
+     </h1>
+     <div id="suggested-readings-grid">
+     </div>
+    </div>
+   </div>
+   <footer id="footer">
+   </footer>
+  </div>
+  <!-- <div id="return-to-start-arrow">
+      <i class="fas fa-arrow-alt-circle-up"></i>
+    </div> -->
+ </body>
+</html>

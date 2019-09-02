@@ -129,7 +129,7 @@ function changeNavBarColor() {
   let navbar = document.getElementById("navbar-container");
   let navbarSeparator = document.getElementById("navbar-line-separator");
 
-  if (is_mobile && !is_landscape_oriented) {
+  if (is_mobile && !is_landscape_oriented && navbarSeparator !== null) {
     navbarSeparator.style.display = "none";
   }
 
