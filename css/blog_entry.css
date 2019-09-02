@@ -1,6 +1,7 @@
 :root {
   --CommentsFontColor: rgb(111, 111, 111);
 }
+
 body {
   --BlogHeaderColor: var(--EmphFontColor);
 }
@@ -14,9 +15,9 @@ pre, code {
   text-align: left;
   white-space: pre;
   border-radius: 20px;
-  white-space: pre;
-  background-color: var(--NavBarColor);
-  /* padding: 0.5em; */
+  /* background-color: var(--NavBarColor);
+  overflow-x: scroll;
+  padding: 0.5em; */
 }
 
 img {
@@ -61,7 +62,7 @@ h1, h2 {
 
 #entry-title {
   font-size: calc(1 * var(--TextFontSize));
-  margin-top: 0.5em;
+  margin-top: 1.5em;
   margin-bottom: 0;
 }
 
@@ -116,23 +117,25 @@ h1, h2 {
   justify-content: center;
   margin: 2em;
   margin-top: 2em;
-  margin-bottom: 0em;
+  margin-bottom: 2em;
 }
 
 .grid_item {
   margin: 1em;
 }
 
-.comment-box {
-  text-align: center;
+.commentbox {
+  width: 80vw;
+  margin-left: 10vw;
 }
 
 @media only screen and (max-width: 768px) {
   .blog-navigator-button {
     font-size: 3.5em;
   }
-  pre, code {
-      overflow-x: scroll;
+  .commentbox {
+    width: 100vw;
+    margin-left: 0vw;
   }
 }
 

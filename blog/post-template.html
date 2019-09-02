@@ -25,6 +25,7 @@
       });
     </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default" async></script>
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
   <script src="/vendor/jquery-3.4.1.min.js"></script>
   <script>
@@ -33,9 +34,6 @@
     });
     $(function() {
       $("#footer").load("/credits.html");
-    });
-    $(function() {
-      $("#blog-navigator").load("/blog-navigator.html");
     });
     let logo = new Image();
     logo.src = "/imgs/my-logo.png";
@@ -73,6 +71,9 @@
       <div id="suggested-readings">
         <h1 id="suggested-readings-title">Related posts:</h1>
         <div id="suggested-readings-grid"></div>
+
+        <!-- Blog comments (commentbox.io) -->
+        <div class="commentbox"></div>
       </div>
 
     </div>

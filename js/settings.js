@@ -57,17 +57,6 @@ function setColorMode() {
   loadHighlightJSStyles(light_mode_selected);
   hideSettingsOptions();
   settings_expanded = !settings_expanded;
-
-  // set FontColor of Blog comments section
-  // if (window.location.href.includes("posts")) {
-  //   // commentsFontColor = getComputedStyle(document.documentElement)
-  //   // .getPropertyValue("--FontColor");
-  //   // commentBox("5693177776308224-proj", {
-  //   //   textColor: commentsFontColor,
-  //   //   subtextColor: commentsFontColor
-  //   // });
-  //   location.reload();
-  // }
 }
 
 function loadHighlightJSStyles(lightMode=false) {

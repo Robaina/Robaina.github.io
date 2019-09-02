@@ -156,25 +156,28 @@ function removeFirstBlankLineOfCodeSnippets() {
 
 function initializeBlogEntry() {
 
-  $.getScript("/blog/blog-entries.json", function(result) {
+  // Load blog navigator
+  $("#blog-navigator").load("/blog-navigator.html", function() {
 
-    let blogEntries = JSON.parse(result);
-    for (let entry of blogEntries) {
-       link_urls.push(entry.name);
-     }
+    $.getScript("/blog/blog-entries.json", function(result) {
+      let blogEntries = JSON.parse(result);
+      for (let entry of blogEntries) {
+         link_urls.push(entry.name);
+       }
 
-     current_entry = window.location.href.split("/").pop();
-     current_entry_idx = link_urls.indexOf(current_entry);
+       current_entry = window.location.href.split("/").pop();
+       current_entry_idx = link_urls.indexOf(current_entry);
 
-     if (current_entry_idx === 0) {
-       let left_button = document.getElementById("left-blog-navigator-button");
-       left_button.style.visibility = "hidden";
-     } else if (current_entry_idx === (link_urls.length - 1)) {
-         let right_button = document.getElementById("right-blog-navigator-button");
-         right_button.style.visibility = "hidden";
-     }
+       if (current_entry_idx === 0) {
+         let left_button = document.getElementById("left-blog-navigator-button");
+         left_button.style.visibility = "hidden";
+       } else if (current_entry_idx === (link_urls.length - 1)) {
+           let right_button = document.getElementById("right-blog-navigator-button");
+           right_button.style.visibility = "hidden";
+       }
+    });
 
-  })
+  });
 
   setTopicTag();
   addSuggestedReadings(max_number_suggested_posts);
@@ -184,10 +187,6 @@ function initializeBlogEntry() {
   hljs.initHighlightingOnLoad();
 
   // Initialize comment system
-  // if (typeof commentsFontColor === "undefined") {
-  //   commentsFontColor = getComputedStyle(document.documentElement)
-  //   .getPropertyValue("--CommentsFontColor");
-  // }
   let commentsFontColor = getComputedStyle(document.documentElement)
   .getPropertyValue("--CommentsFontColor");
   commentBox("5693177776308224-proj", {
