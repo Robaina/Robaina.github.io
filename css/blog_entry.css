@@ -1,3 +1,6 @@
+:root {
+  --CommentsFontColor: rgb(111, 111, 111);
+}
 body {
   --BlogHeaderColor: var(--EmphFontColor);
 }
@@ -118,6 +121,10 @@ h1, h2 {
 
 .grid_item {
   margin: 1em;
+}
+
+.comment-box {
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {

@@ -179,8 +179,21 @@ function initializeBlogEntry() {
   setTopicTag();
   addSuggestedReadings(max_number_suggested_posts);
   removeFirstBlankLineOfCodeSnippets();
+
   // Initialize Highlight.js
   hljs.initHighlightingOnLoad();
+
+  // Initialize comment system
+  // if (typeof commentsFontColor === "undefined") {
+  //   commentsFontColor = getComputedStyle(document.documentElement)
+  //   .getPropertyValue("--CommentsFontColor");
+  // }
+  let commentsFontColor = getComputedStyle(document.documentElement)
+  .getPropertyValue("--CommentsFontColor");
+  commentBox("5693177776308224-proj", {
+    textColor: commentsFontColor,
+    subtextColor: commentsFontColor
+  });
 }
 
 $(initializeBlogEntry);
