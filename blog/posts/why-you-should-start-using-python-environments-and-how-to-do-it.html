@@ -69,7 +69,7 @@
       </p>
      </div>
      <article id="blog-content">
-      <p>I began using python as my main language for scientific computing about a year ago. Before that, I only used Matlab and R for my projects and, while I promptly started coding in python, I wasn't aware of many of the features that this language has to offer. One of them was python environments. I had heard of them, but I considered at the time that I didn't need that for my applications. How wrong I was! Had I paid more attention to python environments, I would have saved a considerable amount of time and effort! In the following, I'll explain why I think everyone should start using environments and how to set them in your python and Jupyter installation.</p>
+      <p>I began using python as my main language for scientific computing about a year ago. Before that, I only used Matlab and R for my projects and, while I promptly started coding in python, I wasn't aware of many of the features that this language has to offer. One of them was python environments. And I can guarantee you that using python environments from the beginnings would have saved me a considerable amount of time and effort! In the following, I'll explain why I think everyone should start using environments and how to set them in your python and Jupyter installation.</p>
 <h2>Setting up python environments</h2>
 <p>If — like my past me — you are not using <a href="https://virtualenv.pypa.io/en/latest/userguide/">python environments</a>, you probably will have your preferred python version installed in some root directory. Moreover, you would have installed several python libraries with pip — or conda, if that's your thing — to which your root python has access. That's good enough, you think. You can go ahead and use python and your libraries in your projects, and that's it. Or is it? Chances are that you have encountered one of these situations: (i) one or more of your python libraries conflict with each other because they require different versions of other libraries or of python itself, and (ii) after installing a different version of one or more of your libraries, new conflicts are created which break code that otherwise use to run without trouble. At least, that's what happened to me more often than I was willing to deal with. Python environments solve this issue by creating independent instancies of python and whatever libraries you want to install. This way, one can upgrade or downgrade libraries — or even use a different python version — in one environment without affecting the other ones. Let's begin — I'll show commands directed at Windows since it's my current OS (I know).</p>
 <p>To create a new python environment, go to the command prompt and type:</p>
@@ -79,7 +79,7 @@
 <pre><code class="bash"> .\\path_to_environments\\env_name\\Scripts\\activate.
 </code></pre>
 <p>If everything went fine, you will see that your terminal looks like:</p>
-<pre><code class="bash"> (env_name) c:/user_name
+<pre><code class="bash"> (env_name) c:\\user_name
 </code></pre>
 <p>indicating that the environment is active. This means that only your local copy of python and its libraries will be invoked while the environment is active. This also holds for pip. In fact, pip-installing libraries while the environment is active will install the libraries only in this environment.</p>
 <p>Now, sometimes, you may want your environment to access libraries installed in your root python installation. If that's the case, you only need to add the flag: --system-site-packages, when creating the environment, like this:</p>
@@ -111,14 +111,15 @@
      <div id="suggested-readings-grid">
      </div>
     </div>
-
     <!-- Blog comments (commentbox.io) -->
-    <div class="commentbox"></div>
-
+    <div class="commentbox">
+    </div>
    </div>
    <footer id="footer">
    </footer>
   </div>
-
+  <!-- <div id="return-to-start-arrow">
+      <i class="fas fa-arrow-alt-circle-up"></i>
+    </div> -->
  </body>
 </html>
