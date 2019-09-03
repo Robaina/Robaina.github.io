@@ -41,8 +41,14 @@ def createHTMLPostFromMD(markdown_file_name):
 
     # Write final html
     html_name = markdown_file_name.lower()
+    # formatter=None does not replace < tags by html code.
+    # but adds extra space and line break between divs. Hence the removal.
+    html_str = template.prettify(
+        formatter=None).replace(
+            '<div class="commentbox">\n    </div>', '<div class="commentbox"></div>')
+
     with open(f'posts/{html_name}.html', mode='w') as f_out:
-        f_out.write(template.prettify(formatter=None))  # formatter=None does not replace < tags
+        f_out.write(html_str)
     f_out.close()
 
     # Create blog images directory
