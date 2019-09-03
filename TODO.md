@@ -7,7 +7,7 @@
 * Perhaps add arrow button on scroll down to return up, and perhaps remove sticky navbar (solving Firefox issue)
 * How can one add a shared on Twitter, Facebook button? e.g.: https://elc.github.io/posts/embed-interactive-notebooks/#topbar
 
-* Also, remember to add comments section, probably easiest to start with disqus and see how it goes.
-
 * Improve blog-entries.json. Append new entries instead of going through the whole list and make sure entries are sorted by date in the json. Also, automatically detect if it has thumbnail by looking in the preamble.
 * Parse md files which are not ready even if html exists (for debugging purposes). Look in preamble for this.
+
+* Place low resolution images while full image loading to avoid layout shifting.
