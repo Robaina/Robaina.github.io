@@ -33,6 +33,7 @@ function setColorMode() {
   let page_name = window.location.pathname.split("/").pop().split(".html")[0];
   let is_home_page = page_name === "home";
   let is_contact_page = page_name === "contact";
+  let is_blog_post = !["home", "about", "research", "blog", "contact"].includes(page_name);
   light_mode_selected = window.sessionStorage.lightModeSelected === "true";
 
   if (light_mode_selected) {
@@ -53,8 +54,9 @@ function setColorMode() {
   if (is_contact_page) {
     setRightLogosForColorMode();
   }
-
-  loadHighlightJSStyles(light_mode_selected);
+  if (is_blog_post) {
+    loadHighlightJSStyles(light_mode_selected);
+  }
   hideSettingsOptions();
   settings_expanded = !settings_expanded;
 }

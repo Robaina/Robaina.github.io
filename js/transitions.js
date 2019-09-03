@@ -1,5 +1,5 @@
 let loc_x, loc_y, scale_factor;
-let transition_time = 700;
+let transition_time = 0;
 
 // Animate page transitions
 window.goToPage = function(href) {
@@ -11,7 +11,7 @@ window.goToPage = function(href) {
   let is_contact_page = page_name === "contact";
   let light_mode_selected = window.sessionStorage.lightModeSelected === "true";
   if ((is_home_page || is_contact_page) && light_mode_selected) {
-    document.querySelector('body').style.transition = "opacity 1.6s";
+    // document.querySelector('body').style.transition = "opacity 1.6s";
   }
   // Hide all elements
   document.querySelector('body').style.opacity = 0;
@@ -33,7 +33,7 @@ window.goToPage = function(href) {
     loc_y = window.innerHeight / 2.4;
     scale_factor = 1/4;
   }
-  draw_logo();
+  // draw_logo();
   setTimeout(function() {
       window.location.href = href;
   }, transition_time);

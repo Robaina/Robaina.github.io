@@ -198,4 +198,3 @@ function initializeBlogEntry() {
 }
 
 $(initializeBlogEntry);
-// commentBox("5693177776308224-proj");
