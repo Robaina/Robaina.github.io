@@ -19,6 +19,7 @@
 * Brief tips that I learnt about keeping clean, readable code (after reading Clean code by this guy)
 * A post about this magic hexagon game, how I solved it with a MILP and my generalization: the magic-gon. Probably good opportunity to port code to JavaScript.
 * A post about the dependency graph generated from Euclid's Elements and link to application. That's so cool...
+* A post about Goldbach's comet. I have the code in R. I could insert jupyter notebook. Also, there are other things I did in R that could be shown in the blog...
 
 # Tips to writing engaging blogs
 * Add a call to action to each post such as, "if you enjoyed this post, please share in Twitter/Facebook" or "please leave a comment or drop me a line!"

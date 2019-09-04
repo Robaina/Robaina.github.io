@@ -15,9 +15,7 @@ pre, code {
   text-align: left;
   white-space: pre;
   border-radius: 20px;
-  /* background-color: var(--NavBarColor);
-  overflow-x: scroll;
-  padding: 0.5em; */
+  font-size: calc(0.75 * var(--TextFontSize));
 }
 
 img {
