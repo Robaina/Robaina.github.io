@@ -11,3 +11,6 @@
 * Parse md files which are not ready even if html exists (for debugging purposes). Look in preamble for this.
 
 * Place low resolution images while full image loading to avoid layout shifting.
+* Add a message in home indicating that one can change theme color (appears only once for user)
+* Add a photo of myself to about section?
+* Generate meta information of each post from markdown tags
