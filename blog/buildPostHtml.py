@@ -22,17 +22,22 @@ def createHTMLPostFromMD(markdown_file_name):
     tags = preamble.find('h4', {'id': 'tags'}).string.split(',')
     # has_images = preamble.find('h4', {'id': 'has-images'}).string
     # has_thumbnail = preamble.find('h4', {'id': 'has-thumbnail-image'}).string
+    keywords = preamble.find('h4', {'id': 'keywords'}).string
+    description = preamble.find('h4', {'id': 'description'}).string
 
     # Insert post metadata
     entry_title = template.find('p', {'id': 'entry-title'})
     entry_title.string = title
     entry_date = template.find('p', {'id': 'entry-date'})
     entry_date.string = date
-
     tag_container = template.find('div', {'id': 'tag-container'})
     for tag in tags:
         tag = tag.strip().capitalize()
         tag_container.append('<div class="topictag {}"></div>'.format(tag))
+    entry_keywords = template.find('meta', {'name': 'keywords'})
+    entry_keywords.attrs['content'] = keywords
+    entry_description = template.find('meta', {'name': 'description'})
+    entry_description.attrs['content'] = description
 
     # Insert post content
     blog_content = str(content).split('</preamble>')[1]
