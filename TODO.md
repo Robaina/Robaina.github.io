@@ -12,3 +12,5 @@
 
 * Place low resolution images while full image loading to avoid layout shifting.
 * Add a message in home indicating that one can change theme color (appears only once for user)
+
+* What about changing keywords in home on hover? such as, programmer -> human, scientist -> musician, or better yet, random mappings.

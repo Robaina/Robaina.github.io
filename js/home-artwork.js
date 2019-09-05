@@ -46,10 +46,8 @@ function randomExponential(gamma=1) {
   return (1 - Math.E**(-gamma*Math.random()))
 }
 
-//deployArtWork();
-
 // Change color of name characters
-let timeouts = [];
+let char_color_timeouts = [];
 let fading_time = 5000;
 let colors = ["rgb(80, 189, 58)", "rgb(214, 174, 55)", "rgb(212, 102, 68)",
               "rgb(34, 167, 155)", "rgb(187, 61, 163)", "rgb(57, 95, 208)",
@@ -66,13 +64,13 @@ function changeCharacterColor(event) {
   let rand_color = colors[Math.floor(Math.random() * colors.length)];
   let elem = event.target || event.srcElement;
   elem.style.color = rand_color;
-  timeouts.push(setTimeout(function() {
+  char_color_timeouts.push(setTimeout(function() {
     elem.style.color = regular_color;
   }, fading_time));
 }
 
 function returnRegularColorToCharacters() {
-  for (timeout of timeouts) {
+  for (timeout of char_color_timeouts) {
     clearTimeout(timeout);
   }
   let characters = document.getElementsByClassName("name-character");
@@ -82,4 +80,55 @@ function returnRegularColorToCharacters() {
     let char = characters[i];
     char.style.color = regular_color;
   }
+}
+
+function getPrimaryRols() {
+  let primary_rols = [];
+  const rol_elems = document.getElementsByClassName("rol-keyword");
+  for (let i=0; i<rol_elems.length; i++) {
+    primary_rols.push(rol_elems[i].innerHTML);
+  }
+  return primary_rols
+}
+
+function changeRolKeyword() {
+  const fading_time = 5000;
+  const primary_rols = ["scientist"]
+  const additional_rols = ["human", "musician", "developer", "researcher",
+                             "student", "writer", "reader", "cook"];
+  let rand_idxs = getRandomSample(0, additional_rols.length - 1, 3);
+  const rand_rols = extractSubArray(additional_rols, rand_idxs);
+  const rol_elems = document.getElementsByClassName("rol-keyword");
+  for (let i=0; i<rol_elems.length; i++) {
+    rol_elems[i].innerHTML = rand_rols.pop();
+  }
+  char_color_timeouts.push(setTimeout(function() {
+    elem.style.color = regular_color;
+  }, fading_time));
+
+}
+
+function getRandomSample(minInt, maxInt, size) {
+  /* Draw random sample of specified size, without repetition,
+     from a sequence of numbers between minInt and maxInt
+  */
+  let numbers = []
+  for (i = minInt; i < maxInt + 1; i++) {
+    numbers.push(i);
+  }
+  randomSample = [];
+  for (let i = 0; i < size; i++) {
+    let sampledNumber = numbers.splice(
+      Math.floor(Math.random() * numbers.length), 1)[0];
+    randomSample.push(sampledNumber);
+  }
+  return randomSample
+}
+
+function extractSubArray(array, indices) {
+  let subarray = [];
+  for (idx of indices) {
+    subarray.push(array[idx])
+  }
+  return subarray
 }
