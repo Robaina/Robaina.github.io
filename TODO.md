@@ -14,3 +14,4 @@
 * Add a message in home indicating that one can change theme color (appears only once for user)
 * Add a photo of myself to about section?
 * Generate meta information of each post from markdown tags
+* Improve SEO. There is something weird with the description. In google it includes part of the actual html tags. Why? Perhaps because the description in meta has to be larger than some number of words? > check this.
