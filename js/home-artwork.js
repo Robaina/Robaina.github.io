@@ -82,29 +82,28 @@ function returnRegularColorToCharacters() {
   }
 }
 
+/* Get primary rols on load*/
+const primary_rols = getPrimaryRols();
 function getPrimaryRols() {
-  let primary_rols = [];
-  const rol_elems = document.getElementsByClassName("rol-keyword");
-  for (let i=0; i<rol_elems.length; i++) {
-    primary_rols.push(rol_elems[i].innerHTML);
-  }
-  return primary_rols
+  let rol_container = document.getElementById("myrol-container");
+  rol_container.style.opacity = 1;
+  return rol_container.innerHTML.split(",");
 }
 
-function changeRolKeyword() {
+function changeRolKeywords() {
   const fading_time = 5000;
-  const primary_rols = ["scientist"]
-  const additional_rols = ["human", "musician", "developer", "researcher",
+  let additional_rols = ["human", "musician", "developer", "researcher",
                              "student", "writer", "reader", "cook"];
   let rand_idxs = getRandomSample(0, additional_rols.length - 1, 3);
-  const rand_rols = extractSubArray(additional_rols, rand_idxs);
-  const rol_elems = document.getElementsByClassName("rol-keyword");
-  for (let i=0; i<rol_elems.length; i++) {
-    rol_elems[i].innerHTML = rand_rols.pop();
-  }
-  char_color_timeouts.push(setTimeout(function() {
-    elem.style.color = regular_color;
-  }, fading_time));
+  let rand_rols_array = extractSubArray(additional_rols, rand_idxs);
+  let rand_rols_str = rand_rols_array.join(", ");
+  let rol_container = document.getElementById("myrol-container");
+  rol_container.innerHTML = rand_rols_str;
+
+  setTimeout(function() {
+    rol_container.innerHTML = primary_rols;
+    getPrimaryRols();
+  }, fading_time);
 
 }
 
