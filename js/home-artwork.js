@@ -90,7 +90,9 @@ function getPrimaryRols() {
   return rol_container.innerHTML.split(",");
 }
 
+let rol_timeout;
 function changeRolKeywords() {
+  clearTimeout(rol_timeout);
   const fading_time = 5000;
   let additional_rols = ["human", "musician", "developer", "researcher",
                              "student", "writer", "reader", "cook"];
@@ -100,7 +102,7 @@ function changeRolKeywords() {
   let rol_container = document.getElementById("myrol-container");
   rol_container.innerHTML = rand_rols_str;
 
-  setTimeout(function() {
+  rol_timeout = setTimeout(function() {
     rol_container.innerHTML = primary_rols;
     getPrimaryRols();
   }, fading_time);
