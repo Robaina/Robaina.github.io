@@ -84,7 +84,7 @@ a {
   background-color: inherit;
 }
 .navbar-item:hover {
-  color: var(--TextHoverColor);
+  color: var(--EmphFontColor);
 }
 #navbar-line-separator {
   width: 50vw;
@@ -157,10 +157,11 @@ a {
   width: 100%;
   height: 10vh;
   display: inline-block;
+  background-color: var(--BackgroundColor);
 }
 #footer-content {
   text-align: center;
-  background-color: var(--BackgroundColor);
+  background-color: inherit;
   color: var(--FontColor);
   margin-top: 1.5em;
 }

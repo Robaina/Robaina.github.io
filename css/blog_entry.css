@@ -129,6 +129,10 @@ h1, h2 {
   margin-top: 5vw;
 }
 
+#footer {
+  background-color: var(--NavBarColor);
+}
+
 @media only screen and (max-width: 768px) {
   .blog-navigator-button {
     font-size: 3.5em;
