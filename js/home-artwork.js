@@ -99,7 +99,8 @@ function changeRolKeywords() {
     clearTimeout(rol_timeout);
     const fading_time = 3000;
     let additional_rols = ["human", "musician", "developer", "researcher",
-                               "student", "writer", "reader", "cook"];
+                           "student", "writer", "reader", "cook", "composer",
+                           "hiker"];
     let rand_idxs = getRandomSample(0, additional_rols.length - 1, 3);
     let rand_rols_array = extractSubArray(additional_rols, rand_idxs);
     let rand_rols_str = rand_rols_array.join(", ");
