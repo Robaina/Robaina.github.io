@@ -14,3 +14,21 @@
 #content-wrap {
   padding-bottom: 14vh; /* Temporary to avoid overflow */
 }
+#my-photo-container {
+  /* text-align: center; */
+}
+#my-photo {
+  float: right;
+  max-width: 300px;
+  width: 100%;
+  margin-left: 2em;
+  margin-bottom: 1em;
+  border-radius: 5%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+@media only screen and (max-width: 400px) {
+  #my-photo {
+    margin-left: 0em;
+  }
+}
