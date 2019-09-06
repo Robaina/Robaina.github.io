@@ -61,6 +61,8 @@ a {
 #navbar-container {
   position: -webkit-sticky;
   position: sticky;
+  /* position: absolute; */
+  /* top: 1em */
   top: 1px;
   height: 7vh;
   padding-top: 1.5em;
@@ -160,10 +162,15 @@ a {
   background-color: var(--BackgroundColor);
 }
 #footer-content {
-  text-align: center;
   background-color: inherit;
   color: var(--FontColor);
   margin-top: 1.5em;
+}
+#credits-container {
+  display: inline-block;
+  text-align: center;
+  width: 40%;
+  height: 100%;
 }
 #myname {
   display: inline-block;
@@ -183,11 +190,35 @@ a {
 }
 #cc-license {
   margin: 0.5em;
+  margin-right: 0;
   margin-bottom: 0em;
   vertical-align:sub;
   border-width: 0;
   width: 4em;
 }
+#footer-contact-logo-container {
+  width: 30%;
+  height: 100%;
+  display: none;
+  text-align: center;
+}
+.footer-contact-logo {
+  width: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0;
+}
+#my-footer-logo {
+  width: 2em;
+  display: none;
+}
+#return-arrow-container {
+  display: inline-block;
+  margin: 0;
+  width: 30%;
+  height: 100%;
+}
+
 #menu {
   display: none;
 }
@@ -216,6 +247,19 @@ a {
   text-align: right;
 }
 
+#return-to-start-arrow {
+  display: none;
+  font-size: 3em;
+  color: var(--UnselectedBorderColor);
+  position: fixed;
+  top: 90vh;
+  left: 80vw;
+  cursor: pointer;
+}
+#return-to-start-arrow:hover {
+  color: var(--FancyColor);
+}
+
 /* Scroll bar */
 ::-webkit-scrollbar {
   width: 0.5vw;
@@ -234,6 +278,18 @@ a {
 }
 
 /* Adjust display for mobile */
+@media only screen and (max-width: 768px) {
+  #footer-contact-logo-container {
+    width: 100%;
+  }
+  #credits-container {
+    width: 100%;
+  }
+  #return-arrow-container {
+    width: 100%;
+    /* display: none; */
+  }
+}
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   :root {
     --ColumnWidth: 80vw;

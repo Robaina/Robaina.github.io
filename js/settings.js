@@ -148,6 +148,25 @@ function changeNavBarColor() {
   }
 }
 
+// Scroll-to-top arrow
+// window.onscroll = function() {showScrollToTopArrow()};
+let scrollArrow = document.getElementById("return-to-start-arrow");
+
+// document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+function showScrollToTopArrow() {
+  let scrollArrow = document.getElementById("return-to-start-arrow");
+
+  if (window.scrollY > 300) {
+    scrollArrow.style.display = "block";
+  } else {
+      scrollArrow.style.display = "none";
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
 setColorMode();
 window.onscroll = changeNavBarColor;
 window.onresize = changeNavBarColor;

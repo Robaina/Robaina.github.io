@@ -38,19 +38,6 @@ h1, h2 {
   color: var(--BlogHeaderColor);
 }
 
-#return-to-start-arrow {
-  /* display: none; */
-  font-size: 3em;
-  color: var(--UnselectedBorderColor);
-  position: fixed;
-  top: 90vh;
-  left: 80vw;
-  cursor: pointer;
-}
-#return-to-start-arrow:hover {
-  color: var(--FancyColor);
-}
-
 #blog-entry-header {
   text-align: left;
   font-size: calc(1.5 * var(--TextFontSize));
@@ -131,6 +118,10 @@ h1, h2 {
 
 #footer {
   background-color: var(--NavBarColor);
+}
+
+.footer-contact-logo-container {
+  display: inline-block;
 }
 
 @media only screen and (max-width: 768px) {
