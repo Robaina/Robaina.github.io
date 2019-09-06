@@ -119,8 +119,10 @@ h1, h2 {
 #footer {
   background-color: var(--NavBarColor);
 }
-
-.footer-contact-logo-container {
+#footer-contact-logo-container {
+  display: inline-block;
+}
+#return-arrow-container {
   display: inline-block;
 }
 

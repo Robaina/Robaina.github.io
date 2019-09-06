@@ -60,14 +60,12 @@ a {
 }
 #navbar-container {
   position: -webkit-sticky;
+  position: -moz-sticky;
   position: sticky;
-  /* position: absolute; */
-  /* top: 1em */
-  top: 1px;
+  top: 0px;
   height: 7vh;
   padding-top: 1.5em;
   background-color: var(--BackgroundColor);
-  /* transition: background-color 1s; */
   z-index: 2;
 }
 #navbar {
@@ -157,20 +155,24 @@ a {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 10vh;
+  height: 15vh;
   display: inline-block;
+  margin-top: 1.5em;
   background-color: var(--BackgroundColor);
 }
 #footer-content {
   background-color: inherit;
   color: var(--FontColor);
-  margin-top: 1.5em;
+  text-align: center;
+  width: 100%;
 }
 #credits-container {
   display: inline-block;
   text-align: center;
+  vertical-align: middle;
   width: 40%;
-  height: 100%;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 #myname {
   display: inline-block;
@@ -198,14 +200,16 @@ a {
 }
 #footer-contact-logo-container {
   width: 30%;
-  height: 100%;
   display: none;
   text-align: center;
+  vertical-align: middle;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 .footer-contact-logo {
-  width: 2em;
-  margin-left: 1em;
-  margin-right: 1em;
+  width: 2.5em;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
   margin-top: 0;
 }
 #my-footer-logo {
@@ -213,7 +217,7 @@ a {
   display: none;
 }
 #return-arrow-container {
-  display: inline-block;
+  display: none;
   margin: 0;
   width: 30%;
   height: 100%;
@@ -249,11 +253,17 @@ a {
 
 #return-to-start-arrow {
   display: none;
-  font-size: 3em;
-  color: var(--UnselectedBorderColor);
   position: fixed;
   top: 90vh;
-  left: 80vw;
+  left: 85vw;
+  width: 2em;
+  height: 2em;
+  color: var(--UnselectedBorderColor);
+  opacity: 0.65;
+  border-top: 1em solid;
+  border-right: 1em solid;
+  border-radius: 10%;
+  transform: rotate(-45deg);
   cursor: pointer;
 }
 #return-to-start-arrow:hover {
@@ -284,10 +294,19 @@ a {
   }
   #credits-container {
     width: 100%;
+    margin-top: 0em;
   }
   #return-arrow-container {
     width: 100%;
-    /* display: none; */
+  }
+  #return-to-start-arrow {
+    display: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #return-to-start-arrow {
+    /* top: 70vh; */
+    left: 75vw;
   }
 }
 @media only screen and (max-width: 768px) and (orientation: portrait) {
@@ -354,7 +373,7 @@ a {
     background-color: var(--FontColor);
   }
   #settings-container {
-    top: 0.6em;
+    top: 0.5em;
     left: 65vw;
     width: 35vw;
   }

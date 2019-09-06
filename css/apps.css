@@ -74,6 +74,12 @@ body {
 #footer {
   background-color: var(--NavBarColor);
 }
+#footer-contact-logo-container {
+  display: inline-block;
+}
+#return-arrow-container {
+  display: inline-block;
+}
 
 .footer-contact-logo-container {
   display: inline-block;
