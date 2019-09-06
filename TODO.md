@@ -13,6 +13,4 @@
 * Place low resolution images while full image loading to avoid layout shifting.
 * Add a message in home indicating that one can change theme color (appears only once for user)
 
-_NOTE_: I actually like having sticky navbar. I opt for leaving return to top arrow only for pc, this way we avoid problems with position. Also, have to fix sticky in mozilla as well as the small gap...
-
 __IDEA__ for GitHub project to boost stars. Make a small web app/plugin which counts the number of words written in each blog post and plots a graph of the progress made. Some basic statistics on the number of words written in a period of time. Should automatically detect date in a post. Hopefully people like it and want to collaborate.
