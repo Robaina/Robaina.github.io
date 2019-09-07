@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-  <meta content="Introduction to python environments and how to set them within Jupyter" name="description"/>
-  <meta content="python environments, jupyter, programming" name="keywords"/>
+  <meta content="Introduction to Python environments and how to set them within Jupyter" name="description"/>
+  <meta content="Python environments, jupyter, programming" name="keywords"/>
   <meta content="Semidán Robaina Estévez" name="author"/>
   <title>
    Semidán: Blog
@@ -62,17 +62,17 @@
      </div>
      <div id="blog-entry-header">
       <p id="entry-title">
-       Why you should start using python environments and how to do it
+       Why you should start using Python environments and how to do it
       </p>
       <p id="entry-date">
        01 September, 2019
       </p>
      </div>
      <article id="blog-content">
-      <p>I began using python as my main language for scientific computing about a year ago. Before that, I only used Matlab and R for my projects and, while I promptly started coding in python, I wasn't aware of many of the features that this language has to offer. One of them was python environments. And I can guarantee you that using python environments from the beginning would have saved me a considerable amount of time and effort! In the following, I'll explain why I think everyone should start using environments and how to set them in your python and Jupyter installation.</p>
-<h2>Setting up python environments</h2>
-<p>If — like my past me — you are not using <a href="https://virtualenv.pypa.io/en/latest/userguide/">python environments</a>, you probably will have your preferred python version installed in some root directory. Moreover, you would have installed several python libraries with pip — or conda, if that's your thing — to which your root python has access. That's good enough, you think. You can go ahead and use python and your libraries in your projects, and that's it. Or is it? Chances are that you have encountered one of these situations: (i) one or more of your python libraries conflict with each other because they require different versions of other libraries or of python itself, and (ii) after installing a different version of one or more of your libraries, new conflicts are created which break code that otherwise use to run without trouble. At least, that's what happened to me more often than I was willing to deal with. Python environments solve this issue by creating independent instancies of python and whatever libraries you want to install. This way, one can upgrade or downgrade libraries — or even use a different python version — in one environment without affecting the other ones. Let's begin — I'll show commands directed at Windows since it's my current OS (I know).</p>
-<p>To create a new python environment, go to the command prompt and type:</p>
+      <p>I began using Python as my main language for scientific computing about a year ago. Before that, I only used Matlab and R for my projects and, while I promptly started coding in Python, I wasn't aware of many of the features that this language has to offer. One of them was Python environments. And I can guarantee you that using Python environments from the beginning would have saved me a considerable amount of time and effort! In the following, I'll explain why I think everyone should start using environments and how to set them in your Python and Jupyter installation.</p>
+<h2>Setting up Python environments</h2>
+<p>If — like my past me — you are not using <a href="https://virtualenv.pypa.io/en/latest/userguide/">Python environments</a>, you probably will have your preferred Python version installed in some root directory. Moreover, you would have installed several Python libraries with pip — or conda, if that's your thing — to which your root Python has access. That's good enough, you think. You can go ahead and use Python and your libraries in your projects, and that's it. Or is it? Chances are that you have encountered one of these situations: (i) one or more of your Python libraries conflict with each other because they require different versions of other libraries or of Python itself, and (ii) after installing a different version of one or more of your libraries, new conflicts are created which break code that otherwise use to run without trouble. At least, that's what happened to me more often than I was willing to deal with. Python environments solve this issue by creating independent instancies of Python and whatever libraries you want to install. This way, one can upgrade or downgrade libraries — or even use a different Python version — in one environment without affecting the other ones. Let's begin — I'll show commands directed at Windows since it's my current OS (I know).</p>
+<p>To create a new Python environment, go to the command prompt and type:</p>
 <pre><code class="bash"> python -m venv path_to_environments\\env_name
 </code></pre>
 <p>This command will create a new environment named <em>env_name</em> in the directory specified in <em>path_to_environments</em>. Any time you use this environment, you will need to activate it. To this end, you need to type:</p>
@@ -81,25 +81,25 @@
 <p>If everything went fine, you will see that your terminal looks like:</p>
 <pre><code class="bash"> (env_name) c:\\user_name
 </code></pre>
-<p>indicating that the environment is active. This means that only your local copy of python and its libraries will be invoked while the environment is active. This also holds for pip. In fact, pip-installing libraries while the environment is active will install the libraries only in this environment.</p>
-<p>Now, sometimes, you may want your environment to access libraries installed in your root python installation. If that's the case, you only need to add the flag: --system-site-packages, when creating the environment, like this:</p>
+<p>indicating that the environment is active. This means that only your local copy of Python and its libraries will be invoked while the environment is active. This also holds for pip. In fact, pip-installing libraries while the environment is active will install the libraries only in this environment.</p>
+<p>Now, sometimes, you may want your environment to access libraries installed in your root Python installation. If that's the case, you only need to add the flag: --system-site-packages, when creating the environment, like this:</p>
 <pre><code class="bash"> python -m venv --system-site-packages path_to_environmentsγenv_name
 </code></pre>
 <p>If you decide that you want the environment to be totally isolated after creating it, you can revoke the access adding the file: <em>no-global-site-packages.txt</em> to the environment directory. See more details in the <a href="https://virtualenv.pypa.io/en/latest/userguide/">official documentation</a>.</p>
 <p>Finally, when you are done using your environment, you should deactivate it with the command: deactivate. Also, if you want to remove your environment, you just need to deactivate the environment and then delete the folder containing the environment.</p>
 <h2>Dedicating Jupyter kernels to each environment</h2>
-<p>I regularly use <a href="https://jupyter.org/">Jupyter Lab</a> to do my exploratory analyses and to share code with my collaborators. So, when I started using python environments, I wanted to have a dedicated Jupyter kernel for each environment. This way, I could easily select the environment that I wanted to use for each Jupyter Notebook. Setting a Jupyter kernel for a python environment is quite easy. First, activate your environment, then type:</p>
+<p>I regularly use <a href="https://jupyter.org/">Jupyter Lab</a> to do my exploratory analyses and to share code with my collaborators. So, when I started using Python environments, I wanted to have a dedicated Jupyter kernel for each environment. This way, I could easily select the environment that I wanted to use for each Jupyter Notebook. Setting a Jupyter kernel for a Python environment is quite easy. First, activate your environment, then type:</p>
 <pre><code class="bash"> python -m ipykernel install --user --name=env_name.
 </code></pre>
-<p>That's it, next time you start Jupyter(Lab) you will see a new kernel named Python [env_name] with the python icon if in Jupyter Lab. If you find this behavior unacceptable and want to customize the kernel's name and icon, you are in luck. It's fairly straightforward. You just need to go edit the <em>kernel.json</em> file in the Jupyter kernel directory. You can find its location by running:</p>
+<p>That's it, next time you start Jupyter(Lab) you will see a new kernel named Python [env_name] with the Python icon if in Jupyter Lab. If you find this behavior unacceptable and want to customize the kernel's name and icon, you are in luck. It's fairly straightforward. You just need to go edit the <em>kernel.json</em> file in the Jupyter kernel directory. You can find its location by running:</p>
 <pre><code class="bash"> jupyter kernelspec list
 </code></pre>
-<p>which will list the paths to all your available Jupyter kernels. In <em>kernel.json</em> edit the field <em>displayed name</em> to add a custom name to your kernel. To change the icon, you just need to substitute the default <em>logo-64x64.png</em> file for your custom logo image, and that's it. If everything went well, next time you start Jupyter Lab, you will see your new environment-specific python kernel with the custom name and icon. For instance, I work a lot with metabolic networks, so I created an environment named <em>metabolism</em> which contains a bunch of libraries used in metabolic modeling. Here is a screenshot of the kernel displayed by Jupyter Lab:</p>
+<p>which will list the paths to all your available Jupyter kernels. In <em>kernel.json</em> edit the field <em>displayed name</em> to add a custom name to your kernel. To change the icon, you just need to substitute the default <em>logo-64x64.png</em> file for your custom logo image, and that's it. If everything went well, next time you start Jupyter Lab, you will see your new environment-specific Python kernel with the custom name and icon. For instance, I work a lot with metabolic networks, so I created an environment named <em>metabolism</em> which contains a bunch of libraries used in metabolic modeling. Here is a screenshot of the kernel displayed by Jupyter Lab:</p>
 <p><img alt="Jupyter Kernel" src="/imgs/blog/why-you-should-start-using-python-environments-and-how-to-do-it/Jupyter_kernels.png"/></p>
-<p>Cool, isn't it? (I think so). Now, one can easily select the python environment when creating a new Jupyter Notebook. Finally, once you are done using your python environment, you can remove the Jupyter kernel by tipping:</p>
+<p>Cool, isn't it? (I think so). Now, one can easily select the Python environment when creating a new Jupyter Notebook. Finally, once you are done using your Python environment, you can remove the Jupyter kernel by tipping:</p>
 <pre><code class="bash"> jupyter kernelspec uninstall env_name
 </code></pre>
-<p>Using python environments guarantees that your python installation is tidy and safe from incompatibility drama. Give python environments a try. You won't regret it! And, don't hesitate to leave a comment down below if you have any questions or suggestions!</p>
+<p>Using Python environments guarantees that your Python installation is tidy and safe from incompatibility drama. Give Python environments a try. You won't regret it! And, don't hesitate to leave a comment down below if you have any questions or suggestions!</p>
      </article>
     </div>
     <div id="blog-navigator">

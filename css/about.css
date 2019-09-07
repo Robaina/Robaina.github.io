@@ -31,4 +31,13 @@
   #my-photo {
     margin-left: 0em;
   }
+  #footer {
+    background-color: var(--NavBarColor);
+  }
+  #footer-contact-logo-container {
+    display: inline-block;
+  }
+  #return-arrow-container {
+    display: inline-block;
+  }
 }
