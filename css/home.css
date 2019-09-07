@@ -2,14 +2,27 @@
   color: var(--NavBarActiveColor);
   pointer-events: none;
 }
-.info {
+/* #settings-message {
+  display: none;
+  position: absolute;
+  top: 20vh;
+  left: 70vw;
+  width: 7em;
+  height: 4em;
+  border: solid white 3px;
+  border-radius: 25px;
+  background-color: rgb(117, 117, 117);
+  color: black;
+  font-size: 1.5em;
+} */
+#info {
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
   width: 80vw;
   margin-left: 10vw;
   text-align: center;
 }
-.myname {
+#myname {
   margin-top: 22vh;
 }
 .name-wrapper {
@@ -42,7 +55,7 @@
     font-size: 10vw;
     margin-bottom: 5vh;
   }
-  .myname {
+  #myname {
     margin-top: 15vh;
   }
   #name {
@@ -57,7 +70,7 @@
 }
 
 @media only screen and (max-width: 768px) and (orientation: landscape){
-  .myname {
+  #myname {
     margin-top: 13vh;
   }
 }

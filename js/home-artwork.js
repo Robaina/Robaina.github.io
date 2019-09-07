@@ -141,3 +141,13 @@ function extractSubArray(array, indices) {
   }
   return subarray
 }
+
+// Deploy message telling user to try light mode on first visit
+// function showSettingsMessageOnFirstVisit() {
+//   if (localStorage.getItem("firstVisit") == null) {
+//      alert("First Time Alert");
+//      document.getElementById("settings-message").style.display = "block";
+//      localStorage.setItem("firstVisit", true);
+//   }
+// }
+// window.addEventListener("load", showSettingsMessageOnFirstVisit);

@@ -82,9 +82,23 @@ for r, d, f in os.walk(work_dir + '\\posts'):
             # html_files.append(os.path.join(r, file))
             html_files.append(file.split('.html')[0])
 
+
 # Find md files yet to be converted to html
+def post_is_unfinished(fileName):
+    """Find posts that are not yet ready"""
+    with open(work_dir + '\\md-posts\\' + fileName + '.md', 'r') as f:
+        line_list = f.readlines()
+        ready_line = [line for line in line_list if 'post-ready' in line]
+        if len(ready_line) > 0:
+            return 'yes' not in ready_line[0].lower()
+        else:
+            return False
+    f.close()
+
+
 md_to_convert = [md for md in md_files
-                 if md.lower() not in html_files]
+                 if (md.lower() not in html_files
+                     or post_is_unfinished(md))]
 
 
 # Convert to html and update blog-entries.json

@@ -175,7 +175,7 @@ a {
   margin-top: 3em;
   margin-bottom: 3em;
 }
-#myname {
+#my-name-in-footer {
   display: inline-block;
   color: var(--FontColor);
   font-size: calc(0.9 * var(--TextFontSize));
@@ -195,7 +195,7 @@ a {
   margin: 0.5em;
   margin-right: 0;
   margin-bottom: 0em;
-  vertical-align:sub;
+  vertical-align: sub;
   border-width: 0;
   width: 4em;
 }
@@ -266,6 +266,7 @@ a {
   border-radius: 10%;
   transform: rotate(-45deg);
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #return-to-start-arrow:hover {
   color: var(--FancyColor);
