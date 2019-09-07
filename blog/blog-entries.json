@@ -1,19 +1,19 @@
 [
   {
-    "name": "what-i-learned-about-writing-clean-code",
-    "title": "What I learned about writing clean code",
-    "date": "26 August, 2019",
-    "tags": [
-      "Coding"
-    ],
-    "hasThumbnail": false
-  },
-  {
     "name": "why-you-should-start-using-python-environments-and-how-to-do-it",
     "title": "Why you should start using Python environments and how to do it",
     "date": "01 September, 2019",
     "tags": [
       "Python",
+      "Coding"
+    ],
+    "hasThumbnail": false
+  },
+  {
+    "name": "what-i-learned-about-writing-clean-code",
+    "title": "What I learned about writing clean code",
+    "date": "26 August, 2019",
+    "tags": [
       "Coding"
     ],
     "hasThumbnail": false
