@@ -124,10 +124,10 @@ function setTopicTag() {
   }
 }
 
-function changeNavBarColor() {
+function changeNavBarColorOnScrollDown() {
 
   const is_landscape_oriented = window.innerWidth > window.innerHeight;
-  const is_mobile = window.innerWidth < 768;
+  const is_mobile = window.innerWidth <= 768;
   let navbar = document.getElementById("navbar-container");
   let navbarSeparator = document.getElementById("navbar-line-separator");
 
@@ -149,5 +149,5 @@ function changeNavBarColor() {
 }
 
 setColorMode();
-window.addEventListener("scroll", changeNavBarColor);
-window.addEventListener("resize", changeNavBarColor);
+window.addEventListener("scroll", changeNavBarColorOnScrollDown);
+window.addEventListener("resize", changeNavBarColorOnScrollDown);
