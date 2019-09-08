@@ -141,7 +141,7 @@ a {
   padding-top: 1vh;
 }
 .settings-item:hover {
-  background-color: var(--TextHoverColor);
+  background-color: var(--GridItemColor);
 }
 #page-container {
   position: relative;
