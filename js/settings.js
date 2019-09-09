@@ -48,7 +48,7 @@ function setColorMode() {
     }
   }
   if (is_home_page) {
-    deployArtWork();
+    // deployArtWork();
     returnRegularColorToCharacters();
   }
   if (is_contact_page) {
