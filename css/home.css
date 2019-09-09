@@ -43,6 +43,23 @@
   margin-top: 0vh;
 }
 
+@media only screen and (max-width: 450px) {
+  #footer-content {
+    height: calc(0.5 * 30vh);
+    margin-top: calc(0.5 * 30vh);
+  }
+  #my-name-in-footer {
+    font-size: calc(0.5 * var(--TextFontSize));
+  }
+  .footer-code-symbol {
+    font-size: 1em;
+  }
+  #cc-license {
+    width: 2em;
+    vertical-align: middle;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .name-character:hover {
     transform: translateY(-20px);

@@ -1,7 +1,5 @@
 // Deploy artwork
 let cnv, ctx, stars_color, sky_color;
-// document.body.style["background-color"] = getComputedStyle(
-//   document.documentElement).getPropertyValue('--BackgroundColor');
 
 function deployArtWork() {
   sky_color = getComputedStyle(
@@ -18,7 +16,8 @@ function deployArtWork() {
   ctx.fillStyle = sky_color;
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-  makeStars(density=0.0001);
+  // makeStars(density=0.0001);  // add artwork here
+
   // Set document background to canvas image
   document.body.style["background-image"] = 'url(' + cnv.toDataURL() + ')';
 }

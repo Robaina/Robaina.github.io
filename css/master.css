@@ -173,6 +173,7 @@ a {
   height: 15vh;
   display: block;
   background-color: var(--BackgroundColor);
+  background-color: inherit;
 }
 #footer-content {
   display: grid;
@@ -183,8 +184,6 @@ a {
   width: 100%;
   height: calc(0.8 * 15vh);
   margin-top: calc(0.2 * 15vh);
-  /* height: 80%;
-  margin-top: 20%; */
 }
 #credits-container {
   display: inline-block;
