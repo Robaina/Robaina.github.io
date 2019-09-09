@@ -121,6 +121,7 @@ a {
   top: 1.3em;
   left: 80vw;
   width: 15vw;
+  z-index: 2;
 }
 #settings-icon {
   display: block;
@@ -170,17 +171,20 @@ a {
   bottom: 0;
   width: 100%;
   height: 15vh;
-  display: inline-block;
+  display: block;
   background-color: var(--BackgroundColor);
 }
 #footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   background-color: inherit;
   color: var(--FontColor);
   text-align: center;
   width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  height: calc(0.8 * 15vh);
+  margin-top: calc(0.2 * 15vh);
+  /* height: 80%;
+  margin-top: 20%; */
 }
 #credits-container {
   display: inline-block;
@@ -262,7 +266,7 @@ a {
 #return-to-start-arrow {
   display: none;
   position: fixed;
-  top: 91vh;
+  top: 92vh;
   left: 85vw;
   width: 2em;
   height: 2em;
@@ -327,6 +331,10 @@ a {
   }
   #footer {
     height: 30vh;
+  }
+  #footer-content {
+    height: calc(0.9 * 30vh);
+    margin-top: calc(0.1 * 30vh);
   }
   #my-name-in-footer {
     font-size: calc(0.7 * var(--TextFontSize));

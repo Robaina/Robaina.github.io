@@ -116,7 +116,7 @@ h1, h2 {
   margin-top: 5vw;
 }
 
-#footer {
+#footer-content {
   background-color: var(--NavBarColor);
 }
 #footer-contact-logo-container {
