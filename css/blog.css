@@ -38,8 +38,8 @@ body {
 .grid_item_header {
   text-align: left;
   color: var(--FontColor);
-  /* min-height: 7vh; */
-  padding-bottom: auto;
+  height: 6em; /*Added*/
+  padding-bottom: auto;;
 }
 .grid_item_title {
   width: 100%;
@@ -53,6 +53,14 @@ body {
 .thumbnail {
   width: calc(100% - var(--ThumbnailMargin));
   margin-top: 0.4em;
+}
+.content_preview {
+  text-align: justify;
+  color: var(--FontColor);
+  height: 7em; /*Added*/
+}
+.hide-entry {
+  display: none; 
 }
 #topic-tag-banner {
   text-align: center;
@@ -95,16 +103,11 @@ body {
 .Geology {
   background-color: rgb(231, 168, 95);
 }
-.General {
+.Health {
   background-color: rgb(210, 106, 106);
-
 }
 .grid_link {
   text-decoration: none;
-  color: var(--FontColor);
-}
-.content_preview {
-  text-align: justify;
   color: var(--FontColor);
 }
 #blog {

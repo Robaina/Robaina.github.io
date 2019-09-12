@@ -2,6 +2,7 @@ from subprocess import call
 from bs4 import BeautifulSoup
 import os
 import json
+import time
 
 work_dir = 'C:\\Users\\tinta\\OneDrive\\Documents\\Web_development\\Robaina.github.io\\blog'
 
@@ -153,6 +154,9 @@ for f in files:
     entry['tags'] = topics
     entry['hasThumbnail'] = False
     entries_info.append(entry)
+
+# Sort by date!
+entries_info.sort(key=lambda entry: time.strptime(entry['date'], '%d %B, %Y'), reverse=True)
 
 with open('blog-entries.json', 'w') as fout:
     json.dump(entries_info, fout, indent=2)

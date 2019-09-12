@@ -54,7 +54,7 @@ function fillGridContainer(blogEntryValues, containerID) {
     }
 
     let template = `
-    <div class="grid_item" tabindex="0">
+    <div class="grid_item" id=${href} tabindex="0">
        <a class="entry_link" href="/blog/posts/${href}">
         <div class="grid_item_content">
           <div class="grid_item_header">
@@ -129,8 +129,16 @@ function filterBlogEntriesByTag(elem) {
     });
   }
 
-  $("#grid_container").empty();
-  fillGridContainer(filteredEntryValues, "grid_container");
-  writePostPreviews();
+  // Hide unselected blog entries
+  blogEntryValues.forEach(function(entry) {
+    $("#" + entry.name).addClass("hide-entry");
+  });
+  filteredEntryValues.forEach(function(entry) {
+    $("#" + entry.name).removeClass("hide-entry");
+  });
+
+  // $("#grid_container").empty();
+  // fillGridContainer(filteredEntryValues, "grid_container");
+  // writePostPreviews();
 
 }
