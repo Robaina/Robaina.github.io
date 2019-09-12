@@ -10,7 +10,7 @@ body {
 }
 #grid_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
   grid-auto-flow: row dense;
   width: auto;
   justify-content: center;
@@ -38,7 +38,7 @@ body {
 .grid_item_header {
   text-align: left;
   color: var(--FontColor);
-  height: 6em; /*Added*/
+  height: 6.5em; /*Added*/
   padding-bottom: auto;;
 }
 .grid_item_title {
@@ -60,7 +60,7 @@ body {
   height: 7em; /*Added*/
 }
 .hide-entry {
-  display: none; 
+  display: none;
 }
 #topic-tag-banner {
   text-align: center;

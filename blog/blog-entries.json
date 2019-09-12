@@ -1,23 +1,5 @@
 [
   {
-    "name": "fighting-crohns-disease",
-    "title": "Fighting Crohn's disease",
-    "date": "12 September, 2019",
-    "tags": [
-      "Health"
-    ],
-    "hasThumbnail": false
-  },
-  {
-    "name": "what-is-systems-biology",
-    "title": "What is Systems Biology?",
-    "date": "05 September, 2019",
-    "tags": [
-      "Biology"
-    ],
-    "hasThumbnail": false
-  },
-  {
     "name": "why-you-should-start-using-python-environments-and-how-to-do-it",
     "title": "Why you should start using Python environments and how to do it",
     "date": "01 September, 2019",

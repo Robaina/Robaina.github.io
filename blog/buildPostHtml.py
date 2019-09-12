@@ -101,7 +101,6 @@ md_to_convert = [md for md in md_files
                  if (md.lower() not in html_files
                      or post_is_unfinished(md))]
 
-
 # Convert to html and update blog-entries.json
 for md_file in md_to_convert:
     # Make temporal copy for node.js
@@ -109,6 +108,16 @@ for md_file in md_to_convert:
     createHTMLPostFromMD(md_file)
     os.remove('temp.html')
     os.remove('temp.md')
+
+
+html_to_remove = [html for html in html_files
+                  if html.lower() not in [md.lower() for md in md_files]]
+
+# Delete html files that are not in md-posts
+for html in html_to_remove:
+    post_dir = work_dir + f'/posts/{html}.html'
+    if os.path.exists(post_dir):
+        os.remove(post_dir)
 
 
 # Upate JSON with entry data
