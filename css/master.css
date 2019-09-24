@@ -315,7 +315,9 @@ a {
     display: none;
   }
   .footer-contact-logo {
-    width: 15%;
+    width: 10%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
 }
 @media only screen and (max-width: 450px) {
