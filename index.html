@@ -18,19 +18,19 @@
 		<script src="/js/settings.js"></script>
 		<script>
       // Preload all images
-			let folder = "imgs/";
-			let imgs = [];
-			$.ajax({
-			    url : folder,
-			    success: function (data) {
-			        $(data).find("a").attr("href", function (i, val) {
-			            if( val.match(/\.(jpe?g|png|gif)$/) ) {
-										  imgs.push(new Image());
-									  	imgs.pop().src = val;
-			            }
-			        });
-			    }
-			});
+			// let folder = "imgs/";
+			// let imgs = [];
+			// $.ajax({
+			//     url : folder,
+			//     success: function (data) {
+			//         $(data).find("a").attr("href", function (i, val) {
+			//             if( val.match(/\.(jpe?g|png|gif)$/) ) {
+			// 							  imgs.push(new Image());
+			// 						  	imgs.pop().src = val;
+			//             }
+			//         });
+			//     }
+			// });
 
       // Redirect to Home when ready
 			function goToHome() {
