@@ -16,7 +16,7 @@ function deployArtWork() {
   ctx.fillStyle = sky_color;
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-  // makeStars(density=0.0001);  // add artwork here
+  makeStars(density=0.0001);  // add artwork here
 
   // Set document background to canvas image
   document.body.style["background-image"] = 'url(' + cnv.toDataURL() + ')';
