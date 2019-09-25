@@ -121,7 +121,7 @@ a {
   top: 1.3em;
   left: 80vw;
   width: 15vw;
-  z-index: 3;
+  z-index: 2;
 }
 #settings-icon {
   display: block;
@@ -130,6 +130,7 @@ a {
   width: 2.6vw;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  z-index: 2;
 }
 #settings-icon:active {
   -webkit-animation: icon-rotation 1s;
