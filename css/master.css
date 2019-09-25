@@ -121,7 +121,7 @@ a {
   top: 1.3em;
   left: 80vw;
   width: 15vw;
-  z-index: 2;
+  z-index: 3;
 }
 #settings-icon {
   display: block;
