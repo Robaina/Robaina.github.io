@@ -37,6 +37,7 @@
 }
 #orcid-container > span {
   vertical-align:super;
+  font-size: 1.1em;
 }
 #orcid-icon-resume {
   width: 1.5em;
