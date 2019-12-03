@@ -89,8 +89,8 @@ a {
   color: var(--EmphFontColor);
 }
 #navbar-line-separator {
-  width: 50vw;
-  margin-left: 25vw;
+  width: 60vw;
+  margin-left: 20vw;
   height: 0px;
   border-bottom: var(--NavBarSeparatorColor) solid 3px;
 }

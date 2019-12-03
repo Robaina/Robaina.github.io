@@ -106,10 +106,6 @@ function showSettingsOptions() {
     .setProperty("--IconRotationAngle", neg_angle);
 }
 
-function expandAbout() {
-  console.log("hola!");
-}
-
 function setRightLogosForColorMode() {
    let github_img = document.getElementById("github-logo");
    if (light_mode_selected) {
