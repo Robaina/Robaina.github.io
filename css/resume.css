@@ -1,0 +1,103 @@
+#about {
+  color: var(--NavBarActiveColor);
+  /* pointer-events: none; */
+}
+.about {
+  width: var(--ColumnWidth);
+  margin-top: var(--TopMarginToHeader);
+  margin-left: calc( (100vw - var(--ColumnWidth)) / 2);
+  background-color: var(--BackgroundColor);
+  color: var(--FontColor);
+  font-size: var(--TextFontSize);
+  text-align: justify;
+}
+#my-photo {
+  float: right;
+  max-width: 300px;
+  width: 100%;
+  margin-left: 2em;
+  margin-bottom: 1em;
+  border-radius: 5%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+#resume-header {
+  margin-top: 5em;
+  margin-left: calc((100vw - var(--ColumnWidth)) / 2);
+}
+#my-name {
+  font-size: 2.5em;
+  color: var(--FontColor);
+  margin-bottom: 1em;
+  display: inline;
+}
+#orcid-container {
+  margin-bottom: 0.8em;
+  margin-top: 0.5em;
+}
+#orcid-container > span {
+  vertical-align:super;
+}
+#orcid-icon-resume {
+  width: 1.5em;
+}
+#cv-button-container {
+  text-align: right;
+  display: inline-block;
+  width: var(--ColumnWidth);
+}
+#cv-button {
+  display: inline-block;
+  color: var(--FontColor);
+  font-size: calc(1.5*var(--TextFontSize));
+  text-align: center;
+  background-color: var(--GridItemColor);
+  border-radius: 25px;
+  width: 5em;
+  height: 2em;
+  line-height: 2em;
+}
+#cv-button:hover {
+  background-color: var(--FancyColor);
+  color: var(--EmphFontColor);
+}
+#my-resume {
+  color: var(--FontColor);
+}
+#my-resume > ul {
+  list-style-type:square;
+  /* padding: 5vw; */
+  /* list-style-position: inside; */
+  padding-left: 0;
+}
+li {
+  padding: 0.5em;
+}
+
+#footer-content {
+  background-color: var(--NavBarColor);
+}
+#footer-contact-logo-container {
+  display: inline-block;
+}
+#return-arrow-container {
+  display: inline-block;
+}
+.footer-contact-logo-container {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 400px) {
+  #my-photo {
+    margin-left: 0em;
+  }
+  #footer-content {
+    background-color: var(--NavBarColor);
+  }
+  #footer-contact-logo-container {
+    display: inline-block;
+  }
+  #return-arrow-container {
+    display: inline-block;
+  }
+}

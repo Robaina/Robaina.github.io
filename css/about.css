@@ -1,6 +1,6 @@
 #about {
   color: var(--NavBarActiveColor);
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .about {
   width: var(--ColumnWidth);

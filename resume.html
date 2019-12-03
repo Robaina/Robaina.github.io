@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Personal webpage of Semidán Robaina Estévez">
+    <meta name="keywords" content="semidan robaina, about, CV">
+    <title>Semidán: Résumé</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://semidanrobaina.com/imgs/my-logo.png">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/resume.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet"> -->
+
+    <script src="vendor/jquery-3.4.1.min.js"></script>
+    <script src="/js/transitions.js"></script>
+    <script src="/js/settings.js"></script>
+    <script>
+      $(function() {
+        $("#navbar-container").load("/navbar.html");
+      });
+      $(function() {
+        $("#footer").load("/footer.html");
+      });
+      let logo = new Image();
+      logo.src = "/imgs/my-logo.png";
+    </script>
+
+  </head>
+  <body>
+
+    <div id="page-container">
+      <div id="content-wrap">
+
+        <div id="navbar-container"></div>
+
+        <div id="resume-header">
+          <div id="my-name">Semidán Robaina Estévez, Ph.D.</div>
+
+          <a href="https://orcid.org/0000-0003-0781-1677" target="_blank"><div id="orcid-container">
+            <img id="orcid-icon-resume" src="/imgs/orcid-icon.png" alt="Responsive image">
+            <span>https://orcid.org/0000-0003-0781-1677</span>
+          </div></a>
+
+          <div id="cv-button-container">
+              <a href="/assets/CV.pdf" target="_blank"><div id="cv-button">Full CV</div></a>
+          </div>
+        </div>
+
+        <article class="about" id="my-resume">
+
+          <h1>Education</h1>
+          <ul>
+            <li>Ph.D. in Systems Biology (<i>Magna Cum Laude</i>), September 2017. Max Planck Institute of Molecular Plant Physiology and University of Potsdam.</li>
+            <li>M.Sc. in Biotechnology, July 2013. University of La Laguna.</li>
+            <li>Licenciatura in Biology (focus on Molecular and Cell Biology), March 2012. University of La Laguna.</li>
+          </ul>
+          <h1>Experience</h1>
+          <ul>
+            <li>Research scholar, September 2019. Ronin Institute.</li>
+            <li>Postdoc, October 2017 - December 2018. Bioinformatics department, University of Potsdam.</li>
+            <li>IMPRS Ph.D. student,  October 2013 - September 2017. Max Planck Institute of Molecular Plant Physiology.</li>
+            <li>Predoctoral researcher, July 2012 - July 2013. Biochemistry department, University of La Laguna.</li>
+          </ul>
+          <h1>Skills</h1>
+          <ul>
+            <li>Python, R, MATLAB, Jupyter Notebooks, JavaScript, HTML5, CSS3.</li>
+            <li>Convex optimization, mathematical modeling, network science, machine learning, omics data analysis, data visualization.</li>
+            <li>Scientific writing, LatEx, Git, GitHub.</li>
+            <li>Spanish, English.</li>
+          </ul>
+
+        </article>
+
+      </div>
+
+      <footer id="footer"></footer>
+
+    </div>
+
+    <div id="return-to-start-arrow"  onclick="scrollToTop()"></div>
+    <script src="/js/scrollToTop.js"></script>
+
+  </body>
+</html>
