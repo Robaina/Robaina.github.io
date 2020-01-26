@@ -39,6 +39,8 @@ def createHTMLPostFromMD(markdown_file_name):
     entry_keywords.attrs['content'] = keywords
     entry_description = template.find('meta', {'name': 'description'})
     entry_description.attrs['content'] = description
+    entry_title = template.find('title')
+    entry_title.string = f'Semid&aacute;n: {title}'
 
     # Insert post content
     blog_content = str(content).split('</preamble>')[1]
