@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/index.css">
 
-		<script src="vendor/jquery-3.4.1.min.js"></script></script>
+		<script src="vendor/jquery-3.4.1.min.js"></script>
 		<script src="/js/settings.js"></script>
 		<script>
       // Preload all images
@@ -39,9 +39,17 @@
 			  }, 2500)
 		  }
 
-			$(document).ready(function(){
-				goToHome();
-      });
+			// Check if Internet Explorer is being used
+			let ua = window.navigator.userAgent;
+      let isIE = /MSIE|Trident/.test(ua);
+			if (isIE) {
+				window.location.href = "wrongbrowser.html"
+			} else {
+				$(document).ready(function(){
+					goToHome();
+				});
+
+			}
 
 		</script>
 
