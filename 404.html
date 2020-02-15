@@ -11,6 +11,19 @@
 
 		<title>Semidán's site</title>
 		<link rel="icon" type="image/png" sizes="32x32" href="https://semidanrobaina.com/imgs/my-logo.png">
+		<!-- <link rel="stylesheet" href="/css/master.css">
+
+		<script src="vendor/jquery-3.4.1.min.js"></script>
+		<script src="/js/transitions.js"></script>
+		<script src="/js/settings.js"></script>
+		<script>
+			$(function() {
+				$("#navbar-container").load("/navbar.html");
+			});
+			$(function() {
+				$("#footer").load("/footer.html");
+			});
+		</script> -->
 
     <style>
       body {background-color: rgb(51, 51, 51);}
@@ -26,21 +39,28 @@
         margin-top: 20vh;
       }
       #mylogo {
-        width: 20vw;
-        margin-left: 40vw;
+        width: 18vw;
+        margin-left: 41vw;
       }
+			@media only screen and (max-width: 500px) {
+				p {
+					font-size: 2em;
+				}
+			}
     </style>
 
 	</head>
 
 	<body>
 
+		<!-- <div id="navbar-container"></div> -->
+
     <div id="text">
       <p>Ooops! it looks like the page your are trying to reach no longer exists...</p>
       <p>Sorry!</p>
     </div>
 
-    <img id="mylogo" src="/imgs/my-logo.png" alt="Responsive image">
+    <a href="https://semidanrobaina.com/home"><img id="mylogo" src="/imgs/my-logo.png" alt="Responsive image"></a>
 
   </body>
 </html>
