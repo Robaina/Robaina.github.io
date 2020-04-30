@@ -55,12 +55,14 @@ tr:nth-child(even) {
 
 .post-image {
   width: calc(0.8 * var(--ColumnWidth));
+  margin-left: auto;
   margin-left: calc(0.1 * var(--ColumnWidth));
 }
 
 .jupyter-post-image {
-  width: calc(0.95 * var(--ColumnWidth));
-  margin-left: calc(0.025 * var(--ColumnWidth));
+  width: calc(0.85 * var(--ColumnWidth));
+  margin-left: auto;
+  margin-left: calc(0.075 * var(--ColumnWidth));
   background-color: white;
 }
 
@@ -182,7 +184,7 @@ strong {
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
-  img {
+   .jupyter-post-image, .post-image {
     width: calc(0.9 * var(--ColumnWidth));
     margin-left: calc(0.05 * var(--ColumnWidth));
   }
