@@ -21,8 +21,9 @@ def createHTMLPostFromMD(markdown_file_name):
     title = preamble.find('h1', {'id': 'title'}).string
     date = preamble.find('h3', {'id': 'date'}).string
     tags = preamble.find('h4', {'id': 'tags'}).string.split(',')
-    # has_images = preamble.find('h4', {'id': 'has-images'}).string
-    # has_thumbnail = preamble.find('h4', {'id': 'has-thumbnail-image'}).string
+    is_jupyter_notebook = preamble.find('h4', {'id': 'is-jupyter-notebook'}).string.lower()
+    # has_images = preamble.find('h4', {'id': 'has-images'}).string.lower()
+    # has_thumbnail = preamble.find('h4', {'id': 'has-thumbnail-image'}).string.lower()
     keywords = preamble.find('h4', {'id': 'keywords'}).string
     description = preamble.find('h4', {'id': 'description'}).string
 
@@ -43,12 +44,23 @@ def createHTMLPostFromMD(markdown_file_name):
     entry_title.string = f'Semid&aacute;n: {title}'
 
     # Insert post content
+    html_name = markdown_file_name.lower()
     blog_content = str(content).split('</preamble>')[1]
+    # Add path to figures for Jupyter Notebooks
+    if is_jupyter_notebook == 'yes':
+        pic_path = f'<img alt="png" src="/imgs/blog/{html_name}/'
+        blog_content = blog_content.replace('<img alt="png" src="', pic_path)
+    # Add class to img elements
+    if is_jupyter_notebook == 'yes':
+        blog_content = blog_content.replace('<img', '<img class="jupyter-post-image"')
+    else:
+        blog_content = blog_content.replace('<img', '<img class="post-image"')
+    # Fix some html converter errors:
+    blog_content = blog_content.replace('=""','').replace('<div>\n<style scoped', '<div class="dataframe-container">\n<style scoped')
     article = template.find('article', {'id': 'blog-content'})
     article.string = blog_content
 
     # Write final html
-    html_name = markdown_file_name.lower()
     # formatter=None does not replace < tags by html code.
     # but adds extra space and line break between divs. Hence the removal.
     html_str = template.prettify(
@@ -138,8 +150,7 @@ for r, d, f in os.walk(work_dir + '\\posts'):
 
 entries_info = []
 for f in files:
-    soup = BeautifulSoup(open(f), "html.parser")
-
+    soup = BeautifulSoup(open(f, encoding="utf-8"), "html.parser")
     # parse topic tags
     topics = []
     entry = {}

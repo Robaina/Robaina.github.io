@@ -35,5 +35,14 @@
       "Coding"
     ],
     "hasThumbnail": false
+  },
+  {
+    "name": "transcendental-equations",
+    "title": "Trascendental equations",
+    "date": "25 April, 2019",
+    "tags": [
+      "Math"
+    ],
+    "hasThumbnail": false
   }
 ]

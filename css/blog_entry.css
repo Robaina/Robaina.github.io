@@ -11,16 +11,57 @@ body {
   pointer-events: all;
 }
 
+pre {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
 pre, code {
   text-align: left;
   white-space: pre;
   border-radius: 20px;
-  font-size: calc(0.75 * var(--TextFontSize));
+  font-size: calc(0.71 * var(--TextFontSize));
 }
 
-img {
+.dataframe-container {
+  overflow-x: auto;
+  text-align: center;
+}
+
+table {
+  border: none !important;
+  border-collapse: collapse !important;
+}
+
+th, td, tr {
+  text-align: left !important;
+  font-size: calc(0.71 * var(--TextFontSize));
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+th {
+  border: none;
+  border-bottom: 0.1em solid var(--NavBarSeparatorColor);
+}
+
+td, tr {
+  border: none !important;
+}
+
+tr:nth-child(even) {
+  background-color: var(--NavBarColor);
+}
+
+.post-image {
   width: calc(0.8 * var(--ColumnWidth));
   margin-left: calc(0.1 * var(--ColumnWidth));
+}
+
+.jupyter-post-image {
+  width: calc(0.95 * var(--ColumnWidth));
+  margin-left: calc(0.025 * var(--ColumnWidth));
+  background-color: white;
 }
 
 #blog-wrap {

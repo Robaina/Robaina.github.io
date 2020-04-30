@@ -95,7 +95,7 @@
 <pre><code class="bash"> jupyter kernelspec list
 </code></pre>
 <p>which will list the paths to all your available Jupyter kernels. In <em>kernel.json</em> edit the field <em>displayed name</em> to add a custom name to your kernel. To change the icon, you just need to substitute the default <em>logo-64x64.png</em> file for your custom logo image, and that's it. If everything went well, next time you start Jupyter Lab, you will see your new environment-specific Python kernel with the custom name and icon. For instance, I work a lot with metabolic networks, so I created an environment named <em>metabolism</em> which contains a bunch of libraries used in metabolic modeling. Here is a screenshot of the kernel displayed by Jupyter Lab:</p>
-<p><img alt="Jupyter Kernel" src="/imgs/blog/why-you-should-start-using-python-environments-and-how-to-do-it/Jupyter_kernels.png"/></p>
+<p><img class="post-image" alt="Jupyter Kernel" src="/imgs/blog/why-you-should-start-using-python-environments-and-how-to-do-it/Jupyter_kernels.png"/></p>
 <p>Cool, isn't it? (I think so). Now, one can easily select the Python environment when creating a new Jupyter Notebook. Finally, once you are done using your Python environment, you can remove the Jupyter kernel by tipping:</p>
 <pre><code class="bash"> jupyter kernelspec uninstall env_name
 </code></pre>

@@ -23,7 +23,7 @@
   --GridItemColor: var(--DarkModeGridItemColor);
   --NavBarColor: var(--DarkModeNavBarColor);
   --NavBarActiveColor: var(--FancyColor);
-  --NavBarSeparatorColor: rgb(51, 51, 51);
+  --NavBarSeparatorColor: rgb(80, 80, 80);
   --TextHoverColor: rgb(93, 93, 93);
   --UnselectedBorderColor: rgb(121, 121, 121);
   --TextFontSize: 1.2em;
