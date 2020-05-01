@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="In this post we explore a closed-formed solution to the famous Michaelis-Menten formalism." name="description"/>
-  <meta content="blog,michaelis-menten, closed-form solution, python" name="keywords"/>
+  <meta content="blog, michaelis-menten, closed-form solution, python" name="keywords"/>
   <meta content="SemidÃ¡n Robaina EstÃ©vez" name="author"/>
   <title>
    Semid&aacute;n: A closed-form solution for Michaelis-Menten
@@ -60,7 +60,7 @@
       </p>
      </div>
      <article id="blog-content">
-      <p>Leonor Michaelis and Maud Menten proposed at the beginning of the XXth century a widely-used <a href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">enzyme kinetics</a> to model the flux through a monosubstrate, single-step, enzyme-catalyzed biochemical reaction. The Michaelis-Menten formalism has been widely used in biochemistry classes as well as in research ever since. The Michaelis-Menten formalism is usually employed within a system of ordinary differential equations, which typically are solved thorugh <a href="https://en.wikipedia.org/wiki/Numerical_integration">numerical integration</a>, and that's how I had always solved this system. However, I recently learned about a <a href="https://en.wikipedia.org/wiki/Closed-form_expression">closed-form solution</a> to the Michalelis-Menten kinetics, which was proposed by Schnell and Mendoza in 1997 [1]. A closed-form solution means that I could in principle obtain the kinetics of a biochemical reaction withouth numerical integration! This sounded interesting enough to explore a bit Schnell and Mendoza's solution. Although, to be honest, just out of curiosity, because numerically integrating Michaelis-Menten kinetics is rather straighforward with current software. Anyway, here is some Python code implementing the closed-form solution. But first, let's define the biochemical system that will serve as our example.</p>
+      <p>Leonor Michaelis and Maud Menten proposed at the beginning of the 20th century a widely-used <a href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">enzyme kinetics</a> to model the flux through a monosubstrate, single-step, enzyme-catalyzed biochemical reaction. The Michaelis-Menten formalism has been widely used in biochemistry classes as well as in research ever since. The Michaelis-Menten formalism is usually employed within a system of ordinary differential equations, which typically are solved through <a href="https://en.wikipedia.org/wiki/Numerical_integration">numerical integration</a>, and that's how I had always solved this system. However, I recently learned about a <a href="https://en.wikipedia.org/wiki/Closed-form_expression">closed-form solution</a> to the Michaelis-Menten kinetics, which was proposed by Schnell and Mendoza in 1997 [1]. A closed-form solution means that I could in principle obtain the kinetics of a biochemical reaction without numerical integration! This sounded interesting enough to explore a bit Schnell and Mendoza's solution. Although, to be honest, just out of curiosity, because numerically integrating Michaelis-Menten kinetics is rather straightforward with current software. Anyway, here is some Python code implementing the closed-form solution. But first, let's define the biochemical system that will serve as our example.</p>
 <p>We start with the following, single-step, enzyme-catalyzed biochemical reaction:</p>
 <p>$$S + E \rightleftharpoons ES \rightarrow E + P$$</p>
 <p>where $S$, $E$, $ES$ and $P$ here represent the substrate, enzyme, the enzyme-substrate complex and the product of the reaction. We will represent their concentrations, e.g. in $mmol.L^{-1}$, by enclosing the symbols within brackets, e.g., $[S]$. The first, reversible reaction $S + E \rightleftharpoons ES$, has the reaction rate constants, $k_1, k_{-1}$ associated to the forward and backward direction, respectively. The second, irreversible reaction has reaction rate constant $k_{cat}$.</p>
@@ -78,7 +78,7 @@
 <p>$$[ES] = \frac{[E_0] [S]}{K_M + [S]} (1 - \exp{(-(K_M + [S])k_1 t)})$$</p>
 <p>and the conservation law</p>
 <p>$$[E] + [ES] = [E_0]$$</p>
-<p>allows us to obtain the solution to the dynamics of all the species in the biochemical reaction. Lastly, this closed-form solution should be used under conditions in agreement with the quasy steady state assumption, i.e.</p>
+<p>allows us to obtain the solution to the dynamics of all the species in the biochemical reaction. Lastly, this closed-form solution should be used under conditions in agreement with the quasi-steady state assumption, i.e.</p>
 <p>$$\frac{[E_0]}{K_M + [S_0]} &lt;&lt; 1.$$</p>
 <p>Ok, let's go ahead with some Python coding.</p>
 <pre><code class="python">import numpy as np
@@ -88,8 +88,8 @@ from matplotlib import pyplot as plt
 </code></pre>
 <h3>The Lambert function</h3>
 <p>We will use the lambert W function from the <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.special.lambertw.html">Scipy library</a> to evaluate the closed-form solution.</p>
-<p>The Lambert function is a <a href>multi-valued function</a> defined on the complex plane. These beasts have the particularity of asigned one or more values to each input of the function, as opposed to your everyday function where there is a one-to-one correspondance between the input and the output (or domain and co-domain) of the function. The different values that the Lambert function can take are sort of organized into parts called branches. For our purposes, we are interested only in the first, or principal, brach, since it is the one that deals with real, non-negative numbers, which are perfect to represent our chemical concentrations!</p>
-<p>So let's define the part of the Lambert function we are interested in. We well specify the first branch in Scipy's Labmbert with parameter $k$, and take only the real part of the output.</p>
+<p>The Lambert function is a <a href>multi-valued function</a> defined on the complex plane. These beasts have the particularity of assigned one or more values to each input of the function, as opposed to your everyday function where there is a one-to-one correspondence between the input and the output (or domain and co-domain) of the function. The different values that the Lambert function can take are sort of organized into parts called branches. For our purposes, we are interested only in the first, or principal, branch, since it is the one that deals with real, non-negative numbers, which are perfect to represent our chemical concentrations!</p>
+<p>So let's define the part of the Lambert function we are interested in. We well specify the first branch in Scipy's Lambert with parameter $k$, and take only the real part of the output.</p>
 <pre><code class="python">def W(z):
     return np.real(lambertw(z, k=0))
 </code></pre>
@@ -112,7 +112,7 @@ E = lambda t, ES : E_0 - ES(t, S)
 P = lambda t, S, ES : S_0 - S(t) - ES(t, S)
 v = lambda t, S : (v_max * S(t)) / (K_M + S(t))
 </code></pre>
-<p>Alright, let's go ahead and plot the trajectories. We will plot both the concentration trajectories for all species, $[S], [E], [ES], [P]$ and the trajectory of $v$ over time.</p>
+<p>Alright, let's go ahead and plot the trajectories. We will plot the concentration trajectories for all species, $[S], [E], [ES], [P]$, as well as $f_{ES}$, the fraction of enzyme-substrate complex over the course of the reaction.</p>
 <pre><code class="python"># Plot the figures!
 plt.figure(figsize=(10, 12))
 plt.subplot(211)
@@ -132,7 +132,7 @@ plt.xlabel('t', fontsize=18)
 plt.show()
 </code></pre>
 <p><img class="jupyter-post-image" alt="png" src="/imgs/blog/closed-formed-solution-to-michaelis-menten/output_8_0.png"/></p>
-<p>So, there we go! First plot corresponds to the evolution of concentrations over time, the second to the evolution of $f_{ES}$, the fraction of enzyme-substrate complex over the course of the reaction. These trajectories definitely look like Michaelis-Menten trajectories... and all without a single bit of numerical integration. Cool, isn't it? As I mentioned before, in practice this closed-form solution doesn't change things much, since numerically integrating a Michaelis-Mente system is rather trivial. But, I find it interesting anyway and I hope that you too! See you around...</p>
+<p>So, there we go! First plot corresponds to the evolution of concentrations over time, the second to the evolution of $f_{ES}$. These trajectories definitely look like Michaelis-Menten ones... and all without a single bit of numerical integration. Cool, isn't it? As I mentioned before, in practice this closed-form solution doesn't change things much, since numerically integrating a Michaelis-Mente system is rather trivial. But, I find it interesting anyway and I hope that you too! See you around...</p>
 <h3>References</h3>
 <p>[1] Schnell, S., and C. Mendoza. 1997. “Closed Form Solution for Time-Dependent Enzyme Kinetics.” Journal of Theoretical Biology 187 (2): 207–12. doi:10.1006/jtbi.1997.0425.</p>
      </article>
@@ -156,7 +156,6 @@ plt.show()
   </script>
   <div id="return-to-start-arrow" onclick="scrollToTop()">
   </div>
-
   <script type="text/x-mathjax-config">
    MathJax.Hub.Config({
         tex2jax: {
@@ -168,8 +167,7 @@ plt.show()
         }
       });
   </script>
-  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
   </script>
-  
  </body>
 </html>
