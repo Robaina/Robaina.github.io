@@ -23,7 +23,6 @@ body {
   height: auto;
   margin: var(--grid_item_margin);
   cursor: pointer;
-  /* -webkit-tap-highlight-color: transparent; */
 }
 .grid_item_content {
   margin: 0;
@@ -31,7 +30,6 @@ body {
   background-color: var(--GridItemColor);
   border-radius: 25px;
   padding: 1.2em;
-  /* -webkit-tap-highlight-color: transparent; */
 }
 .grid_item_content:hover > * {
   /* border: var(--grid_item_border_width) solid var(--FancyColor); */
@@ -119,7 +117,7 @@ body {
 
 /* Uncomment the following when sufficient number of blog entries... */
 
-/* #footer {
+#footer {
   background-color: var(--NavBarColor);
 }
 
@@ -128,7 +126,7 @@ body {
 }
 #return-arrow-container {
   display: inline-block;
-} */
+}
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   .topic-banner-entry {
