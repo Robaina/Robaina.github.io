@@ -32,6 +32,7 @@
   --TopMarginToHeader: 6.2vh;
   --IconRotationAngle: 45deg;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
    transition: opacity 0.4s;

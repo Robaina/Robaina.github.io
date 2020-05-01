@@ -63,7 +63,7 @@ tr:nth-child(even) {
   width: calc(0.85 * var(--ColumnWidth));
   margin-left: auto;
   margin-left: calc(0.075 * var(--ColumnWidth));
-  background-color: white;
+  background-color: white !important;
 }
 
 #blog-wrap {
