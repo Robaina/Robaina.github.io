@@ -14,7 +14,8 @@ def createHTMLPostFromMD(markdown_file_name):
     call(['node', 'convertMdToHtml.js'])
 
     template = BeautifulSoup(open('post-template.html'), "html.parser")
-    content = BeautifulSoup(open('temp.html'), "html.parser")
+    content = BeautifulSoup(open('temp.html',
+                                 encoding="utf-8", errors='ignore'), "html.parser")
 
     # Retrieve blog entry metadata
     preamble = content.find('preamble')
@@ -67,7 +68,7 @@ def createHTMLPostFromMD(markdown_file_name):
         formatter=None).replace(
             '<div class="commentbox">\n    </div>', '<div class="commentbox"></div>')
 
-    with open(f'posts/{html_name}.html', mode='w') as f_out:
+    with open(f'posts/{html_name}.html', mode='w', encoding='utf-8', errors='ignore') as f_out:
         f_out.write(html_str)
     f_out.close()
 
@@ -101,7 +102,8 @@ for r, d, f in os.walk(work_dir + '\\posts'):
 # Find md files yet to be converted to html
 def post_is_unfinished(fileName):
     """Find posts that are not yet ready"""
-    with open(work_dir + '\\md-posts\\' + fileName + '.md', 'r') as f:
+    with open(work_dir + '\\md-posts\\' + fileName + '.md', 'r',
+              encoding='utf-8', errors='ignore') as f:
         line_list = f.readlines()
         ready_line = [line for line in line_list if 'post-ready' in line]
         if len(ready_line) > 0:
@@ -150,7 +152,7 @@ for r, d, f in os.walk(work_dir + '\\posts'):
 
 entries_info = []
 for f in files:
-    soup = BeautifulSoup(open(f, encoding="utf-8"), "html.parser")
+    soup = BeautifulSoup(open(f, encoding="utf-8", errors='ignore'), "html.parser")
     # parse topic tags
     topics = []
     entry = {}

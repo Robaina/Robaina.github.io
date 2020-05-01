@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="In this post we explore a closed-formed solution to the famous Michaelis-Menten formalism." name="description"/>
+  <meta content="blog,michaelis-menten, closed-form solution, python" name="keywords"/>
+  <meta content="SemidÃ¡n Robaina EstÃ©vez" name="author"/>
+  <title>
+   Semid&aacute;n: A closed-form solution for Michaelis-Menten
+  </title>
+  <link href="/imgs/my-logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/css/master.css" rel="stylesheet"/>
+  <link href="/css/blog.css" rel="stylesheet"/>
+  <link href="/css/blog_entry.css" rel="stylesheet"/>
+  <link href="/vendor/fontawesome_all.min.css" rel="stylesheet"/>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+  </script>
+  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  </script>
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js">
+  </script>
+  <script src="/vendor/jquery-3.4.1.min.js">
+  </script>
+  <script>
+   $(function() {
+      $("#navbar-container").load("/navbar.html");
+    });
+    $(function() {
+      $("#footer").load("/footer.html");
+    });
+    let logo = new Image();
+    logo.src = "/imgs/my-logo.png";
+  </script>
+  <script src="/js/transitions.js">
+  </script>
+  <script src="/js/settings.js">
+  </script>
+  <script src="/js/blog-entry.js">
+  </script>
+  <!-- highlight.js -->
+  <!-- styles loaded dynamically in settings.js -->
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
+ </head>
+ <body>
+  <div id="page-container">
+   <div id="content-wrap">
+    <div id="navbar-container">
+    </div>
+    <div id="blog-wrap">
+     <div id="tag-container">
+      <div class="topictag Biology"></div>
+      <div class="topictag Math"></div>
+      <div class="topictag Python"></div>
+     </div>
+     <div id="blog-entry-header">
+      <p id="entry-title">
+       A closed-form solution for Michaelis-Menten
+      </p>
+      <p id="entry-date">
+       15 March, 2019
+      </p>
+     </div>
+     <article id="blog-content">
+      <p>Leonor Michaelis and Maud Menten proposed at the beginning of the XXth century a widely-used <a href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">enzyme kinetics</a> to model the flux through a monosubstrate, single-step, enzyme-catalyzed biochemical reaction. The Michaelis-Menten formalism has been widely used in biochemistry classes as well as in research ever since. The Michaelis-Menten formalism is usually employed within a system of ordinary differential equations, which typically are solved thorugh <a href="https://en.wikipedia.org/wiki/Numerical_integration">numerical integration</a>, and that's how I had always solved this system. However, I recently learned about a <a href="https://en.wikipedia.org/wiki/Closed-form_expression">closed-form solution</a> to the Michalelis-Menten kinetics, which was proposed by Schnell and Mendoza in 1997 [1]. A closed-form solution means that I could in principle obtain the kinetics of a biochemical reaction withouth numerical integration! This sounded interesting enough to explore a bit Schnell and Mendoza's solution. Although, to be honest, just out of curiosity, because numerically integrating Michaelis-Menten kinetics is rather straighforward with current software. Anyway, here is some Python code implementing the closed-form solution. But first, let's define the biochemical system that will serve as our example.</p>
+<p>We start with the following, single-step, enzyme-catalyzed biochemical reaction:</p>
+<p>$$S + E \rightleftharpoons ES \rightarrow E + P$$</p>
+<p>where $S$, $E$, $ES$ and $P$ here represent the substrate, enzyme, the enzyme-substrate complex and the product of the reaction. We will represent their concentrations, e.g. in $mmol.L^{-1}$, by enclosing the symbols within brackets, e.g., $[S]$. The first, reversible reaction $S + E \rightleftharpoons ES$, has the reaction rate constants, $k_1, k_{-1}$ associated to the forward and backward direction, respectively. The second, irreversible reaction has reaction rate constant $k_{cat}$.</p>
+<p>Assuming quasi steady state, <em>i.e.</em> when $\frac{d}{dt}[ES] = 0$, we arrive at the equation</p>
+<p>$$v = \frac{v_{max} [S]}{K_M + [S]}$$</p>
+<p>with</p>
+<p>$$K_M = \frac{k_{-1} + k_{cat}}{k_1}$$</p>
+<p>and</p>
+<p>$$v_{max} = [E] k_{cat}.$$</p>
+<p>If we now want to determine the changes in $[S]$ over time, we would need to numerically integrate:</p>
+<p>$$\frac{d}{dt}[S] = -v.$$</p>
+<p>Now, Schnell and Mendoza proposed the following closed-form solution to the above equation:</p>
+<p>$$S(t) = K_M W \left( \frac{[S_0]}{K_M} \exp{\left( \frac{[S_0] - v_{max}t}{K_M} \right)} \right),$$</p>
+<p>where $W$ is <a href="https://en.wikipedia.org/wiki/Lambert_W_function">Lambert's W</a> function. The above equation, together with the identity:</p>
+<p>$$[ES] = \frac{[E_0] [S]}{K_M + [S]} (1 - \exp{(-(K_M + [S])k_1 t)})$$</p>
+<p>and the conservation law</p>
+<p>$$[E] + [ES] = [E_0]$$</p>
+<p>allows us to obtain the solution to the dynamics of all the species in the biochemical reaction. Lastly, this closed-form solution should be used under conditions in agreement with the quasy steady state assumption, i.e.</p>
+<p>$$\frac{[E_0]}{K_M + [S_0]} &lt;&lt; 1.$$</p>
+<p>Ok, let's go ahead with some Python coding.</p>
+<pre><code class="python">import numpy as np
+from scipy.special import lambertw
+from matplotlib import pyplot as plt
+%matplotlib inline
+</code></pre>
+<h3>The Lambert function</h3>
+<p>We will use the lambert W function from the <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.special.lambertw.html">Scipy library</a> to evaluate the closed-form solution.</p>
+<p>The Lambert function is a <a href>multi-valued function</a> defined on the complex plane. These beasts have the particularity of asigned one or more values to each input of the function, as opposed to your everyday function where there is a one-to-one correspondance between the input and the output (or domain and co-domain) of the function. The different values that the Lambert function can take are sort of organized into parts called branches. For our purposes, we are interested only in the first, or principal, brach, since it is the one that deals with real, non-negative numbers, which are perfect to represent our chemical concentrations!</p>
+<p>So let's define the part of the Lambert function we are interested in. We well specify the first branch in Scipy's Labmbert with parameter $k$, and take only the real part of the output.</p>
+<pre><code class="python">def W(z):
+    return np.real(lambertw(z, k=0))
+</code></pre>
+<p>Ok, we are ready to define closed-form solutions for the kinetics of all the species in our biochemical reactions. Let's choose some parameter values so we don't get lost in an ocean of possibilities...</p>
+<pre><code class="python"># Define constants and parameters
+S_0 = 15 # mM
+E_0 = 0.5 # mM
+K_cat = 30 # s^-1
+v_max = K_cat * E_0 # mmol.L^-1.s^-1
+k_1 = 5.5 # s^-1
+k_minus_1 = 0.01 # s^-1
+K_M = (k_minus_1 + K_cat) / k_1
+t_0, t_f, dt = 0, 5, 0.01
+T = np.arange(t_0, t_f, dt)
+
+# Define closed-formed solutions
+S = lambda t : K_M * W(S_0 / K_M * np.exp(1 / K_M * (-v_max * t + S_0)))
+ES = lambda t, S : (E_0 * S(t)) / (K_M + S(t)) * (1 - np.exp(-(K_M + S(t)) * k_1 * t))
+E = lambda t, ES : E_0 - ES(t, S)
+P = lambda t, S, ES : S_0 - S(t) - ES(t, S)
+v = lambda t, S : (v_max * S(t)) / (K_M + S(t))
+</code></pre>
+<p>Alright, let's go ahead and plot the trajectories. We will plot both the concentration trajectories for all species, $[S], [E], [ES], [P]$ and the trajectory of $v$ over time.</p>
+<pre><code class="python"># Plot the figures!
+plt.figure(figsize=(10, 12))
+plt.subplot(211)
+plt.plot(T, [P(t, S, ES) for t in T], label='P')
+plt.plot(T, [S(t) for t in T], label='S')
+plt.plot(T, [10/E_0 * E(t, ES) for t in T], label='E')
+plt.plot(T, [10/E_0 * ES(t, S) for t in T], label='ES')
+plt.ylabel('[X]', fontsize=18)
+plt.xlabel('t', fontsize=18)
+plt.legend(loc='lower right')
+
+plt.subplot(212)
+plt.plot(T, [100 * v(t, S) / v_max for t in T])
+plt.ylabel('$f_{ES}$ (%)', fontsize=18)
+plt.xlabel('t', fontsize=18)
+
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/closed-formed-solution-to-michaelis-menten/output_8_0.png"/></p>
+<p>So, there we go! First plot corresponds to the evolution of concentrations over time, the second to the evolution of $f_{ES}$, the fraction of enzyme-substrate complex over the course of the reaction. These trajectories definitely look like Michaelis-Menten trajectories... and all without a single bit of numerical integration. Cool, isn't it? As I mentioned before, in practice this closed-form solution doesn't change things much, since numerically integrating a Michaelis-Mente system is rather trivial. But, I find it interesting anyway and I hope that you too! See you around...</p>
+<h3>References</h3>
+<p>[1] Schnell, S., and C. Mendoza. 1997. “Closed Form Solution for Time-Dependent Enzyme Kinetics.” Journal of Theoretical Biology 187 (2): 207–12. doi:10.1006/jtbi.1997.0425.</p>
+     </article>
+    </div>
+    <div id="blog-navigator">
+    </div>
+    <div id="suggested-readings">
+     <h1 id="suggested-readings-title">
+      Related posts:
+     </h1>
+     <div id="suggested-readings-grid">
+     </div>
+    </div>
+    <!-- Blog comments (commentbox.io) -->
+    <div class="commentbox"></div>
+   </div>
+   <footer id="footer">
+   </footer>
+  </div>
+  <script src="/js/scrollToTop.js">
+  </script>
+  <div id="return-to-start-arrow" onclick="scrollToTop()">
+  </div>
+ </body>
+</html>

@@ -45,5 +45,16 @@
       "Python"
     ],
     "hasThumbnail": false
+  },
+  {
+    "name": "closed-formed-solution-to-michaelis-menten",
+    "title": "A closed-form solution for Michaelis-Menten",
+    "date": "15 March, 2019",
+    "tags": [
+      "Biology",
+      "Math",
+      "Python"
+    ],
+    "hasThumbnail": false
   }
 ]
