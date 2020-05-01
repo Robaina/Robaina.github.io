@@ -1,20 +1,10 @@
+body {
+  background-color: var(--BackgroundColor);
+}
 #home {
   color: var(--NavBarActiveColor);
   pointer-events: none;
 }
-/* #settings-message {
-  display: none;
-  position: absolute;
-  top: 20vh;
-  left: 70vw;
-  width: 7em;
-  height: 4em;
-  border: solid white 3px;
-  border-radius: 25px;
-  background-color: rgb(117, 117, 117);
-  color: black;
-  font-size: 1.5em;
-} */
 #info {
   background-color: var(--BackgroundColor);
   color: var(--FontColor);
