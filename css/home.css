@@ -1,6 +1,7 @@
-canvas {
+/* canvas {
   background-color: var(--BackgroundColor);
-}
+} */
+/* Tor browser doesn't allowed canvas to load data! */
 #home {
   color: var(--NavBarActiveColor);
   pointer-events: none;
