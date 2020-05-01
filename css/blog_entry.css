@@ -19,7 +19,7 @@ pre {
 pre, code {
   text-align: left;
   white-space: pre;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: calc(0.71 * var(--TextFontSize));
 }
 
