@@ -163,7 +163,7 @@ strong {
   margin-top: 5vw;
 }
 
-#footer-content {
+/* #footer-content {
   background-color: var(--NavBarColor);
 }
 #footer-contact-logo-container {
@@ -171,7 +171,7 @@ strong {
 }
 #return-arrow-container {
   display: inline-block;
-}
+} */
 
 @media only screen and (max-width: 768px) {
   .blog-navigator-button {
