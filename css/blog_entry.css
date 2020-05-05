@@ -14,7 +14,7 @@ body {
 pre {
   padding-top: 2vh;
   padding-bottom: 2vh;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 pre, code {
