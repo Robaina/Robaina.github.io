@@ -186,7 +186,6 @@ function initializeBlogEntry() {
   // Initialize Highlight.js
   hljs.initHighlightingOnLoad();
 
-
   // Initialize comment system
   let commentsFontColor = getComputedStyle(document.documentElement)
   .getPropertyValue("--CommentsFontColor");
