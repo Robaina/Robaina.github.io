@@ -14,6 +14,7 @@ body {
 pre {
   padding-top: 2vh;
   padding-bottom: 2vh;
+  overflow-x: scroll;
 }
 
 pre, code {
@@ -21,7 +22,6 @@ pre, code {
   white-space: pre;
   border-radius: 8px;
   font-size: calc(0.71 * var(--TextFontSize));
-  overflow-x: scroll;
 }
 
 .dataframe-container {
