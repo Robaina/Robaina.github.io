@@ -9,6 +9,16 @@
     "hasThumbnail": false
   },
   {
+    "name": "demystifying-fibonacci-numbers",
+    "title": "Demystifying Fibonacci numbers",
+    "date": "15 January, 2020",
+    "tags": [
+      "Math",
+      "Python"
+    ],
+    "hasThumbnail": false
+  },
+  {
     "name": "what-is-systems-biology",
     "title": "What is Systems Biology?",
     "date": "05 September, 2019",
@@ -39,7 +49,7 @@
   {
     "name": "what-are-hidden-markov-models",
     "title": "What are Hidden Markov Models?",
-    "date": "1 May, 2019",
+    "date": "01 May, 2019",
     "tags": [
       "Statistics",
       "Math"

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="In this post, we revisit Fibonacci's sequence and show that the Golden Ratio can be retrieve from more bizarre sequences." name="description"/>
+  <meta content="blog, fibonacci, golden ratio, complex numbers, quaternions, octonions" name="keywords"/>
+  <meta content="SemidÃ¡n Robaina EstÃ©vez" name="author"/>
+  <title>
+   Semid&aacute;n: Demystifying Fibonacci numbers
+  </title>
+  <link href="/imgs/my-logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/css/master.css" rel="stylesheet"/>
+  <link href="/css/blog.css" rel="stylesheet"/>
+  <link href="/css/blog_entry.css" rel="stylesheet"/>
+  <link href="/vendor/fontawesome_all.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js">
+  </script>
+  <script src="/vendor/jquery-3.4.1.min.js">
+  </script>
+  <script>
+   $(function() {
+      $("#navbar-container").load("/navbar.html");
+    });
+    $(function() {
+      $("#footer").load("/footer.html");
+    });
+    let logo = new Image();
+    logo.src = "/imgs/my-logo.png";
+  </script>
+  <script src="/js/transitions.js">
+  </script>
+  <script src="/js/settings.js">
+  </script>
+  <script src="/js/blog-entry.js">
+  </script>
+  <!-- highlight.js -->
+  <!-- styles loaded dynamically in settings.js -->
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
+ </head>
+ <body>
+  <div id="page-container">
+   <div id="content-wrap">
+    <div id="navbar-container">
+    </div>
+    <div id="blog-wrap">
+     <div id="tag-container">
+      <div class="topictag Math"></div>
+      <div class="topictag Python"></div>
+     </div>
+     <div id="blog-entry-header">
+      <p id="entry-title">
+       Demystifying Fibonacci numbers
+      </p>
+      <p id="entry-date">
+       15 January, 2020
+      </p>
+     </div>
+     <article id="blog-content">
+      <p>I'm sure you are very familiar with golden ratio, a.k.a. $\phi$, probably the most mystical number ever. Most likely you also know about its relationship with the, also mystical, Fibonacci sequence. Namely, the ratio of consecutive numbers in the sequence tends to $\phi$. So, if we take Fibonacci's $1, 1, 2, 3, 5, 8, 13, 21,\dots$ and start taking ratios $r_1 = 1/1, r_2 = 2/1, r_3 = 3/2, r_4 = 5/3, \dots$ we observe that $r_n \to \phi$ as $n$ grows. All good.</p>
+<p>There are plenty of stuff written about $\phi$ and the Fibonacci sequence. However, I want to focus on some questions about $\phi$ and Fibonacci's sequence that, in my experience, are not very often touched when invoking their mysteries in conversations around the world: (<em>i</em>) but how does $\phi$ just pop out of Fibonacci's, where does it come from? and (<em>ii</em>) is it a Fibonacci thing or something more general? Well, here we will explore these two questions. I warn you, tough, the answers might catch you unexpectedly!</p>
+<h3>Where does $\phi$ come from?</h3>
+<p>To answer this question, we pay attention to the two key properties of the Fibonacci sequence: how it is constructed and the fact that the ratios of consecutive elements tend to a constant as $n\to\inf$. First, we know that the next term in Fibonacci's is the sum of the two previous ones. In mathy language, we obtain the next nth term $s_{n + 1}$ of the sequence like this:</p>
+<p>$$s_{n + 1} = s_n + s_{n-1}.$$</p>
+<p>If we now divide both sides by $s_n$ we obtain</p>
+<p>$$\frac{s_{n+1}}{s_n} = 1 + \frac{s_{n-1}}{s_n}.$$</p>
+<p>Ok, let's invoke the second property. As $n\to\inf$ the ratio of consecutive numbers tends to a constant, let's call it $a$:</p>
+<p>$$\lim_{n\to\inf} \frac{s_{n+1}}{s_n} = \lim_{n\to\inf} \frac{s_n}{s_{n-1}} = a.$$</p>
+<p>So then, in the limit</p>
+<p>$$\frac{s_{n+1}}{s_n} = \frac{s_n}{s_{n-1}}$$</p>
+<p>and</p>
+<p>$$\frac{s_{n+1}}{s_n} = 1 + \frac{s_n}{s_{n+1}},$$</p>
+<p>that is</p>
+<p>$$a = 1 + \frac{1}{a}.$$</p>
+<p>That's interesting, this constant $a$ we are looking for must have the curious property depicted above: the constant equals its inverse plus 1. What constant could satisfy this equation? Well, let's solve for $a$ and find out! Multiplying by $a$ we arrive at the second-order equation:</p>
+<p>$$a^2 - a - 1 = 0,$$</p>
+<p>which of course has two solutions, one positive $a = \frac{1 + \sqrt{5}}{2}$ and one negative  $a = \frac{1 - \sqrt{5}}{2}$. But look closely, the positive solution $\frac{1 + \sqrt{5}}{2} = \phi$! And well, the negative solution $\frac{1 - \sqrt{5}}{2} = -\frac{1}{\phi}$, but we don't care much about this solution since all Fibonacci numbers are positive — as a side note, even if the starting terms were negative, after infinitely many iterations of a sum on the two previous terms, we would end up with positive terms only, so the second, negative solution doesn't have any chance.</p>
+<p>Isn't that neat? our mystical constant $\phi$ suddenly appears out of nowhere! (sort of). We now understand why the ratios of consecutive Fibonacci numbers tend to $\phi$ as $n\to\inf$.</p>
+<h3>Is $\phi$ only a Fibonacci thing?</h3>
+<p>Nope. Just look at the derivation above. We never assumed any particular values for $s_{n+1}, s_n$ or $s_{n-1}$. We kept things general and yet $\phi$ still popped up. Sadly for Fibonacci's followers, no, Fibonacci's sequence has nothing special. It's just one instance of an infinite number of sequences that generate $\phi$ in the same manner! The common property is that all these sequences are constructed following the same <a href="https://en.wikipedia.org/wiki/Linear_difference_equation">linear recurrence relation</a> presented at the beginning: $s_{n + 1} = s_n + s_{n-1}.$ That's it. We can start the sequence with any initial values we want. The ratios of successive terms will always end up converging to $\phi$. And don't be shy, I'm not only talking about natural numbers, not even only integers. Take literally any two numbers, rational, irrational, transcendental, real, complex, quaternions, octonions... you name it! You will still get $\phi$, unperturbed. That's the beauty of abstraction. In the following, we will explore some examples of sequences generated with different starting numbers — just in case you don't trust an abstract mathematical proof 😝. In fact, I'm feeling wild, why just use numbers? we will retrieve $\phi$ from sequences generated with more bizarre objects. We just need objects for which the operations of sum and division are defined. Keep reading to find out!</p>
+<h3>Illustrations</h3>
+<p>Let's start with real numbers as initial conditions other than the typical 1, 1 of the Fibonacci sequence. We will continue with <a href="https://en.wikipedia.org/wiki/Complex_number">complex numbers</a>, <a href="https://en.wikipedia.org/wiki/Quaternion">quaternions</a> and <a href="https://en.wikipedia.org/wiki/Octonion">octonions</a>. Since all of these are instances of the more general <a href="https://en.wikipedia.org/wiki/Cayley%E2%80%93Dickson_construction">Cayley-Dickson algebras</a>, I'm going to define a bunch of Python functions to operate on elements of such algebras, just to save code — and because I'm recycling this code from when I was learning about Cayley-Dickson algebras, perhaps I write about this another time...</p>
+<pre><code class="python">import numpy as np
+from matplotlib import pyplot as plt
+plt.rcParams['figure.figsize'] = (10, 5)
+plt.rcParams['legend.loc'] = 'lower right'
+plt.rcParams.update({'font.size': 14})
+
+phi = 0.5 * (1 + np.sqrt(5))
+
+def conjugate(x):
+    """
+    Computes the conjugate
+    """
+    xstar = [-a for a in x]
+    xstar[0] *= -1
+    return xstar
+
+def inverse(x):
+    """
+    Computes the multiplicative inverse
+    """
+    xstar = conjugate(x)
+    xnorm = sum([a**2 for a in x])
+    return [a / xnorm for a in xstar]
+
+def vectorSum(x, y):
+    """
+    Computes the sum element-wise
+    """
+    return [a + b for a,b in zip(x,y)]
+
+def CayleyDickson(x, y):
+    """
+    Computes the multiplication of the elements x, y
+    of a Cayley-Dickson algebra
+    """
+    n = len(x)
+
+    if n == 1:
+        return x[0]*y[0]
+
+    m = n // 2
+
+    a, b = x[:m], x[m:]
+    c, d = y[:m], y[m:]
+    z = np.zeros(n)
+    z[:m] = CayleyDickson(a, c) - CayleyDickson(conjugate(d), b)
+    z[m:] = CayleyDickson(d, a) + CayleyDickson(b, conjugate(c))
+    return z
+
+def CayleyDicksonRecurrence(n_1, n_2, N):
+    """
+    Computes the N first terms of Fibonacci's linear
+    recursive relation and their ratios
+    """
+    S = [n_1, n_2]
+    R = [CayleyDickson(n_2, inverse(n_1))]
+    for _ in range(N-2):
+        S.append(vectorSum(S[-1], S[-2]))
+        r = CayleyDickson(S[-1], inverse(S[-2]))
+        if isinstance(r, np.ndarray):
+            r = r.tolist()
+        R.append(r)
+    return (S, R)
+</code></pre>
+<p>Let's begin with reals $s_0 = e$ and $s_1 = \pi$, two celebrity constants that compete with $\phi$ for the first place in the podium.</p>
+<pre><code class="python"># Compute sequence
+n = 10
+s_0, s_1 = np.e, np.pi
+S, R = CayleyDicksonRecurrence([s_0], [s_1], n)
+
+# Plot results
+plt.plot(range(n-1), R, label='$r=s_n/s_{n-1}$')
+plt.hlines(phi, xmin=0, xmax=n-2, colors='red', linestyles='--', label='$\phi$')
+plt.ylabel('$r$')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_4_0.png"/></p>
+<p>As expected, starting the sequence with $e$ and $\pi$ instead of 1, 1, also made the ratios converge to $\phi$. But recall, the obtained sequence is no longer Fibonacci's. What about trying now with complex numbers as initial conditions? That is, we will input two numbers with the form:
+$$a + bi,$$
+where $a$ and $b$ are real numbers and $i$ corresponds to the imaginary unit. What will happen? Let's find out.</p>
+<pre><code class="python"># Compute sequence
+n = 10
+s_0, s_1 = [1, 0.5], [0.5, -1]
+S, R = CayleyDicksonRecurrence(s_0, s_1, n)
+
+# Plot results
+labels = ('real', 'i')
+for i, label in enumerate(labels):
+    plt.plot(range(n-1), [r[i] for r in R], label=label)
+plt.hlines(phi, xmin=0, xmax=n-2, colors='red', linestyles='--', label='$\phi$')
+plt.ylabel('$r=s_n/s_{n-1}$')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_6_0.png"/></p>
+<p>Well, as you can see in the plot, the real part of the ratios approaches $\phi$ while the imaginary part goes to 0. So, basically approaches $\phi$ as expected. Will the bigger brother of the complex numbers, the quaternions, exhibit a similar behaviour? As a remainder, the quaternions have the form:</p>
+<p>$$a + bi + cj + dk,$$</p>
+<p>where $a,b,c,d$ are real numbers and $i,j,k$ are all imaginary units. Let's compute the sequence of ratios and plot the results:</p>
+<pre><code class="python"># Compute sequence
+n = 10
+s_0, s_1 = 2 * np.random.rand(4) - 1, 2 * np.random.rand(4) - 1
+S, R = CayleyDicksonRecurrence(s_0, s_1, n)
+
+# Plot results
+labels = ('real', 'i', 'j', 'k')
+for i, label in enumerate(labels):
+    plt.plot(range(n-1), [r[i] for r in R], label=label)
+plt.hlines(phi, xmin=0, xmax=n-2, colors='red', linestyles='--', label='$\phi$')
+plt.ylabel('$r=s_n/s_{n-1}$')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_8_0.png"/></p>
+<p>Yeap, quaternions show the same behaviour. The real part tends to $\phi$ while the imaginary parts go to 0... Ok, let's try the last one. We will start the sequence with octonions! These objects, also forming a Cayley-Dickson algebra, are very interesting. They have one real part and seven imaginary parts:</p>
+<p>$$a + bi + cj + dk + eI + fJ + gK + hE,$$</p>
+<p>again where $a,b,c,d,e,f,g,h$ are real numbers and $i,j,k,I,J,K,E$ are imaginary units.</p>
+<pre><code class="python"># Compute sequence
+n = 10
+s_0, s_1 = 2 * np.random.rand(8) - 1, 2 * np.random.rand(8) - 1
+S, R = CayleyDicksonRecurrence(s_0, s_1, n)
+
+# Plot results
+labels = ('real', 'i', 'j', 'k', 'I', 'J', 'K', 'E')
+for i, label in enumerate(labels):
+    plt.plot(range(n-1), [r[i] for r in R], label=label)
+plt.hlines(phi, xmin=0, xmax=n-2, colors='red', linestyles='--', label='$\phi$')
+plt.ylabel('$r=s_n/s_{n-1}$')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_10_0.png"/></p>
+<p>Ok, enough, I think you get the point. Let's try something a bit different now. We can sum and divide invertible matrices, so, why not use invertible matrices to start the sequence? What will happen this time? Let's choose a small 2x2 matrix with real, random coefficients to keep things simple:</p>
+<p>$$A =
+\begin{pmatrix}
+a_{11} &  a_{12}\\
+a_{21} &  a_{22}
+\end{pmatrix}$$</p>
+<pre><code class="python">def matrixRecurrence(n0_1, n0_2, N):
+    """
+    Computes the N first terms of Fibonacci's linear
+    recursive relation and their ratios
+    """
+    S = [n0_1, n0_2]
+    R = [np.dot(n0_2, np.linalg.inv(n0_1))]
+    for _ in range(N-2):
+        n_1, n_2 = S[-1], S[-2]
+        S.append(n_1 + n_2)
+        R.append(np.round(np.dot(n_1, np.linalg.inv(n_2)), 5) + 0)
+
+    return (S, R)
+
+# Compute sequence
+n = 10
+n0_1, n0_2 = np.random.rand(2,2), np.random.rand(2,2)
+S, R = matrixRecurrence(n0_1, n0_2, n)
+
+# Plot results
+labels = ('$a_{11}$', '$a_{12}$', '$a_{21}$', '$a_{22}$')
+for label in labels:
+    i,j = int(label[4]) - 1, int(label[5]) - 1
+    plt.plot(range(n-1), [r[i][j] for r in R], label=label)
+plt.hlines(phi, xmin=0, xmax=n-2, colors='red', linestyles='--', label='$\phi$')
+plt.ylabel('$r=s_n/s_{n-1}$')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_12_0.png"/></p>
+<p>Very well, we see that entries $a_{11}, a_{22}$ go to $\phi$ and entries $a_{12}, a_{21}$ go to 0. In other words, the matrix ratios converge to the diagonal matrix:</p>
+<p>$$\Phi =
+\begin{pmatrix}
+\phi &  0\\
+0 &  \phi
+\end{pmatrix},$$</p>
+<p>which is pretty much the matrix version of number $\phi$. Of course, we would get a similar result for larger matrices and for complex matrices too. We get the point!</p>
+<p>Ok so, we have retrieve $\phi$ from sequences of real and complex numbers, quaternions, octonions and real invertible matrices. Let me show you one last example. This time we are going to employ polynomials! Polynomials can be sum together and also divided through <a href="https://en.wikipedia.org/wiki/Polynomial_long_division">polynomial division</a>. So, we sure should expect $\phi$ to appear like before. Let's see. We will use <code>numpy.polyadd</code> and <code>numpy.polydiv</code> to perform the operations and start with two random polynomials. We represent the polynomials as arrays of their coefficients, e.g., we represent</p>
+<p>$$n_1 = 2x^3 + x^2 - 5$$</p>
+<p>as</p>
+<p>$$[2, 1, 0, -5]$$</p>
+<pre><code class="python">def polynomialRecurrence(n0_1, n0_2, N):
+    """
+    Computes the N first terms of Fibonacci's linear
+    recursive relation and their ratios.
+    """
+    S = [n0_1, n0_2]
+    R = [np.polydiv(n0_1, n0_2)]
+    for _ in range(N-2):
+        n_1, n_2 = S[-1], S[-2]
+        S.append(np.polyadd(n_1, n_2).tolist())
+        R.append(np.polydiv(n_1, n_2))
+
+    return (S, R)
+
+# Compute sequence
+n = 10
+n0_1, n0_2 = [2, 1, 0, -5], [1, -3, 10, 2]
+S, R = polynomialRecurrence(n0_1, n0_2, 10)
+
+# Plot results
+plt.plot(range(n-1), [r[0][0] for r in R], label='$a_n$')
+plt.hlines(phi, xmin=0, xmax=n-2, colors='red', linestyles='--', label='$\phi$')
+plt.ylabel('$r=s_n/s_{n-1}$')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_14_0.png"/></p>
+<p>There we go, the coefficient of the highest order term in the quotient polynomial goes to $\phi$ as expected.
+Ok, so, that was it. I hope these illustrations were interesting to you and sufficient to prove the point that Fibonacci's sequence is not the only one linked to $\phi$, but rather one sequence out of an infinite number of them. Perhaps next time you hear someone talking about the mysterious Fibonacci's sequence and $\phi$ you can proudly destroy the mystery in front of their noses!</p>
+     </article>
+    </div>
+    <div id="blog-navigator">
+    </div>
+    <div id="suggested-readings">
+     <h1 id="suggested-readings-title">
+      Related posts:
+     </h1>
+     <div id="suggested-readings-grid">
+     </div>
+    </div>
+    <!-- Blog comments (commentbox.io) -->
+    <div class="commentbox"></div>
+   </div>
+   <footer id="footer">
+   </footer>
+  </div>
+  <script src="/js/scrollToTop.js">
+  </script>
+  <div id="return-to-start-arrow" onclick="scrollToTop()">
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": {
+          linebreaks: { automatic: true, width: "container" }
+        }
+      });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  </script>
+ </body>
+</html>
