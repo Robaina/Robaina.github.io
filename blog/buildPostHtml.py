@@ -10,7 +10,6 @@ work_dir = 'C:\\Users\\tinta\\OneDrive\\Documents\\Web_development\\Robaina.gith
 def createHTMLPostFromMD(markdown_file_name):
 
     # Call node.js script (convert md to html)
-    # call(['node', f'convertMdToHtml.js md-posts\\{markdown_file_name}.md'])
     call(['node', 'convertMdToHtml.js'])
 
     template = BeautifulSoup(open('post-template.html'), "html.parser")
@@ -184,3 +183,7 @@ entries_info.sort(key=lambda entry: time.strptime(entry['date'], '%d %B, %Y'), r
 
 with open('blog-entries.json', 'w') as fout:
     json.dump(entries_info, fout, indent=2)
+
+
+# Build Blog index page with post thumbnails
+# call(['node', 'buildBlogIndex.js'])
