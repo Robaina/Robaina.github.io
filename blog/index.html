@@ -13,6 +13,7 @@
     <script src="/vendor/jquery-3.4.1.min.js"></script>
     <script src="/js/transitions.js"></script>
     <script src="/js/settings.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default"></script>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
           tex2jax: {
@@ -30,9 +31,10 @@
       });
       let logo = new Image();
       logo.src = "/imgs/my-logo.png";
-      $(function() {
-        $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default");
-      });
+      // $(function() {
+      //
+      //   $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default");
+      // });
 
     </script>
 
@@ -65,8 +67,6 @@
     <!-- Uncomment when enough blog posts -->
     <script src="/js/scrollToTop.js"></script>
     <div id="return-to-start-arrow"  onclick="scrollToTop()"></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default"></script>
 
   </body>
 </html>
