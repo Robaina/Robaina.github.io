@@ -1,13 +1,7 @@
 # Some stuff I want to do
 * Add a more interesting artwork to home page
 * Add MTA paper as abandoned/interesting research tag (in red)
-
-* Find a way to embded Jupyter notebooks in the post: that would be cool
-
 * How can one add a shared on Twitter, Facebook button? e.g.: https://elc.github.io/posts/embed-interactive-notebooks/#topbar
-
-* Improve blog-entries.json. Also, automatically detect if it has thumbnail by looking in the preamble.
-
 * Place low resolution images while full image loading to avoid layout shifting.
 
 
