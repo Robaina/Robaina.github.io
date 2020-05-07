@@ -157,7 +157,7 @@ hmms.plot_hmm(s_seq, e_seq, state_labels=state_labels,
               observation_labels=observation_labels)
 print('Log(Probability): ' + str(log_prob))
 </code></pre>
-<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/what-are-hidden-markov-models//imgs/blog/what-are-hidden-markov-models/output_8_0.png"/></p>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/what-are-hidden-markov-models/output_8_0.png"/></p>
 <pre><code>Log(Probability): -38.284929499081535
 </code></pre>
 <p>And there we have it, the most likely succession of states according to the Viterbi algorithm. The majority of the sequence is labeled as an exon, which after a sharp transition gives rise to the last seven nucleobases, labeled as intron.</p>
