@@ -60,7 +60,7 @@
      </div>
      <article id="blog-content">
       <p>I'm sure you are very familiar with the golden ratio, a.k.a. $\phi$, probably the most mystical number ever. Most likely you also know about its relationship with the, also mystical, Fibonacci sequence. Namely, the ratio of consecutive numbers in the sequence tends to $\phi$. So, if we take Fibonacci's $1, 1, 2, 3, 5, 8, 13, 21,\dots$ and start taking ratios $r_1 = 1/1, r_2 = 2/1, r_3 = 3/2, r_4 = 5/3, \dots$ we observe that $r_n \to \phi$ as $n$ grows. All good.</p>
-<p>There is plenty of stuff written about $\phi$ and the Fibonacci sequence. However, I want to focus on some questions about $\phi$ and Fibonacci's sequence that, in my experience, are not very often touched when invoking their mysteries in conversations around the world: (<em>i</em>) but how does $\phi$ just pop out of Fibonacci's, where does it come from? and (<em>ii</em>) is it a Fibonacci thing or something more general? Well, here we will explore these two questions. I warn you, tough, the answers might catch you unexpectedly!</p>
+<p>There is plenty of stuff written about $\phi$ and the Fibonacci sequence. However, I want to focus on some questions about $\phi$ and Fibonacci's sequence that, in my experience, are not very often touched when invoking their mysteries in conversations around the world: (<em>i</em>) but how does $\phi$ just pop out of Fibonacci's, where does it come from? and (<em>ii</em>) is it a Fibonacci thing or something more general? Well, here we will explore these two questions. I warn you, though, the answers might catch you unexpectedly!</p>
 <h3>Where does $\phi$ come from?</h3>
 <p>To answer this question, we pay attention to the two key properties of the Fibonacci sequence: how it is constructed and the fact that the ratios of consecutive elements tend to a constant as $n\to\inf$. First, we know that the next term in Fibonacci's is the sum of the two previous ones. In mathy language, we obtain the next nth term $s_{n + 1}$ of the sequence like this:</p>
 <p>$$s_{n + 1} = s_n + s_{n-1}.$$</p>
@@ -178,7 +178,7 @@ plt.legend()
 plt.show()
 </code></pre>
 <p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_6_0.png"/></p>
-<p>Well, as you can see in the plot, the real part of the ratios approaches $\phi$ while the imaginary part goes to 0. So, basically approaches $\phi$ as expected. Will the bigger brother of the complex numbers, the quaternions, exhibit a similar behaviour? As a remainder, the quaternions have the form:</p>
+<p>Well, as you can see in the plot, the real part of the ratios approaches $\phi$ while the imaginary part goes to 0. So, it basically approaches $\phi$ as expected. Will the bigger brother of the complex numbers, the quaternions, exhibit similar behavior? As a reminder, the quaternions have the form:</p>
 <p>$$a + bi + cj + dk,$$</p>
 <p>where $a,b,c,d$ are real numbers and $i,j,k$ are all imaginary units. Let's compute the sequence of ratios and plot the results:</p>
 <pre><code class="python"># Compute sequence
@@ -196,7 +196,7 @@ plt.legend()
 plt.show()
 </code></pre>
 <p><img class="jupyter-post-image" alt="png" src="/imgs/blog/demystifying-fibonacci-numbers/output_8_0.png"/></p>
-<p>Yeap, quaternions show the same behaviour. The real part tends to $\phi$ while the imaginary parts go to 0... Ok, let's try the last one. We will start the sequence with octonions! These objects, also forming a Cayley-Dickson algebra, are very interesting. They have one real part and seven imaginary parts:</p>
+<p>Yeap, quaternions show the same behavior. The real part tends to $\phi$ while the imaginary parts go to 0... Ok, let's try the last one. We will start the sequence with octonions! These objects, also forming a Cayley-Dickson algebra, are very interesting. They have one real part and seven imaginary parts:</p>
 <p>$$a + bi + cj + dk + eI + fJ + gK + hE,$$</p>
 <p>again where $a,b,c,d,e,f,g,h$ are real numbers and $i,j,k,I,J,K,E$ are imaginary units.</p>
 <pre><code class="python"># Compute sequence
@@ -257,7 +257,7 @@ plt.show()
 0 &  \phi
 \end{pmatrix},$$</p>
 <p>which is pretty much the matrix version of number $\phi$. Of course, we would get a similar result for larger matrices and for complex matrices too. We get the point!</p>
-<p>Ok so, we have retrieve $\phi$ from sequences of real and complex numbers, quaternions, octonions and real invertible matrices. Let me show you one last example. This time we are going to employ polynomials! Polynomials can be sum together and also divided through <a href="https://en.wikipedia.org/wiki/Polynomial_long_division">polynomial division</a>. So, we sure should expect $\phi$ to appear like before. Let's see. We will use <code>numpy.polyadd</code> and <code>numpy.polydiv</code> to perform the operations and start with two random polynomials. We represent the polynomials as arrays of their coefficients, e.g., we represent</p>
+<p>Ok so, we have retrieved $\phi$ from sequences of real and complex numbers, quaternions, octonions, and real invertible matrices. Let me show you one last example. This time we are going to employ polynomials! Polynomials can be sum together and also divided through <a href="https://en.wikipedia.org/wiki/Polynomial_long_division">polynomial division</a>. So, we sure should expect $\phi$ to appear like before. Let's see. We will use <code>numpy.polyadd</code> and <code>numpy.polydiv</code> to perform the operations and start with two random polynomials. We represent the polynomials as arrays of their coefficients, e.g., we represent</p>
 <p>$$n_1 = 2x^3 + x^2 - 5$$</p>
 <p>as</p>
 <p>$$[2, 1, 0, -5]$$</p>

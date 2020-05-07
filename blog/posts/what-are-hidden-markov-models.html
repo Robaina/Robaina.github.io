@@ -19,7 +19,8 @@
   </script>
   <!-- highlight.js -->
   <!-- styles loaded dynamically in settings.js -->
-  <script src="/vendor/highlight_js/highlight.pack.js"></script>
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
   <script src="/vendor/jquery-3.4.1.min.js">
   </script>
   <script>
@@ -58,10 +59,10 @@
       </p>
      </div>
      <article id="blog-content">
-      <p>The first time I heard about Hidden Markov Models (HMMs) I was intrigued by their name. It definitely sounds intriguing. The combination of <em>hidden</em> — very mysterious by nature — and Markov, a Russian-sounding name got to me. Well, to be honest I already knew about <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov processes</a>, but a hidden Markov, really, what's that?! Anyway, I immediately went to the web to learn a bit about HMMs and their applications. In doing so, I implemented two small examples of HMMs in Python — which I usually do whenever I'm learning about some new method. I'm sharing today these examples, perhaps they are useful to you! But first, let's introduce the general idea behind HMMs — there are plenty of online resources for a more in depth study of HMMs and related topics.</p>
+      <p>The first time I heard about Hidden Markov Models (HMMs) I was intrigued by their name. It definitely sounds intriguing. The combination of <em>hidden</em> — very mysterious by nature — and Markov, a Russian-sounding name got to me. Well, to be honest, I already knew about <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov processes</a>, but a hidden Markov, really, what's that?! Anyway, I immediately went to the web to learn a bit about HMMs and their applications. In doing so, I implemented two small examples of HMMs in Python — which I usually do whenever I'm learning about some new method. I'm sharing today these examples, perhaps they are useful to you! But first, let's introduce the general idea behind HMMs — there are plenty of online resources for a more in-depth study of HMMs and related topics.</p>
 <p>In the simplest form, HMMs are formed by a random variable, $X$, which follows a Markov process. In a Markov process, the variable $X$ transitions from one value to another, or in the jargon, from one state to another, in a succession of time steps, and importantly, the probability of taking any given state depends solely on the state it had in the previous step — it only has short-term memory one could say. However, we can't observe the state that $X$ is in, hence the hidden part in HMMs. What we can observe, though, is the state of another random variable $Y$ which is <a href="https://en.wikipedia.org/wiki/Conditional_dependence">dependent</a> on $X$. Now, we typically know both, the conditional probabilities $P(X_n|X_{n-1})$ and $P(Y_n|X_n)$, being $n$ each time step, and the goal of a HMM is to infer the most likely sequence of hidden states $X_1, \dots, X_n$ given a sequence of values of the observable, dependent variable $Y_1,\dots,Y_n$.</p>
 <p>Let's see a HMM in action in an example. I've taken it from the <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Wikipedia page on HMMs</a>:</p>
-<p><img class="jupyter-post-image" alt="wikipedia_example" src="/imgs/blog/what-are-hidden-markov-models/Example_HMM.png" style="max-height:500px;"/></p>
+<img class="jupyter-post-image" alt="wikipedia_example" class="jupyter-post-image" src="/imgs/blog/what-are-hidden-markov-models/Example_HMM.png" style="max-height:500px;"/>
 <p>In this toy example, $X$ represents the weather in the whereabouts of Bob's house and it has two possible states: Rainy or Sunny. On the other hand, the observable variable $Y$ has three values: Walk, Shop or Clean, and corresponds to Bob's actions in response to the weather conditions. Let each time step be one day, the above diagram depicts the <em>transition probability</em> between the two states. So for instance, if it was rainy yesterday, today there is a 70% chance it will rain again, whereas if yesterday was sunny there is a 40% chance it will rain today, and so on. Makes sense. Bob's response to weather is determined by the <em>emission probability</em> and it's also depicted in the diagram. For instance, Bob takes a walk on 10% of the rainy days while cleans the house on 50% of these days, clever guy.</p>
 <p>So now the question is, given a sequence of actions across a time period, such as: Walk, Walk, Clean, Shop, Walk, what is the most likely sequence of weather conditions on the time period? And remember, we have no access to the weather forecast, we just know Bob's actions and the transition and emission probability for each pair of variable $X$ and $Y$ values. That's the kind of question that a HMM is meant to answer. In the following, we will use the Python library <a href="https://github.com/lopatovsky/HMMs">HMM</a> to find the most probable sequence of hidden states given the sequence of observations — behind the wheels, this library implements the <a href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Viterbi algorithm</a> to compute the most likely sequence.</p>
 <pre><code class="python">import numpy as np
@@ -71,7 +72,7 @@ from numpy.linalg import eig
 from matplotlib import pyplot as plt
 </code></pre>
 <h2>Wikipedia example</h2>
-<p>Here are the definitions of the states, $X$ and the observations $Y$, as well as the transition and emission probabilities depicted in the diagram above. Note that we must include an initial guess on the weather condition, i.e., for day one, for the Viterbi algorithm to work its way out of the problem. Most of the time, the initial guess is not very important since it gets quickly updated, we will see more on this later on.</p>
+<p>Here are the definitions of the states, $X$, and the observations $Y$, as well as the transition and emission probabilities depicted in the diagram above. Note that we must include an initial guess on the weather condition, i.e., for day one, for the Viterbi algorithm to work its way out of the problem. Most of the time, the initial guess is not very important since it gets quickly updated, we will see more on this later on.</p>
 <pre><code class="python">states = ('Rainy', 'Sunny')
 
 observations = ('walk', 'shop', 'clean')
@@ -109,14 +110,14 @@ hmms.plot_hmm(s_seq, e_seq, state_labels=state_labels,
               observation_labels=observation_labels)
 print(f'Probability: {np.exp(log_prob):.5f}')
 </code></pre>
-<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/what-are-hidden-markov-models/output_5_0.png" style="max-height:400px; max-width:600px;"/></p>
+<img class="jupyter-post-image" alt="png" class="jupyter-post-image" src="/imgs/blog/what-are-hidden-markov-models/output_5_0.png" style="max-height:400px; max-width:600px;"/>
 <pre><code>Log(Probability) = -3.0605
 </code></pre>
 <p>So there we go. The most likely sequence of weather states, as found out by the Viterbi algorithm, is: Rainy, Rainy, Sunny, Sunny and Rainy. Note that the Viterbi algorithm also outputs a probability, this is the probability of the sequence of states given the sequence of observables that we just fed to the model, and it is computed multiplying all transition and emission probabilities out.</p>
 <h2>Classifying a gene sequence</h2>
 <p>This toy example is taken from this <a href="https://www.nature.com/articles/nbt1004-1315">paper</a> [1] — a good non-mathy introduction to HMMs — where the sequence of observables is a nucleotide sequence, with labels equal to the nucleobases: $A, C, G, T$, and the hidden states are the labels <em>exon</em>, <em>5'</em> and <em>intron</em>, which correspond to different functional parts of a gene.</p>
-<p><img class="jupyter-post-image" alt="hmm_model" src="/imgs/blog/what-are-hidden-markov-models/Gene_HMM.png"/></p>
-<p>Hence, we are predicting the most likely sequence of gene labels given the observed nucleotide sequence and the Markov model provided above. Note that each gene region has emission probabilities for each nucleobase: exons have a uniform distribution of base types, while introns are enriched in $A$ and $T$ and the 5' region is composed almost entirely of $G$. We are going to modify slightly the model presented in the paper. Specifically, we won't consider the begin and end states, since they don't have emission probabilities. Consequently, the probability of transiting from intron to intron is changed to 1. Let's go with the Python implementation.</p>
+<img class="jupyter-post-image" alt="hmm_model" class="jupyter-post-image" src="/imgs/blog/what-are-hidden-markov-models/Gene_HMM.png"/>
+<p>Hence, we are predicting the most likely sequence of gene labels given the observed nucleotide sequence and the Markov model provided above. Note that each gene region has emission probabilities for each nucleobase: exons have a uniform distribution of base types, while introns are enriched in $A$ and $T$, and the 5' region is composed almost entirely of $G$. We are going to modify slightly the model presented in the paper. Specifically, we won't consider the begin and end states, since they don't have emission probabilities. Consequently, the probability of transiting from intron to intron is changed to 1. Let's go with the Python implementation.</p>
 <pre><code class="python">states = ('E', '5', 'I')
 observations = ('A', 'C', 'G', 'T')
 
@@ -156,12 +157,12 @@ hmms.plot_hmm(s_seq, e_seq, state_labels=state_labels,
               observation_labels=observation_labels)
 print('Log(Probability): ' + str(log_prob))
 </code></pre>
-<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/what-are-hidden-markov-models/output_8_0.png"/></p>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/what-are-hidden-markov-models//imgs/blog/what-are-hidden-markov-models/output_8_0.png"/></p>
 <pre><code>Log(Probability): -38.284929499081535
 </code></pre>
-<p>And there we have it, the most likely succession of states according to the Viterbi algorithm. The majority of the sequence is labelled as an exon, which after a sharp transition gives rise to the last seven nucleobases, labelled as intron.</p>
+<p>And there we have it, the most likely succession of states according to the Viterbi algorithm. The majority of the sequence is labeled as an exon, which after a sharp transition gives rise to the last seven nucleobases, labeled as intron.</p>
 <h2>Concluding remarks</h2>
-<p>Ok, its has been a very shallow introduction to HMMs, but I hope at least I caught your attention and pushed you to learn more about them. HMMs have in fact many applications, including Bioinformatics where more elaborated models than the toy example presented here are employed to classify nucleotide sequences. HMMs can also be employed in reverse, to find out missing transition or emission probabilities that best explain a collection of sequences of states and observations. Lastly, if you know a bit about Bayesian statistics you probably have notice the connections between HMMs and <a href="https://en.wikipedia.org/wiki/Bayesian_network">Bayesian networks</a> and other sorts of Bayesian inference. Perhaps I'll write about this topic another time since Bayesian networks are very cool! But that's all for now...</p>
+<p>Ok, it has been a very shallow introduction to HMMs, but I hope at least I caught your attention and pushed you to learn more about them. HMMs have many applications, including Bioinformatics where more elaborated models than the toy example presented here are employed to classify nucleotide sequences. HMMs can also be employed in reverse, to find out missing transition or emission probabilities that best explain a collection of sequences of states and observations. Lastly, if you know a bit about Bayesian statistics you probably have noticed the connections between HMMs and <a href="https://en.wikipedia.org/wiki/Bayesian_network">Bayesian networks</a> and other sorts of Bayesian inference. Perhaps I'll write about this topic another time since Bayesian networks are very cool! But that's all for now...</p>
 <h2>References</h2>
 <p>[1] Eddy, S. What is a hidden Markov model?. Nat Biotechnol 22, 1315–1316 (2004). https://doi.org/10.1038/nbt1004-1315</p>
      </article>
