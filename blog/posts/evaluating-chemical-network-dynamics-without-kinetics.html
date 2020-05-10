@@ -115,7 +115,7 @@ v_j = k_j \prod_{i\in Subs} x_i^{s_{ij}}.
 <p>In LP \ref{eq:4}, we maximize the sum of linear function of the concentrations, $x_t$, over all time steps $t$. For instance, we could maximize the total concentration of chemical species $x_{it}$ over all time steps, i.e., the discrete equivalent of the integral over the time period. However, we can modify the objective function at our convinience. Note that we impose bounds on the derivatives at each time step, $\dot x_t$. These constraints are crucial to render the feasible space of LP \ref{eq:4} realistic, i.e., constraining the increase or decrease in concentration that the system can maintain in each time step. To further render the feasible space more realistic, we can add a constraint to control the change in flux values between time steps: $v_{t + 1} = v_t + \delta$, with $\delta_{min} \leq \delta \leq \delta_{max}$. In this manner, we impose a notion of continuity between time steps, avoiding large jumps in flux values between time steps.</p>
 <h3>Exploring the optimal space of concentration dynamics</h3>
 <p>Solving LP \ref{eq:4} will render a single optimal solution. However, the system will most likely be prone to host a space of alternative optimal solutions, a situation that is common in constraint-based metabolic modeling setups. We can explore the space of alternative optimal concentration trajectories in two ways. On the one hand, we can compute the minimum and maximum concentration values for each chemical species along the trajectory. On the other hand, we can randomly sample the space of alternative optimal concentration trajectories, e.g, to conduct statistical analyses on them.</p>
-<p>First, let's adapt LP \ref{eq:4} to compute the concentration bounds along the trajectory. Specifically, we need to solve the following two LPs for each $x_{it},;i\in {1,\dots,m},;t\in{t_0,\dots,t_f}$ to compute the maximum and minimum concentrations for each time step:</p>
+<p>First, let's adapt LP \ref{eq:4} to compute the concentration bounds along the trajectory. Specifically, we need to solve the following two LPs for each $x_{it},\;i\in {1,\dots,m},\;t\in{t_0,\dots,t_f}$ to compute the maximum and minimum concentrations for each time step:</p>
 <p>\begin{align}
 \begin{aligned}
 &x^{\mathrm{min}}_{it},\; x^{\mathrm{max}}_{it} = \min_{v_t,\dot x_t,x_t} x_{it}, \;\max_{v_t,\dot x_t,x_t} x_{it}
@@ -142,7 +142,7 @@ v_j = k_j \prod_{i\in Subs} x_i^{s_{ij}}.
 <p>where $Z$ corresponds to the optimal value of the objective function in LP \ref{eq:4}. Now that we can compute the concentration bounds in the optimal solution space, we can proceed to generate a random sample of optimal concentration trajectories. To this end, we first generate a random vector of concentration trajectories, $x_{\mathrm{rand}}$, and then find the closest point in the optimal soluction space. To this end, we can employ the first norm: $\epsilon = ||x - x_{\mathrm{rand}}||_1 = \sum_k |x_k - x_{\mathrm{rand}k}|$. However, to facilitate the computation, we will employ the transformation: $\epsilon^+ - \epsilon^- = ||x - x_{\mathrm{rand}}||_1$, with $\epsilon^+, \epsilon^- \ge 0$. The solution to the following LP generates a random trajectory which achieves the same optimal value, $Z$, of LP \ref{eq:4}:</p>
 <p>\begin{align}
 \begin{aligned}
-&\min_{\substack{v_t,\dot x_t,x_t,\; \epsilon_t^+,\epsilon_t^-}} \sum_{i=1}^{m} \sum_{t=0}^{t_f+1} (\epsilon_{it}^+ + \epsilon_{it}^-)
+&\min_{\substack{v_t,\dot x_t,x_t,\epsilon_t^+,\epsilon_t^-}} \sum_{i=1}^{m} \sum_{t=0}^{t_f+1} (\epsilon_{it}^+ + \epsilon_{it}^-)
 \\
 &\mathrm{s.t.}
 \\
@@ -160,7 +160,7 @@ v_j = k_j \prod_{i\in Subs} x_i^{s_{ij}}.
 \\
 &7.\;x_{t} - x_{\mathrm{rand}_t} = \epsilon_{t}^+ - \epsilon_{t}^-
 \\
-&8.\;\epsilon_t^+,;\epsilon_{t}^+ \geq 0
+&8.\;\epsilon_t^+,\;\epsilon_{t}^+ \geq 0
 \\
 &t = {0,\dots,t_f}.
 \end{aligned}
