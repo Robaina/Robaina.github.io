@@ -182,6 +182,9 @@ strong {
     width: 100vw;
     margin-left: 0vw;
   }
+  .lp {
+    font-size: 0.72em !important;
+  }
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
