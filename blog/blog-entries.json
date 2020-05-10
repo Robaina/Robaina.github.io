@@ -2,9 +2,20 @@
   {
     "name": "hiring-a-phd-is-good-for-your-business",
     "title": "Hiring a Ph.D. is good for your business",
-    "date": "01 March, 2020",
+    "date": "06 May, 2020",
     "tags": [
       "General"
+    ],
+    "hasThumbnail": false
+  },
+  {
+    "name": "evaluating-chemical-network-dynamics-without-kinetics",
+    "title": "Exploring network constraints on chemical dynamics",
+    "date": "01 March, 2020",
+    "tags": [
+      "Biology",
+      "Math",
+      "Python"
     ],
     "hasThumbnail": false
   },
