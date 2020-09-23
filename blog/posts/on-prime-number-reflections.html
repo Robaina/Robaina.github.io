@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="notranslate" dir="ltr" lang="en" translate="no">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="An interesting conjecture involving prime numbers and hidden symmetries." name="description"/>
+  <meta content="blog, prime, reflection, goldbach, number theory" name="keywords"/>
+  <meta content="Semidan Robaina Estevez" name="author"/>
+  <title>
+   Semid&aacute;n: On prime number reflections
+  </title>
+  <link href="/imgs/my-logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/css/master.css" rel="stylesheet"/>
+  <link href="/css/blog.css" rel="stylesheet"/>
+  <link href="/css/blog_entry.css" rel="stylesheet"/>
+  <link href="/vendor/fontawesome_all.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js">
+  </script>
+  <!-- highlight.js -->
+  <!-- styles loaded dynamically in settings.js -->
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
+  <script src="/vendor/jquery-3.4.1.min.js">
+  </script>
+  <script>
+   $(function() {
+      $("#navbar-container").load("/navbar.html");
+    });
+    $(function() {
+      $("#footer").load("/footer.html");
+    });
+    let logo = new Image();
+    logo.src = "/imgs/my-logo.png";
+  </script>
+  <script src="/js/transitions.js">
+  </script>
+  <script src="/js/settings.js">
+  </script>
+  <script src="/js/blog-entry.js">
+  </script>
+ </head>
+ <body>
+  <div id="page-container">
+   <div id="content-wrap">
+    <div id="navbar-container">
+    </div>
+    <div id="blog-wrap">
+     <div id="tag-container">
+      <div class="topictag Math"></div>
+      <div class="topictag Python"></div>
+     </div>
+     <div id="blog-entry-header">
+      <p id="entry-title">
+       On prime number reflections
+      </p>
+      <p id="entry-date">
+       23 September, 2020
+      </p>
+     </div>
+     <article id="blog-content">
+      <p>Recently, I came across a <a href="https://twitter.com/abbottsys/status/1307414956338491401?s=20">tweet</a> that posted an interested conjecture — perhaps even a theorem!, not aware — concerning prime numbers, sequences and partial reflections around the sequence's center.  Here is the conjecture:</p>
+<p>Let $n$ be and odd positive number and construct the sequence,</p>
+<p>$$1, 2, \dots, c, \dots, n,$$</p>
+<p>where $c$ corresponds to the number which is positioned at the center of the sequence.</p>
+<p>Then, there is at least one pair of prime numbers whose position is a reflection around the center (including the degenerate case where the center is a prime number)</p>
+<p>I don't have the proof of this conjecture. Let's start by writing a program to check if the statement holds for large $n$.</p>
+<pre><code class="python">from sympy.ntheory.generate import primerange
+from matplotlib import pyplot as plt
+import numpy as np
+
+def getPrimesLowerThan(n):
+    return list(primerange(2, n))
+
+def findSymmetricPairsOfPrimes(n):
+    symmetric_pairs = []
+    primes = getPrimesLowerThan(n + 1)
+    center = (n + 1) / 2
+    distances = np.abs([center - p for p in primes])
+
+    if 0 in distances:
+        symmetric_pairs.append((center, center))
+    idx_of_prime_prior_to_center = np.where(np.array(primes) &lt;= center)[0][-1]
+
+    for i in range(idx_of_prime_prior_to_center + 1):
+        pair= np.where(distances == distances[i])[0]
+        if len(pair) == 2:
+            symmetric_pairs.append((primes[pair[0]], primes[pair[1]]))
+
+    return symmetric_pairs
+
+def countSymmetricPrimePairsForRangeOfOddN(N):
+    counts = []
+    for n in range(3, N, 2):
+        counts.append(len(findSymmetricPairsOfPrimes(n)))
+    return counts
+</code></pre>
+<p>Let's illustrate this property with an example</p>
+<p>$$1, 2, 3, 4, \dots, 5, \dots, 6, 7, 8, 9.$$</p>
+<p>In the sequence above, number 5 is at the center. The conjecture (or theorem?) says that there will be at least one pair of symmetric primes. Let's call <em>findSymmetricPairsOfPrimes</em> to find out:</p>
+<pre><code class="python">findSymmetricPairsOfPrimes(9)
+</code></pre>
+<pre><code>[(5.0, 5.0), (3, 7)]
+</code></pre>
+<p>Alright, there are two pairs of symmetric primes: the degenerate case, that is, 5, which is prime at is at the center and (3, 7), which both are at a distance of 2 from the center. Let's now check if the condition is satisfied for all sequences of length up to a big number, say 1000.</p>
+<pre><code class="python">N = 1000
+counts = countSymmetricPrimePairsForRangeOfOddN(N)
+plt.figure(figsize=(10, 8))
+plt.plot(range(len(counts)), counts)
+plt.xlabel('odd numbers')
+plt.ylabel('counts')
+plt.title(f'Symmetric prime pairs for sequences up to {N}')
+plt.show()
+</code></pre>
+<p><img class="jupyter-post-image" alt="png" src="/imgs/blog/on-prime-number-reflections/output_5_0.png"/></p>
+<p>Ok, so it looks like the conjecture might be true, at least by looking at the plot... which resembles a bit the <a href="https://en.wikipedia.org/wiki/Goldbach%27s_comet">Goldbach's comet</a>!. Now, go and prove it! — if it is already proven, I would very much appreciate if you could leave a link to it in the comments down below!</p>
+     </article>
+    </div>
+    <div id="blog-navigator">
+    </div>
+    <div id="suggested-readings">
+     <h1 id="suggested-readings-title">
+      Related posts:
+     </h1>
+     <div id="suggested-readings-grid">
+     </div>
+    </div>
+    <!-- Blog comments (commentbox.io) -->
+    <div class="commentbox"></div>
+   </div>
+   <footer id="footer">
+   </footer>
+  </div>
+  <script src="/js/scrollToTop.js">
+  </script>
+  <div id="return-to-start-arrow" onclick="scrollToTop()">
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": {
+          linebreaks: { automatic: true, width: "container" }
+        }
+      });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  </script>
+ </body>
+</html>

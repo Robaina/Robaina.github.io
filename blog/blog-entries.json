@@ -1,5 +1,15 @@
 [
   {
+    "name": "on-prime-number-reflections",
+    "title": "On prime number reflections",
+    "date": "23 September, 2020",
+    "tags": [
+      "Math",
+      "Python"
+    ],
+    "hasThumbnail": false
+  },
+  {
     "name": "hiring-a-phd-is-good-for-your-business",
     "title": "Hiring a Ph.D. is good for your business",
     "date": "06 May, 2020",
@@ -10,7 +20,7 @@
   },
   {
     "name": "evaluating-chemical-network-dynamics-without-kinetics",
-    "title": "Exploring network constraints on chemical dynamics",
+    "title": "Exploring network constraints on concentration dynamics",
     "date": "01 March, 2020",
     "tags": [
       "Biology",
