@@ -13,6 +13,17 @@
     <script src="/vendor/jquery-3.4.1.min.js"></script>
     <script src="/js/transitions.js"></script>
     <script src="/js/settings.js"></script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default" async></script>
+
     <script>
       $(function() {
         $("#navbar-container").load("/navbar.html");
@@ -48,21 +59,12 @@
       <footer id="footer"></footer>
     </div>
 
-    <script src="/js/blog.js"></script>
+    <!-- <script src="/js/blog.js"></script> -->
 
     <!-- Uncomment when enough blog posts -->
     <script src="/js/scrollToTop.js"></script>
     <div id="return-to-start-arrow"  onclick="scrollToTop()"></div>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            processEscapes: true
-          }
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default" async></script>
+    <script src="/js/blog.js"></script>
 
   </body>
 </html>

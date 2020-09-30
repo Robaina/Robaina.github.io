@@ -16,6 +16,7 @@ function writePostPreviews() {
         let preview_text = trimPreviewText(data, max_words) + "...";
         preview.innerHTML = preview_text;
     });
+    // MathJax.Hub.Queue(["Typeset", MathJax.Hub, preview]);
   }
 }
 
