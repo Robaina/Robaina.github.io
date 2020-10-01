@@ -70,15 +70,15 @@
 <p>*Cornell, B. 2016. Amino Acids. [ONLINE] Available at http://ib.bioninja.com.au. [Accessed 18 October 2018]</p>
 <p>The sequence in which the amino acids are arranged determines the physicochemical properties of a protein, and so its possible functions. Moreover, these amino acid chains are arranged in three-dimensional structures through a process called <a href="https://en.wikipedia.org/wiki/Protein_folding">protein folding</a>, and the three-dimensional arrangement is also determined by the sequence. Thus, it may happen that two amino acids positioned far away in the sequence are actually physically close in the three-dimensional structure. Also, some regions in the sequence may stay in the inner part of the protein while others may be located in the outside and hence face the surrounding medium.</p>
 <p>Here is an example of the sequence of amino acids that constitutes a human protein, the enzyme <a href="https://en.wikipedia.org/wiki/Fructose-bisphosphate_aldolase">Fructose-bisphosphate aldolase</a>, which catalyzes a key reaction within the <a href="https://en.wikipedia.org/wiki/Glycolysis">glycolysis</a> — a metabolic pathway that breaks down glucose into smaller molecules, obtaining energy in the process. The sequence is 364 amino acids long and can be found in the <a href="https://www.uniprot.org/uniprot/P04075">Uniprot database</a> of protein sequences:</p>
-<p><strong>start</strong></br>
+<pre><code class="python">
 MPYQYPALTPEQKKELSDIAHRIVAPGKGILAADESTGSIAKRLQSIGTENTEENRRFYR
 QLLLTADDRVNPCIGGVILFHETLYQKADDGRPFPQVIKSKGGVVGIKVDKGVVPLAGTN
 GETTTQGLDGLSERCAQYKKDGADFAKWRCVLKIGEHTPSALAIMENANVLARYASICQQ
 NGIVPIVEPEILPDGDHDLKRCQYVTEKVLAAVYKALSDHHIYLEGTLLKPNMVTPGHAC
 TQKFSHEEIAMATVTALRRTVPPAVTGITFLSGGQSEEEASINLNAINKCPLLKPWALTF
 SYGRALQASALKAWGGKKENLKAAQEEYVKRALANSLACQGKYTPSGQAGAAASESLFVS
-NHAY</br>
-<strong>end</strong></p>
+NHAY
+</code></pre>
 <p>Note that each amino acid is represented by a single letter. For instance, the first amino acid <em>M</em> corresponds to <em>Methionine</em> (names can be found in the picture above). As a side note, <em>Methionine</em> is the first amino acid in almost all proteins, as the DNA sequence that codes for <em>Methionine</em> serves as a start signal for the ribosome during <a href="https://en.wikipedia.org/wiki/Translation_(biology)">translation</a> — the translation of genetic information into a protein sequence.</p>
 <h2>And now the results!</h2>
 <p>Now that we briefly reviewed what proteins are, we are ready to crunch numbers and output some results. I wrote some python functions to read the downloaded txt files, extract all protein sequences in them, and compute the frequency of each amino acid along the protein sequence — the code can be found <a href="https://github.com/Robaina/UNIPROT">here</a>. To this end, first we need to partition each sequence into several bins, in this case, 30, and then count the occurrence of each amino acid in each bin (representing a fragment of the sequence). I'll repeat this process for all eight files corresponding to groups: <em>plants</em>, <em>human</em>, <em>bacteria</em>, <em>archaea</em>, <em>fungi</em>, <em>vertebrates</em>, <em>invertebrates</em> and <em>viruses</em>. I'll also add another group which is the average across all previous groups — depicted in back in the plots below.</p>
