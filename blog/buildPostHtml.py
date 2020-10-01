@@ -6,6 +6,9 @@ import time
 
 work_dir = 'C:\\Users\\tinta\\OneDrive\\Documents\\Web_development\\Robaina.github.io\\blog'
 
+# NOTE: When using a Jupyter Notebook, change the alternative name of output images from
+# ![png]() to ![something_else](), otherwise the conversion to html doesn't work properly.
+
 
 def createHTMLPostFromMD(markdown_file_name):
 

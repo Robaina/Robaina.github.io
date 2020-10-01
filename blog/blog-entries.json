@@ -1,7 +1,7 @@
 [
   {
-    "name": "frequency_of_aminoacids_along_protein_sequences",
-    "title": "Frequency of amino acids along protein sequences",
+    "name": "frequency_of_aminoacids_across_protein_sequences",
+    "title": "Frequency of amino acids across protein sequences",
     "date": "30 September, 2020",
     "tags": [
       "Biology",
