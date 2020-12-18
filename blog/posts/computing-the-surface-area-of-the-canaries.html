@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="notranslate" dir="ltr" lang="en" translate="no">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="Here, I compute the surface area of the Canary Islands using their digital elevation models and a triangulation method." name="description"/>
+  <meta content="blog, canaries, surface area, digital elevation model, geology" name="keywords"/>
+  <meta content="Semidan Robaina Estevez" name="author"/>
+  <title>
+   Semid&aacute;n: Computing the surface area of the Canaries
+  </title>
+  <link href="/imgs/my-logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/css/master.css" rel="stylesheet"/>
+  <link href="/css/blog.css" rel="stylesheet"/>
+  <link href="/css/blog_entry.css" rel="stylesheet"/>
+  <link href="/vendor/fontawesome_all.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js">
+  </script>
+  <!-- highlight.js -->
+  <!-- styles loaded dynamically in settings.js -->
+  <script src="/vendor/highlight_js/highlight.pack.js">
+  </script>
+  <script src="/vendor/jquery-3.4.1.min.js">
+  </script>
+  <script>
+   $(function() {
+      $("#navbar-container").load("/navbar.html");
+    });
+    $(function() {
+      $("#footer").load("/footer.html");
+    });
+    let logo = new Image();
+    logo.src = "/imgs/my-logo.png";
+  </script>
+  <script src="/js/transitions.js">
+  </script>
+  <script src="/js/settings.js">
+  </script>
+  <script src="/js/blog-entry.js">
+  </script>
+ </head>
+ <body>
+  <div id="page-container">
+   <div id="content-wrap">
+    <div id="navbar-container">
+    </div>
+    <div id="blog-wrap">
+     <div id="tag-container">
+      <div class="topictag Python"></div>
+      <div class="topictag General"></div>
+     </div>
+     <div id="blog-entry-header">
+      <p id="entry-title">
+       Computing the surface area of the Canaries
+      </p>
+      <p id="entry-date">
+       15 December, 2020
+      </p>
+     </div>
+     <article id="blog-content">
+      <p>The <a href="https://en.wikipedia.org/wiki/Canary_Islands">Canaries</a> are formed by seven<sup>1</sup> volcanic islands situated in the Atlantic, off the west coast of Africa. Like other volcanic islands, the land relief of the Canaries is quite complex — a result of the clash between constructive processes, driven by volcanism, and destructive ones, caused by erosion. Here is a topographical map (a <a href="https://en.wikipedia.org/wiki/Lidar">LIDAR</a> model) of the archipelago made by <a href="https://www.grafcan.es/">GRAFCAN</a>, a public cartography company in the Canary Islands:</p>
+<img class="jupyter-post-image" alt="islas canarias" src="/imgs/blog/computing-the-surface-area-of-the-canaries/canaries.png" width="500"/>
+<p>In this map, we see that some islands appear "rougher" than other ones. But, in general, the relief of the islands is far from being flat.</p>
+<p>When googling the area of each island, we get the so-called planimetric area of the island. That is, the area of a 2D projection of the island, as it were entirely flat. In actuality, the island's relief — all those valleys and mountains — contributes an additional land area to the total. As opposed to the planimetric area, the <em>surface</em> area takes into account the relief and so it's always equal or greater than the planimetric area.</p>
+<p>With these thoughts in mind, I wondered how much area would each island gain if we were to flatten out the relief, so that the planimetric area would equal the surface area. I knew that GRAFCAN provided, free-to-use <a href="https://en.wikipedia.org/wiki/Digital_elevation_model">digital elevation models</a> (DEMs) of each island, and that, with these models, I could approximate the surface area. In short: a DEM provides elevation data on a grid of given cell length, in this case, 25 meters. With these data, we can approximate the actual surface with triangles. The surface area will then be the sum of the areas of all triangles constructed in this manner.</p>
+<p>I downloaded all DEMs and wrote some python code to compute the surface and planimetric areas of each island. Specifically, I followed the methods described by Jeff Jenness in 2004 <sup>2</sup>. Here is what I got!</p>
+<br/>
+<br/>
+<hr/>
+<p>[1] Additionally, there are several islets, one of them, La Graciosa, is populated.<br/>
+[2] Jenness Jeff S. <em>Calculating landscape surface area from digital elevation models</em>. Wildlife Society Bulletin 2004, 32(3):829-839.</p>
+<h2>Computing the surface area</h2>
+<p>As indicated before, I followed the method described in Jenness (2004). I coded my own python implementation of the method. For clarity, here I am only calling a single function <em>computeTotalSurfaceArea</em> to compute the surface area of each island. However, you can access the full code <a href="https://gist.github.com/Robaina/8e513204c65bc40b624b3a2471ce6eb1">here</a>.</p>
+<pre><code class="python">import numpy as np
+import rasterio
+import pandas as pd
+from matplotlib import pyplot as plt
+from island_surface import computeTotalSurfaceArea
+%matplotlib inline
+
+islands = {'EH': 'El Hierro', 'FV': 'Fuerteventura', 'GC': 'Gran Canaria',
+           'LG': 'La Gomera', 'LP': 'La Palma', 'LZ': 'Lanzarote', 'TF': 'Tenerife'}
+areas = {k: {} for k in islands.keys()}
+L = 25 # length of DEM cell in meters
+
+for island in islands:
+    file_path = f'Data/136_MDT25_{island}.tif'
+    DEM = rasterio.open(file_path).read(1)
+    surface_area, flat_area = computeTotalSurfaceArea(DEM, L)
+    areas[island] = {'flat': flat_area / 1e6,
+                     'surface': surface_area / 1e6,
+                     'ratio': surface_area / flat_area}
+# Write data to dataframe
+df = pd.DataFrame(areas).transpose()
+df = df.sort_values('flat', ascending=False)
+</code></pre>
+<h2>And here are the results</h2>
+<p>Let's first show the numeric values (in Km<sup>2</sup>) and then plot them in a barplot to visualize the differences between flat and surface areas of each island.</p>
+<pre><code class="python">import pandas as pd
+df = pd.DataFrame(areas).transpose()
+df = df.sort_values('flat', ascending=False)
+df
+</code></pre>
+<div class="dataframe-container">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>flat</th>
+<th>surface</th>
+<th>ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TF</td>
+<td>2043.06</td>
+<td>2239.66</td>
+<td>1.096</td>
+</tr>
+<tr>
+<td>FV</td>
+<td>1661.53</td>
+<td>1718.06</td>
+<td>1.034</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>1569.11</td>
+<td>1777.08</td>
+<td>1.132</td>
+</tr>
+<tr>
+<td>LZ</td>
+<td>868.02</td>
+<td>888.50</td>
+<td>1.024</td>
+</tr>
+<tr>
+<td>LP</td>
+<td>708.55</td>
+<td>845.26</td>
+<td>1.193</td>
+</tr>
+<tr>
+<td>LG</td>
+<td>372.67</td>
+<td>452.97</td>
+<td>1.215</td>
+</tr>
+<tr>
+<td>EH</td>
+<td>271.90</td>
+<td>301.63</td>
+<td>1.109</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="python">ax = df[['flat', 'surface']].plot(kind='bar', figsize=(8, 6), rot=0, color=['black', 'gold'])
+l = ax.set_ylabel('$Km^2$')
+</code></pre>
+
+<img class="jupyter-post-image" alt="barplot" src="/imgs/blog/computing-the-surface-area-of-the-canaries/output_5_0.png" width="500" style="background:transparent;"/>
+
+<p>As we see in the barplot, all the islands have a greater surface area than their flat area (ok, we already knew this). However, there are some interesting differences between them. In absolute values, Gran Canaria is the island with the largest difference between surface and flat areas: it gains an additional 208 Km<sup>2</sup> when the surface is "flattened out". Lanzarote, on the other hand, is the island with the smallest difference, gaining only 20.5 Km<sup>2</sup>. Interestingly, while Fuerteventura has a larger flat area than Gran Canaria, the latter's surface area is greater. That is, Gran Canaria occupies the third position in flat area, after Tenerife and Fuerteventura, but the second position in surface area.</p>
+<p>You may have noticed that the ratio between the surface and the flat areas may serve as an indicator of the "roughness" of each island. The greater the value, the more mountainous the island is. Let's compare ratios among them to find out which island has the roughest relief. I'll plot the ratios on a map as percentages of gained area relative to the flat area of each island, in black, the flat area of each island, in yellow, the corresponding surface area which has been flattened out:</p>
+<img class="jupyter-post-image" alt="islas canarias" src="/imgs/blog/computing-the-surface-area-of-the-canaries/extended_islands_data.png" width="500"/>
+<p>As we see, La Gomera is the island with the largest difference between surface and flat areas. If we were to flatten out its surface, La Gomera's area would increase by 21.5%! This result makes sense since the entire island is a collection of valleys with almost no flat surface at all. On the other hand, Lanzarote is the flattest island, with a surface area that is only 2.3% larger than the flat area.</p>
+     </article>
+    </div>
+    <div id="blog-navigator">
+    </div>
+    <div id="suggested-readings">
+     <h1 id="suggested-readings-title">
+      Related posts:
+     </h1>
+     <div id="suggested-readings-grid">
+     </div>
+    </div>
+    <!-- Blog comments (commentbox.io) -->
+    <div class="commentbox"></div>
+   </div>
+   <footer id="footer">
+   </footer>
+  </div>
+  <script src="/js/scrollToTop.js">
+  </script>
+  <div id="return-to-start-arrow" onclick="scrollToTop()">
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": {
+          linebreaks: { automatic: true, width: "container" }
+        }
+      });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=default">
+  </script>
+ </body>
+</html>

@@ -1,5 +1,15 @@
 [
   {
+    "name": "computing-the-surface-area-of-the-canaries",
+    "title": "Computing the surface area of the Canaries",
+    "date": "15 December, 2020",
+    "tags": [
+      "Python",
+      "Geology"
+    ],
+    "hasThumbnail": false
+  },
+  {
     "name": "frequency_of_aminoacids_across_protein_sequences",
     "title": "Frequency of amino acids across protein sequences",
     "date": "30 September, 2020",

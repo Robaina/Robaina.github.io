@@ -20,7 +20,10 @@
 * A post about this magic hexagon game, how I solved it with a MILP and my generalization: the magic-gon. Probably good opportunity to port code to JavaScript.
 * A post about the dependency graph generated from Euclid's Elements and link to application. That's so cool...
 * A post about Goldbach's comet. I have the code in R. I could insert jupyter notebook. Also, there are other things I did in R that could be shown in the blog...
-* A post about the fraud of Academic publishing. Very well known, yet still the rule. Publisher gets paid a tremendous amount of money from public funds, authors don't get paid any royalties, nor they get paid for peer-reviewing papers. Science could be published solely in (peer-reviewed) preprint servers such as arxiv or biorxiv. All the money saved could be invested in Science itself, in hiring more people, for instance. 
+* A post about the fraud of Academic publishing. Very well known, yet still the rule. Publisher gets paid a tremendous amount of money from public funds, authors don't get paid any royalties, nor they get paid for peer-reviewing papers. Science could be published solely in (peer-reviewed) preprint servers such as arxiv or biorxiv. All the money saved could be invested in Science itself, in hiring more people, for instance.
+* Write about your l1 + l2 norm idea for regression
+* Write about functionals and some application in biology
+* Write about Euclid's elements, how they wrote theorems using words. Perhaps even do the DAG in JavaScript.
 
 # Tips to writing engaging blogs
 * Add a call to action to each post such as, "if you enjoyed this post, please share in Twitter/Facebook" or "please leave a comment or drop me a line!"
